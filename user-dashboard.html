@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal & Dashboard — STACKLY Luxury Watches</title>
+  <meta name="description" content="Manage your STACKLY acquisitions, private wishlist, and atelier service requests.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-user-dashboard">
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="dashboard-menu-toggle btn-icon" aria-label="Toggle Dashboard Navigation">
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+          >
+        </a>
+      </div>
+
+      <nav class="nav-menu" role="navigation">
+        <a href="./index.html" class="nav-link">Boutique Home</a>
+        <a href="./collections.html" class="nav-link">Collections</a>
+        <a href="./services.html" class="nav-link">Services</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="./wishlist.html" class="nav-action-btn" aria-label="Wishlist">
+          <span class="material-icons" aria-hidden="true">favorite_border</span>
+          <span class="action-count-badge wishlist-count-badge">0</span>
+        </a>
+        <a href="./cart.html" class="nav-action-btn" aria-label="Shopping Bag">
+          <span class="material-icons" aria-hidden="true">shopping_bag</span>
+          <span class="action-count-badge cart-count-badge">0</span>
+        </a>
+        <button data-logout-button class="btn btn--outline btn--sm" aria-label="Sign Out">
+          <span class="btn-text-responsive">Sign Out</span>
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-left: 0.3rem;">logout</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Main Layout (Prompt Sec 13) -->
+  <main class="dashboard-layout">
+    
+    <!-- Sidebar Navigation (Responsive) -->
+    <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar Navigation">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-gold-subtle);">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <button class="dashboard-sidebar-close btn-icon" aria-label="Close Sidebar" style="width: 32px; height: 32px; border-radius: 50%;">
+          <span class="material-icons" aria-hidden="true" style="font-size: 18px;">close</span>
+        </button>
+      </div>
+      <div style="margin-bottom: 1.8rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border-gold-subtle);">
+        <span class="section-eyebrow">Authenticated Patron</span>
+        <h3 id="user-profile-name" style="font-size: 1.3rem; margin: 0.3rem 0;">Lord Sterling</h3>
+        <small id="user-profile-email" style="color: var(--accent-muted);">client@stackly-horology.com</small>
+      </div>
+
+      <nav style="display: flex; flex-direction: column; flex-grow: 1;">
+        <a href="#overview" class="dashboard-nav-item is-active" data-dashboard-tab="tab-overview">
+          <span class="material-icons" aria-hidden="true">dashboard</span>
+          <span>Overview</span>
+        </a>
+        <a href="#orders" class="dashboard-nav-item" data-dashboard-tab="tab-orders">
+          <span class="material-icons" aria-hidden="true">inventory_2</span>
+          <span>My Orders</span>
+        </a>
+        <a href="#wishlist" class="dashboard-nav-item" data-dashboard-tab="tab-wishlist">
+          <span class="material-icons" aria-hidden="true">favorite_border</span>
+          <span>Wishlist</span>
+        </a>
+        <a href="#profile" class="dashboard-nav-item" data-dashboard-tab="tab-profile">
+          <span class="material-icons" aria-hidden="true">badge</span>
+          <span>My Profile</span>
+        </a>
+        <a href="#addresses" class="dashboard-nav-item" data-dashboard-tab="tab-addresses">
+          <span class="material-icons" aria-hidden="true">place</span>
+          <span>Addresses</span>
+        </a>
+        <a href="#service" class="dashboard-nav-item" data-dashboard-tab="tab-service">
+          <span class="material-icons" aria-hidden="true">build</span>
+          <span>Service Requests</span>
+        </a>
+        <a href="#notifications" class="dashboard-nav-item" data-dashboard-tab="tab-notifications">
+          <span class="material-icons" aria-hidden="true">notifications</span>
+          <span>Notifications</span>
+        </a>
+        <a href="#settings" class="dashboard-nav-item" data-dashboard-tab="tab-settings">
+          <span class="material-icons" aria-hidden="true">settings</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div style="padding-top: 1.5rem; border-top: 1px solid var(--border-gold-subtle);">
+        <button data-logout-button class="btn btn--outline btn--sm" style="width: 100%;">
+          <span>Sign Out</span>
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-left: 0.3rem;">logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Panes -->
+    <div class="dashboard-content-area">
+
+      <!-- Global Dashboard Hero Banner -->
+      <div class="dashboard-hero-banner">
+        <span class="section-eyebrow">Client Salon & Vault Portfolio</span>
+        <h2 style="font-size: 2.2rem; margin: 0.3rem 0;">Patron Salon & Provenance Portal</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        <p style="margin: 0; max-width: 680px; color: var(--text-secondary);">Manage certified timepiece provenance, monitor real-time armored logistics, and schedule priority atelier maintenance.</p>
+        <div style="display: flex; gap: 1rem; margin-top: 1.4rem; flex-wrap: wrap;">
+          <span class="badge badge--highlight">Patron ID: #STK-PATRON-7702</span>
+          <span class="badge">Tier: Grand Complication Circle</span>
+          <span class="badge" style="color: #4cd964; border-color: rgba(76, 217, 100, 0.4);">Vault Status: Secured</span>
+        </div>
+      </div>
+      
+      <!-- 1. Overview Tab -->
+      <section id="tab-overview" class="dashboard-pane is-active" aria-label="Dashboard Overview">
+        <!-- Section 1.1: Key Performance Metrics -->
+        <div class="dashboard-stats-grid">
+          <div class="stat-card">
+            <div class="stat-card__label">Active Dispatches</div>
+            <div class="stat-card__val">1</div>
+            <small style="color: var(--accent-muted); font-size: 0.75rem;">Armored Transit in Progress</small>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__label">Acquired References</div>
+            <div class="stat-card__val">2</div>
+            <small style="color: var(--accent-muted); font-size: 0.75rem;">Permanent Vault Provenance</small>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__label">Saved Pieces</div>
+            <div class="stat-card__val wishlist-count-badge">0</div>
+            <small style="color: var(--accent-muted); font-size: 0.75rem;">Private Wishlist Portfolio</small>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__label">Warranty Status</div>
+            <div class="stat-card__val" style="font-size: 1.4rem; color: var(--champagne-gold);">Active (5-Yr)</div>
+            <small style="color: var(--accent-muted); font-size: 0.75rem;">Geneva Registry Certified</small>
+          </div>
+        </div>
+
+        <!-- Section 1.2: Active Armored Dispatches & Tracking -->
+        <div class="dashboard-section-block">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.8rem;">
+            <div>
+              <h3 class="dashboard-section-title">
+                <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">local_shipping</span>
+                <span>Active Armored Courier Telemetry</span>
+              </h3>
+              <p class="dashboard-section-desc" style="margin-bottom: 0;">Brink’s Diamond-Tier armored courier in route from Geneva Freeport Atelier.</p>
+            </div>
+            <span class="status-badge status-insured-transit">In Armored Transit</span>
+          </div>
+
+          <div class="telemetry-stepper">
+            <div class="stepper-step is-done">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">check</span></div>
+              <span class="stepper-title">Allocation Cleared</span>
+              <span class="stepper-subtitle">14 Sep 2026, 09:15</span>
+            </div>
+            <div class="stepper-step is-done">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">check</span></div>
+              <span class="stepper-title">Bench Inspection</span>
+              <span class="stepper-subtitle">14 Sep 2026, 14:30</span>
+            </div>
+            <div class="stepper-step is-active">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">flight_takeoff</span></div>
+              <span class="stepper-title">Armored Flight</span>
+              <span class="stepper-subtitle">In Transit to Paris</span>
+            </div>
+            <div class="stepper-step">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">shield</span></div>
+              <span class="stepper-title">Customs Escrow</span>
+              <span class="stepper-subtitle">Est. 15 Sep, 08:00</span>
+            </div>
+            <div class="stepper-step">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">handshake</span></div>
+              <span class="stepper-title">White-Glove Handover</span>
+              <span class="stepper-subtitle">Est. 15 Sep, 11:30</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 1.3: Recent Acquisition History Cards -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">receipt_long</span>
+            <span>Recent Armored Dispatches & Orders</span>
+          </h3>
+          <p class="dashboard-section-desc">Summary of recent timepieces ordered and transit status.</p>
+          <div id="user-recent-orders-list" style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Section 1.4: Certified Vault Holdings & Digital Provenance -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">workspace_premium</span>
+            <span>Certified Vault Holdings & Provenance Registry</span>
+          </h3>
+          <p class="dashboard-section-desc">Permanent tamper-proof registry of timepieces registered in your collector estate.</p>
+
+          <div class="vault-holdings-grid">
+            <div class="vault-item-card">
+              <div style="display: flex; gap: 1.2rem; align-items: center; margin-bottom: 0.8rem;">
+                <img src="./images/vault-watch-1.webp" alt="CHRONOS TYPE-0" style="width: 76px; height: 76px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); flex-shrink: 0;">
+                <div style="flex-grow: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                      <h4 style="margin: 0 0 0.2rem 0; font-size: 1.15rem;">CHRONOS TYPE-0</h4>
+                      <small style="color: var(--champagne-gold); font-family: var(--font-serif);">Serial No. 07/25 Worldwide</small>
+                    </div>
+                    <span class="badge badge--highlight">Caliber ST-01</span>
+                  </div>
+                  <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.3rem 0 0 0;">Flying Tourbillon in Grade 5 Titanium with obsidian ceramic bezel.</p>
+                </div>
+              </div>
+              <div style="border-top: 1px solid var(--border); padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: var(--accent-muted);">Insured: $48,500</span>
+                <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Generated', 'Digital Certificate of Authenticity #STK-07-25 downloaded.');">Download Certificate</button>
+              </div>
+            </div>
+
+            <div class="vault-item-card">
+              <div style="display: flex; gap: 1.2rem; align-items: center; margin-bottom: 0.8rem;">
+                <img src="./images/vault-watch-2.webp" alt="Aethelgard Classic" style="width: 76px; height: 76px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); flex-shrink: 0;">
+                <div style="flex-grow: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                      <h4 style="margin: 0 0 0.2rem 0; font-size: 1.15rem;">Aethelgard Classic</h4>
+                      <small style="color: var(--champagne-gold); font-family: var(--font-serif);">Serial No. 142/500</small>
+                    </div>
+                    <span class="badge">Caliber ST-102</span>
+                  </div>
+                  <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.3rem 0 0 0;">Grand Feu Enamel Dress Watch in 950 Solid Platinum.</p>
+                </div>
+              </div>
+              <div style="border-top: 1px solid var(--border); padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: var(--accent-muted);">Insured: $14,200</span>
+                <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Generated', 'Digital Certificate of Authenticity #STK-142-G downloaded.');">Download Certificate</button>
+              </div>
+            </div>
+
+            <div class="vault-item-card">
+              <div style="display: flex; gap: 1.2rem; align-items: center; margin-bottom: 0.8rem;">
+                <img src="./images/vault-watch-3.webp" alt="Vanguard Chronograph" style="width: 76px; height: 76px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); flex-shrink: 0;">
+                <div style="flex-grow: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                      <h4 style="margin: 0 0 0.2rem 0; font-size: 1.15rem;">Vanguard Chronograph</h4>
+                      <small style="color: var(--champagne-gold); font-family: var(--font-serif);">Serial No. 89/1000</small>
+                    </div>
+                    <span class="badge badge--highlight">Caliber ST-203</span>
+                  </div>
+                  <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.3rem 0 0 0;">Flyback Column-Wheel Chronograph with satin-brushed case.</p>
+                </div>
+              </div>
+              <div style="border-top: 1px solid var(--border); padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: var(--accent-muted);">Insured: $19,800</span>
+                <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Generated', 'Digital Certificate of Authenticity #STK-89-V downloaded.');">Download Certificate</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 1.5: Private Concierge Card -->
+        <div style="background: var(--deep-charcoal); border: 1px solid var(--border-gold-subtle); padding: 2rem; border-radius: var(--radius-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <h4 style="font-size: 1.25rem; color: var(--white); margin-bottom: 0.4rem;">Dedicated Private Concierge</h4>
+            <p style="margin: 0; color: var(--text-secondary);">Monsieur Laurent Vaneau is assigned as your personal horological advisor for bespoke commissions and salon tastings.</p>
+          </div>
+          <a href="./contact.html" class="btn btn--secondary btn--sm">Connect Directly</a>
+        </div>
+      </section>
+
+      <!-- 2. My Orders Tab -->
+      <section id="tab-orders" class="dashboard-pane" aria-label="My Orders">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Acquisition History & Telemetry</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        <p style="margin-bottom: 2rem;">A certified ledger of all timepieces acquired through our salon and digital boutique.</p>
+
+        <!-- Section 2.1: Certified Orders Ledger Table -->
+        <div class="dashboard-section-block">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 1rem;">
+            <h3 class="dashboard-section-title" style="margin: 0;">Official Acquisition Ledger</h3>
+            <div style="display: flex; gap: 0.8rem;">
+              <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Ledger Exported', 'Certified PDF acquisition ledger downloaded.');">
+                <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-right: 0.3rem;">download</span>
+                <span>Export Tax Ledger</span>
+              </button>
+            </div>
+          </div>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Order Ref</th>
+                  <th>Date</th>
+                  <th>Items Acquired</th>
+                  <th>Total Value</th>
+                  <th>Status</th>
+                  <th>Invoice</th>
+                </tr>
+              </thead>
+              <tbody id="user-orders-table-body">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 2.2: Armored Logistics Route Map & Security Log -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">security</span>
+            <span>Armored Transit Security Specifications</span>
+          </h3>
+          <p class="dashboard-section-desc">Our protocol mandates armed courier custody, tamper-evident GPS satellite seals, and insured Lloyd's of London carriage.</p>
+          
+          <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="stat-card">
+              <span class="stat-card__label">Security Partner</span>
+              <div style="font-size: 1.15rem; color: var(--white); margin: 0.3rem 0;">Brink’s Global Secure</div>
+              <small style="color: var(--accent-muted);">Two-Person Armed Custody</small>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__label">Insurance Underwriter</span>
+              <div style="font-size: 1.15rem; color: var(--white); margin: 0.3rem 0;">Lloyd's Specie Syndicate</div>
+              <small style="color: var(--accent-muted);">100% Value Coverage to Door</small>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__label">Handover Verification</span>
+              <div style="font-size: 1.15rem; color: var(--white); margin: 0.3rem 0;">Biometric / PIN Required</div>
+              <small style="color: var(--accent-muted);">Discreet Unmarked Vehicle</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2.3: Vault Guarantee & Buyback Value Protection -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">trending_up</span>
+            <span>Asset Valuation & Lifetime Buyback Guarantee</span>
+          </h3>
+          <p class="dashboard-section-desc">STACKLY guarantees minimum 85% residual value buyback on all registered haute complications within 36 months of acquisition.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; background: var(--charcoal); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+            <div>
+              <strong style="color: var(--champagne-gold); font-size: 1.1rem;">Total Certified Estate Valuation: $62,700</strong>
+              <p style="margin: 0.2rem 0 0 0; font-size: 0.85rem; color: var(--text-secondary);">Independent appraisal estimates secondary replacement value at $78,400 (+25.0%).</p>
+            </div>
+            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Request Logged', 'Atelier Director will contact you with complimentary portfolio appraisal.');">Request Valuation Consultation</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Wishlist Tab -->
+      <section id="tab-wishlist" class="dashboard-pane" aria-label="My Wishlist">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Private Wishlist Portfolio</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        <p style="margin-bottom: 2rem;">References marked for future acquisition, salon viewing, or bespoke allocation.</p>
+        
+        <!-- Section 3.1: Saved Timepieces Grid -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">favorite</span>
+            <span>Saved Timepiece References</span>
+          </h3>
+          <p class="dashboard-section-desc">Explore your curated selection with instantaneous boutique bag transfer.</p>
+          <div id="dashboard-wishlist-grid" class="products-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Section 3.2: Allocation Watcher & Price Alerts -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">notifications_active</span>
+            <span>Restricted Allocation Watcher</span>
+          </h3>
+          <p class="dashboard-section-desc">Subscribe to priority allocation alerts when numbered limited series become available through salon resale or vault cancellations.</p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+            <div style="background: var(--charcoal); padding: 1.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="margin: 0 0 0.4rem 0;">Monolith Tourbillon (Ref. ST-092)</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Limited to 15 pieces globally. Twin-barrel 7-day reserve.</p>
+              <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Waitlist Joined', 'You are position #2 on the Monolith allocation list.');">Join Private Waitlist</button>
+            </div>
+            <div style="background: var(--charcoal); padding: 1.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <h4 style="margin: 0 0 0.4rem 0;">Imperium Perpetual (Ref. ST-880)</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">950 Solid Platinum grand complication programmed to year 2100.</p>
+              <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Waitlist Joined', 'You are position #1 on the Imperium allocation list.');">Join Private Waitlist</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3.3: Bespoke Personalization & Engraving Studio -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">edit_note</span>
+            <span>Bespoke Caseback Engraving Studio</span>
+          </h3>
+          <p class="dashboard-section-desc">Pre-configure hand-cut monograms, family crests, or dedication dates for your future acquisitions.</p>
+          <div style="max-width: 600px;">
+            <div class="form-group">
+              <label class="form-label">Patron Initials / Monogram Text</label>
+              <input type="text" class="form-input" placeholder="e.g. S.L. &bull; MMXXVI" maxlength="20">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Engraving Style</label>
+              <select class="form-select">
+                <option>Traditional English Serif Roman</option>
+                <option>Atelier Script Cursive</option>
+                <option>Architectural Modernist Sans</option>
+              </select>
+            </div>
+            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Engraving Saved', 'Your bespoke monogram configuration has been saved to your profile.');">Save Engraving Preference</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Profile Tab -->
+      <section id="tab-profile" class="dashboard-pane" aria-label="My Profile">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Patron Profile & Credentials</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        
+        <!-- Section 4.1: Patron Credentials Form -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">badge</span>
+            <span>Personal Identification & Formal Salutation</span>
+          </h3>
+          <p class="dashboard-section-desc">Manage your formal salon title, contact telephony, and authenticated credentials.</p>
+
+          <div style="max-width: 620px;">
+            <form id="user-settings-form">
+              <div class="form-group">
+                <label class="form-label" for="settings-name-input">Full Formal Name & Title</label>
+                <input type="text" id="settings-name-input" class="form-input" value="Lord Sterling" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="settings-email-input">Primary Email Address</label>
+                <input type="email" id="settings-email-input" class="form-input" value="client@stackly-horology.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="settings-phone-input">Private Telephony</label>
+                <input type="tel" id="settings-phone-input" class="form-input" value="+33 6 42 00 98 12">
+              </div>
+              <button type="submit" class="btn btn--secondary btn--sm">Update Patron Details</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Section 4.2: Patron Privilege Tier & Salon Status -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">diamond</span>
+            <span>VIP Patron Privilege Tier: Haute Horlogerie Circle</span>
+          </h3>
+          <p class="dashboard-section-desc">Your verified tier status grants private salon hospitality and exclusive manufacture allocations.</p>
+
+          <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="stat-card">
+              <h4>Private Salons</h4>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.4rem;">Unrestricted appointments at Place Vendôme & Rue du Rhône ateliers with champagne hospitality.</p>
+            </div>
+            <div class="stat-card">
+              <h4>Priority Allocations</h4>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.4rem;">48-hour exclusive advance booking window for all numbered limited editions before public release.</p>
+            </div>
+            <div class="stat-card">
+              <h4>Atelier Care</h4>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.4rem;">Annual complimentary ultrasonic cleaning and barometric pressure testing for all registered pieces.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4.3: Anatomical Wrist Profile & Bespoke Strap Sizing -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">straighten</span>
+            <span>Anatomical Wrist Profile & Strap Specifications</span>
+          </h3>
+          <p class="dashboard-section-desc">Every timepiece dispatched to you will arrive calibrated to your precise wrist geometry.</p>
+
+          <div class="form-row-2" style="max-width: 620px;">
+            <div class="form-group">
+              <label class="form-label">Wrist Circumference</label>
+              <input type="text" class="form-input" value="17.5 cm (6.9 in)" placeholder="e.g. 17.5 cm">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Clasp Preference</label>
+              <select class="form-select">
+                <option selected>Double-Deployant Titanium Butterfly</option>
+                <option>Traditional Tang Buckle</option>
+                <option>Single-Fold Deployant Clasp</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Wrist Profile Saved', 'Your strap sizing specifications have been updated.');">Save Wrist Profile</button>
+        </div>
+      </section>
+
+      <!-- 5. Addresses Tab -->
+      <section id="tab-addresses" class="dashboard-pane" aria-label="Addresses">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Armored Delivery Addresses</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        <p style="margin-bottom: 2rem;">Authorized vaults and residences cleared for white-glove courier handover.</p>
+
+        <!-- Section 5.1: Registered Residence & Vault Addresses -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">home</span>
+            <span>Registered Delivery Addresses</span>
+          </h3>
+          <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 1.2rem;">
+            <div class="stat-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge badge--highlight">Primary Residence</span>
+                <span style="color: #4cd964; font-size: 0.78rem;">Verified Secure</span>
+              </div>
+              <h4 style="margin: 0.8rem 0 0.3rem 0;">Place Vendôme Apartment</h4>
+              <p style="color: var(--text-secondary); margin: 0; font-size: 0.88rem;">14 Place Vendôme, 75001 Paris, France<br>Special Courier Note: Discrete courtyard reception, call security gate.</p>
+              <div style="margin-top: 1rem; display: flex; gap: 0.6rem;">
+                <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Address Confirmed', 'Primary residence confirmed for next dispatch.');">Default</button>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge">Country Estate</span>
+                <span style="color: #4cd964; font-size: 0.78rem;">Verified Secure</span>
+              </div>
+              <h4 style="margin: 0.8rem 0 0.3rem 0;">Geneva Lakeside Villa</h4>
+              <p style="color: var(--text-secondary); margin: 0; font-size: 0.88rem;">Route de Lausanne 42, 1202 Geneva, Switzerland<br>Special Courier Note: Guard house identification required.</p>
+              <div style="margin-top: 1rem; display: flex; gap: 0.6rem;">
+                <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Address Selected', 'Set as destination address.');">Select</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5.2: Add New Delivery Address Form -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">add_location_alt</span>
+            <span>Add New Armored Destination</span>
+          </h3>
+          <p class="dashboard-section-desc">Submit a new residence or private banking vault for address clearance.</p>
+
+          <form id="add-address-form" style="max-width: 640px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Address Submitted', 'Your address has been submitted for courier clearance.'); this.reset();">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label">Residence Title</label>
+                <input type="text" class="form-input" placeholder="e.g. London Mayfair Penthouse" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Recipient Name</label>
+                <input type="text" class="form-input" placeholder="e.g. Lord Sterling" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Street Address & Suite</label>
+              <input type="text" class="form-input" placeholder="e.g. 24 Grosvenor Square" required>
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label">Postal Code</label>
+                <input type="text" class="form-input" placeholder="e.g. W1K 6LD" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">City & Country</label>
+                <input type="text" class="form-input" placeholder="e.g. London, United Kingdom" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--sm">Submit Address for Clearance</button>
+          </form>
+        </div>
+
+        <!-- Section 5.3: Global Private Salon Pick-Up Salons -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">storefront</span>
+            <span>Boutique Salon Handover Locations</span>
+          </h3>
+          <p class="dashboard-section-desc">Prefer in-person collection? Pick up directly in any of our private international salons with champagne service.</p>
+
+          <div class="products-grid" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="stat-card" style="padding: 1.2rem;">
+              <strong>Geneva Atelier</strong>
+              <small style="color: var(--accent-muted); display: block; margin-top: 0.3rem;">Rue du Rhône 45, 1204 Geneva</small>
+            </div>
+            <div class="stat-card" style="padding: 1.2rem;">
+              <strong>Paris Salon</strong>
+              <small style="color: var(--accent-muted); display: block; margin-top: 0.3rem;">14 Place Vendôme, 75001 Paris</small>
+            </div>
+            <div class="stat-card" style="padding: 1.2rem;">
+              <strong>Zurich Vault</strong>
+              <small style="color: var(--accent-muted); display: block; margin-top: 0.3rem;">Bahnhofstrasse 12, 8001 Zurich</small>
+            </div>
+            <div class="stat-card" style="padding: 1.2rem;">
+              <strong>Tokyo Ginza</strong>
+              <small style="color: var(--accent-muted); display: block; margin-top: 0.3rem;">Ginza 6-Chome, Chuo-ku, Tokyo</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Service Requests Tab -->
+      <section id="tab-service" class="dashboard-pane" aria-label="Service Requests">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Atelier Service & Maintenance</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        <p style="margin-bottom: 2rem;">Schedule routine overhaul, ultrasonic restoration, or chronometric timegrapher calibration.</p>
+
+        <!-- Section 6.1: Service Request Form -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">build</span>
+            <span>Dispatch New Service Ticket</span>
+          </h3>
+          <p class="dashboard-section-desc">Insured courier collection box will be dispatched to your residence within 24 hours.</p>
+
+          <div style="max-width: 680px;">
+            <form id="service-request-form">
+              <div class="form-group">
+                <label class="form-label">Timepiece Reference</label>
+                <select class="form-select">
+                  <option>CHRONOS TYPE-0 (Ref. ST-01-T &bull; Serial #07/25)</option>
+                  <option>Aethelgard Classic (Ref. ST-102-G &bull; Serial #142/500)</option>
+                  <option>Vanguard Chronograph (Ref. ST-203-S)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Requested Intervention</label>
+                <select class="form-select">
+                  <option>Routine 5-Year Overhaul (Disassembly, Lubrication, Polish)</option>
+                  <option>Complimentary Ultrasonic Case Cleaning</option>
+                  <option>Strap Sizing & Deployment Adjustment</option>
+                  <option>Water Resistance Barometric Pressure Testing</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Patron Comments</label>
+                <textarea class="form-textarea" rows="3" placeholder="Provide any details regarding timekeeping performance..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--sm">Dispatch Service Request</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Section 6.2: Real-time Workshop Bench Tracker -->
+        <div class="dashboard-section-block">
+          <div style="display: flex; gap: 1.2rem; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap;">
+            <img src="./images/service-watch.webp" alt="Atelier Service Bench Watch" style="width: 72px; height: 72px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); flex-shrink: 0;">
+            <div>
+              <h3 class="dashboard-section-title" style="margin-bottom: 0.2rem;">
+                <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">hourglass_top</span>
+                <span>Active Atelier Bench Progress (Ticket #AT-401)</span>
+              </h3>
+              <p class="dashboard-section-desc" style="margin-bottom: 0;">Watchmaker Master Laurent currently performing complete overhaul on your CHRONOS TYPE-0 (Ref. ST-01-T).</p>
+            </div>
+          </div>
+
+          <div class="telemetry-stepper">
+            <div class="stepper-step is-done">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">check</span></div>
+              <span class="stepper-title">Bench Receipt</span>
+              <span class="stepper-subtitle">Case Inspected</span>
+            </div>
+            <div class="stepper-step is-done">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">check</span></div>
+              <span class="stepper-title">Disassembly</span>
+              <span class="stepper-subtitle">210 Components Cleaned</span>
+            </div>
+            <div class="stepper-step is-active">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">build</span></div>
+              <span class="stepper-title">Lubrication</span>
+              <span class="stepper-subtitle">Synthetic Jewels Oiled</span>
+            </div>
+            <div class="stepper-step">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">timer</span></div>
+              <span class="stepper-title">Timegrapher Test</span>
+              <span class="stepper-subtitle">5 Positional Deltas</span>
+            </div>
+            <div class="stepper-step">
+              <div class="stepper-icon-wrap"><span class="material-icons" aria-hidden="true">verified</span></div>
+              <span class="stepper-title">Return Dispatch</span>
+              <span class="stepper-subtitle">Insured Armored Box</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6.3: Digital Service Certificates & Historical Logs -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">history_edu</span>
+            <span>Digital Service Records & Diagnostic Reports</span>
+          </h3>
+          <p class="dashboard-section-desc">Complete permanent service history maintained in the STACKLY manufacture archives.</p>
+
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Ticket Ref</th>
+                  <th>Timepiece</th>
+                  <th>Date Completed</th>
+                  <th>Intervention</th>
+                  <th>Rate Delta</th>
+                  <th>Certificate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#AT-398</strong></td>
+                  <td>Aethelgard Classic</td>
+                  <td>12 Jul 2026</td>
+                  <td>Complimentary Ultrasonic Polish</td>
+                  <td>+0.4 s/day</td>
+                  <td><button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Downloaded', 'Service Report #AT-398 PDF saved.');">PDF Report</button></td>
+                </tr>
+                <tr>
+                  <td><strong>#AT-312</strong></td>
+                  <td>CHRONOS TYPE-0</td>
+                  <td>18 Jan 2026</td>
+                  <td>Pre-Delivery Escapement Certification</td>
+                  <td>+0.1 s/day</td>
+                  <td><button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Downloaded', 'Service Report #AT-312 PDF saved.');">PDF Report</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Notifications Tab -->
+      <section id="tab-notifications" class="dashboard-pane" aria-label="Notifications">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Salon Notifications & Concierge Dispatches</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        
+        <!-- Section 7.1: Priority Armored & Allocation Alerts -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">priority_high</span>
+            <span>Priority Allocation & Transit Telemetry</span>
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+            <div class="stat-card" style="padding: 1.4rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                <strong style="color: var(--white);">Private Allocation Alert</strong>
+                <small style="color: var(--accent-muted);">2 days ago</small>
+              </div>
+              <p style="margin: 0; font-size: 0.88rem; color: var(--text-secondary);">Reference CHRONOS TYPE-0 Number 07/25 has been allocated and cleared for armored delivery by Master Horologist Laurent.</p>
+            </div>
+            <div class="stat-card" style="padding: 1.4rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                <strong style="color: var(--white);">Warranty Activated</strong>
+                <small style="color: var(--accent-muted);">1 week ago</small>
+              </div>
+              <p style="margin: 0; font-size: 0.88rem; color: var(--text-secondary);">5-Year international warranty successfully recorded in the STACKLY permanent registry.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7.2: Private Salon & Exhibition Invitations -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">mark_email_read</span>
+            <span>VIP Salon Invitations & Degustation Dispatches</span>
+          </h3>
+          <p class="dashboard-section-desc">Exclusive invitations to private horological events and private viewing salons.</p>
+
+          <div class="stat-card" style="padding: 1.4rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+              <strong style="color: var(--champagne-gold);">Watches & Wonders Geneva: Private Atelier Preview</strong>
+              <small style="color: var(--accent-muted);">Autumn 2026</small>
+            </div>
+            <p style="margin: 0.4rem 0 1rem 0; font-size: 0.88rem; color: var(--text-secondary);">You are cordially invited to an intimate evening degustation previewing the upcoming 2027 Grand Complication capsule at our Rue du Rhône salon.</p>
+            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('RSVP Confirmed', 'Your private salon invitation has been confirmed. A formal postal pass has been dispatched.');">Confirm Attendance</button>
+          </div>
+        </div>
+
+        <!-- Section 7.3: Notification Delivery Channels -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">tune</span>
+            <span>Notification Delivery Channels</span>
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 0.8rem; max-width: 500px;">
+            <label class="filter-label">
+              <input type="checkbox" checked> SMS satellite telemetry updates for armored dispatches.
+            </label>
+            <label class="filter-label">
+              <input type="checkbox" checked> Encrypted email digest for limited allocation alerts.
+            </label>
+            <label class="filter-label">
+              <input type="checkbox" checked> Complimentary printed quarterly horological monograph by courier.
+            </label>
+            <button class="btn btn--outline btn--sm" style="width: fit-content; margin-top: 0.5rem;" onclick="window.CartStore?.showToast('Channels Saved', 'Notification channel preferences saved.');">Save Channel Settings</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Settings Tab -->
+      <section id="tab-settings" class="dashboard-pane" aria-label="Settings">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Salon Account & Security Settings</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        
+        <!-- Section 8.1: Privacy & Communication Preferences -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">privacy_tip</span>
+            <span>Privacy & Communication Discretion</span>
+          </h3>
+          <div style="max-width: 600px;">
+            <label class="filter-label" style="margin-bottom: 1rem;">
+              <input type="checkbox" checked> Receive private previews of limited edition horology releases.
+            </label>
+            <label class="filter-label" style="margin-bottom: 1.5rem;">
+              <input type="checkbox" checked> Encrypt all correspondence with PGP/Atelier security signatures.
+            </label>
+            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Preferences Saved', 'Your communication settings are updated.');">Save Preferences</button>
+          </div>
+        </div>
+
+        <!-- Section 8.2: Multi-Factor Vault Authentication -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">lock</span>
+            <span>Multi-Factor Authentication & Biometric Vault Key</span>
+          </h3>
+          <p class="dashboard-section-desc">High-security authentication ensuring only verified patrons can authorize armored dispatches.</p>
+
+          <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+            <div class="stat-card" style="flex: 1; min-width: 240px;">
+              <strong>FIDO2 Hardware Key</strong>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.4rem 0;">YubiKey 5 Series registered.</p>
+              <span class="badge badge--highlight">Active</span>
+            </div>
+            <div class="stat-card" style="flex: 1; min-width: 240px;">
+              <strong>Biometric Passkey</strong>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.4rem 0;">Apple TouchID / Windows Hello.</p>
+              <span class="badge badge--highlight">Enabled</span>
+            </div>
+            <div class="stat-card" style="flex: 1; min-width: 240px;">
+              <strong>Authenticator App</strong>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.4rem 0;">TOTP 6-digit backup code.</p>
+              <span class="badge">Configured</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 8.3: Data Export & Archival -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">download</span>
+            <span>Estate Data Export & Confidential Archival</span>
+          </h3>
+          <p class="dashboard-section-desc">Export your complete horological estate ledger, certificates of provenance, and tax receipts in a single encrypted archive.</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Export Initiated', 'Encrypted Estate Dossier ZIP archive downloaded.');">Download Complete Estate Dossier</button>
+            <button class="btn btn--outline btn--sm" style="color: #ff6b6b; border-color: rgba(255, 107, 107, 0.4);" onclick="if(confirm('Are you sure you wish to request confidential archival of your salon profile?')) window.CartStore?.showToast('Request Received', 'Atelier Director will contact you to verify identity.');">Request Confidential Account Archival</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding: 2rem 0;">
+    <div class="container footer-bottom">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <span>&copy; 2026 STACKLY Horology. Client Dashboard.</span>
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./contact.html">Concierge Desk</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/dashboard.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

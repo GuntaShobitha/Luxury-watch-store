@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timepiece Details — STACKLY Luxury Watches</title>
+  <meta name="description" content="Examine detailed specifications, caliber architecture, and artisanal metallurgy for STACKLY timepieces.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-product">
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Complimentary Service Announcement">
+    <span>Complimentary Insured Worldwide White-Glove Delivery on All Timepieces</span>
+    <a href="./services.html">Learn More</a>
+  </aside>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+        <img
+          src="./images/logo-dark.webp"
+          alt="STACKLY Luxury Watches"
+          class="nav-logo-img"
+        >
+      </a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./collections.html" class="nav-link is-active">Collections</a>
+        <a href="./services.html" class="nav-link">Services</a>
+        <a href="./blog.html" class="nav-link">Journal</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-action-btn" data-open-search aria-label="Search Timepieces">
+          <span class="material-icons" aria-hidden="true">search</span>
+        </button>
+        <a href="./login.html" class="nav-action-btn header-auth-link" aria-label="Account Login or Dashboard">
+          <span class="material-icons" aria-hidden="true">person</span>
+          <span class="header-auth-text">Sign In</span>
+        </a>
+        <a href="./wishlist.html" class="nav-action-btn" aria-label="Wishlist">
+          <span class="material-icons" aria-hidden="true">favorite_border</span>
+          <span class="action-count-badge wishlist-count-badge">0</span>
+        </a>
+        <a href="./cart.html" class="nav-action-btn" aria-label="Shopping Bag">
+          <span class="material-icons" aria-hidden="true">shopping_bag</span>
+          <span class="action-count-badge cart-count-badge">0</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border-gold-subtle); margin-bottom: 1.5rem;">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <button class="mobile-menu-close" aria-label="Close Navigation Menu">
+          <span class="material-icons" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html">Collections</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./blog.html">Journal</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./wishlist.html">Wishlist</a></li>
+        <li><a href="./cart.html">Shopping Bag</a></li>
+        <li><a href="./login.html">Account & Dashboard</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="main-content" style="padding-bottom: 5rem;">
+    <!-- Product Page Hero Banner -->
+    <section class="page-hero" aria-label="Product Showcase Hero" style="padding-bottom: 2.8rem;">
+      <div class="container reveal-on-scroll is-revealed">
+        <span class="section-eyebrow" id="hero-collection-label">Haute Horlogerie Showcase</span>
+        <h1 id="hero-product-title" style="font-size: clamp(2rem, 4vw, 3.2rem);">Bespoke Reference Details</h1>
+        <div class="divider-line"></div>
+        <nav aria-label="Breadcrumb" style="font-size: 0.82rem; color: var(--accent-faint); margin-top: 0.8rem;">
+          <a href="./index.html">Home</a> &nbsp;/&nbsp;
+          <a href="./collections.html">Collections</a> &nbsp;/&nbsp;
+          <span id="breadcrumb-product-name" style="color: var(--champagne-gold);">CHRONOS TYPE-0</span>
+        </nav>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top: 3rem;">
+
+      <!-- Product Details Main Grid -->
+      <div class="product-details-grid">
+        
+        <!-- Left: Image Gallery -->
+        <div class="product-gallery">
+          <div class="product-gallery-main">
+            <img id="main-gallery-image" src="./images/chronos-type-0.webp" alt="Main Watch View" style="max-height: 480px; object-fit: contain;">
+          </div>
+          <div id="gallery-thumbs-list" class="product-gallery-thumbs" role="region" aria-label="Thumbnail gallery">
+            <!-- Thumbs generated by JS -->
+          </div>
+        </div>
+
+        <!-- Right: Purchasing & Specifications Info -->
+        <div class="product-info-panel">
+          <div style="display: flex; gap: 0.8rem; align-items: center; margin-bottom: 0.8rem;">
+            <span id="product-collection-badge" class="badge badge--highlight">Limited Editions</span>
+            <span id="product-sku-badge" style="font-size: 0.75rem; letter-spacing: 0.08em; color: var(--accent-muted); text-transform: uppercase;">SKU: REF-001</span>
+          </div>
+          <h1 id="product-display-name" style="font-size: 2.6rem; margin: 0 0 0.4rem 0;">CHRONOS TYPE-0</h1>
+          <p id="product-display-tagline" style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem;">Skeletonized Tourbillon Flagship Timepiece</p>
+          
+          <div id="product-display-price" style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--white); margin-bottom: 1.5rem;">$48,500</div>
+
+          <p id="product-display-desc" style="line-height: 1.7; margin-bottom: 2rem;">The pinnacle of STACKLY haute horlogerie. CHRONOS TYPE-0 unifies an openworked flying tourbillon caliber with an aeronautical Grade 5 titanium chassis and hand-beveled rhodium bridges.</p>
+
+          <!-- Specifications Table -->
+          <table class="product-specs-table">
+            <tbody>
+              <tr>
+                <td>Caliber Movement</td>
+                <td id="spec-movement">Caliber ST-01 Flying Tourbillon (Manual)</td>
+              </tr>
+              <tr>
+                <td>Case Metallurgy</td>
+                <td id="spec-case">Grade 5 Titanium & Obsidian Ceramic Bezel</td>
+              </tr>
+              <tr>
+                <td>Dimensions</td>
+                <td id="spec-diameter">41 mm Diameter &times; 10.8 mm Thickness</td>
+              </tr>
+              <tr>
+                <td>Dial Color & Crystal</td>
+                <td id="spec-dial">Obsidian Black Openworked Dial, Sapphire Crystal</td>
+              </tr>
+              <tr>
+                <td>Strap & Clasp</td>
+                <td id="spec-strap">Hand-Stitched Black Alligator with Titanium Deployant Clasp</td>
+              </tr>
+              <tr>
+                <td>Water Resistance</td>
+                <td id="spec-water">50 m / 5 ATM</td>
+              </tr>
+              <tr>
+                <td>Availability Status</td>
+                <td id="spec-avail"><span class="badge badge--highlight">Limited Edition — 25 Pieces</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Purchase Controls -->
+          <div style="display: flex; gap: 1.2rem; align-items: center; margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="quantity-control" aria-label="Select quantity">
+              <button id="qty-minus" class="quantity-btn" aria-label="Decrease quantity">&minus;</button>
+              <input id="qty-input" class="quantity-input" type="text" value="1" readonly aria-label="Current quantity">
+              <button id="qty-plus" class="quantity-btn" aria-label="Increase quantity">&plus;</button>
+            </div>
+
+            <button id="add-to-bag-btn" class="btn btn--primary" style="flex: 1;">
+              <span class="material-icons" aria-hidden="true">shopping_bag</span>
+              <span>Add to Bag</span>
+            </button>
+
+            <button id="product-wishlist-toggle" class="btn-icon" aria-label="Save to Wishlist" style="width: 48px; height: 48px;">
+              <span class="material-icons" aria-hidden="true">favorite_border</span>
+            </button>
+          </div>
+
+          <!-- Collapsible Information Accordions -->
+          <div class="faq-accordion-list" style="margin-top: 2.5rem; border-top: 1px solid var(--border);">
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-header" aria-expanded="false" style="display: flex; justify-content: space-between; align-items: center; width: 100%; background: transparent; border: none; padding: 1.2rem 0; color: var(--white); cursor: pointer; border-bottom: 1px solid var(--border);">
+                <span style="font-family: var(--font-serif); font-size: 1.15rem;">Complimentary Delivery & Armored Transit</span>
+                <span class="material-icons" aria-hidden="true">expand_more</span>
+              </button>
+              <div class="faq-accordion-body" style="padding: 1rem 0; font-size: 0.9rem; color: var(--text-secondary); display: none;">
+                Every STACKLY timepiece is dispatched via complimentary, fully insured armored courier transit with discrete signature handover required upon delivery. International shipments include all customs formalities pre-cleared.
+              </div>
+            </div>
+
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-header" aria-expanded="false" style="display: flex; justify-content: space-between; align-items: center; width: 100%; background: transparent; border: none; padding: 1.2rem 0; color: var(--white); cursor: pointer; border-bottom: 1px solid var(--border);">
+                <span style="font-family: var(--font-serif); font-size: 1.15rem;">14-Day Inspection Privilege & Returns</span>
+                <span class="material-icons" aria-hidden="true">expand_more</span>
+              </button>
+              <div class="faq-accordion-body" style="padding: 1rem 0; font-size: 0.9rem; color: var(--text-secondary); display: none;">
+                Clients enjoy a 14-day private inspection period from receipt. Returns are accepted in unworn condition with factory security seals intact, collected by our white-glove courier service with full insurance coverage.
+              </div>
+            </div>
+
+            <div class="faq-accordion-item">
+              <button class="faq-accordion-header" aria-expanded="false" style="display: flex; justify-content: space-between; align-items: center; width: 100%; background: transparent; border: none; padding: 1.2rem 0; color: var(--white); cursor: pointer; border-bottom: 1px solid var(--border);">
+                <span style="font-family: var(--font-serif); font-size: 1.15rem;">5-Year Craftsmanship Warranty & Care</span>
+                <span class="material-icons" aria-hidden="true">expand_more</span>
+              </button>
+              <div class="faq-accordion-body" style="padding: 1rem 0; font-size: 0.9rem; color: var(--text-secondary); display: none;">
+                Your timepiece is protected by an international 5-year warranty covering chronometric precision, movement lubrication, and water-resistance seals. Recommended service interval is every 4 to 5 years at an authorized STACKLY service salon.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Related Timepieces Carousel / Grid -->
+      <section style="margin-top: 6rem; border-top: 1px solid var(--border); padding-top: 4rem;">
+        <header class="section-header">
+          <span class="section-eyebrow">Complementary References</span>
+          <h2 class="section-title">You May Also Admire</h2>
+          <div class="divider-line"></div>
+        </header>
+
+        <div id="related-products-grid" class="products-grid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+          >
+        </a>
+        <p style="margin-top: 1rem;">A contemporary luxury horology boutique dedicated to micro-mechanical precision and enduring aesthetic distinction.</p>
+        <div class="footer-social-links" style="display: flex; gap: 1rem; margin-top: 1.2rem;">
+          <a href="./404.html" aria-label="STACKLY on Instagram" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">photo_camera</span></a>
+          <a href="./404.html" aria-label="STACKLY on YouTube" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">smart_display</span></a>
+          <a href="./404.html" aria-label="STACKLY on LinkedIn" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">business</span></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About STACKLY</a></li>
+          <li><a href="./collections.html">All Collections</a></li>
+          <li><a href="./services.html">Care & Services</a></li>
+          <li><a href="./blog.html">Horology Journal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="./contact.html">Concierge Contact</a></li>
+          <li><a href="./services.html#shipping">Insured Delivery</a></li>
+          <li><a href="./services.html#warranty">5-Year Warranty</a></li>
+          <li><a href="./services.html#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Private Account</h4>
+        <ul class="footer-links">
+          <li><a href="./login.html">Client Sign In</a></li>
+          <li><a href="./register.html">Create Account</a></li>
+          <li><a href="./wishlist.html">Saved Timepieces</a></li>
+          <li><a href="./cart.html">Shopping Bag</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Private Dispatch</h4>
+        <form class="newsletter-form">
+          <div class="newsletter-input-group">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address for private newsletter">
+          </div>
+          <button type="submit" class="btn btn--secondary btn--sm">Subscribe</button>
+          <div class="newsletter-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>&copy; 2026 STACKLY Horology. All rights reserved. Time, Crafted to Last.</span>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./about.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search Timepieces Modal">
+    <div class="search-modal-content">
+      <button class="search-close-btn" data-close-search aria-label="Close Search">&times;</button>
+      <div class="search-input-wrap">
+        <input type="text" id="search-modal-input" class="search-modal-input" placeholder="Search by name, caliber, or collection..." autocomplete="off">
+      </div>
+      <div id="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+
+  <!-- Product Details Page Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id') || 'chronos-type-0';
+      const product = window.getProductById(productId);
+
+      if (!product) return;
+
+      // Update Page Title
+      document.title = `${product.name} — STACKLY Luxury Watches`;
+
+      // Update Breadcrumb & Texts
+      document.getElementById('breadcrumb-product-name').textContent = product.name;
+      const heroTitle = document.getElementById('hero-product-title');
+      if (heroTitle) heroTitle.textContent = product.name;
+      const heroCol = document.getElementById('hero-collection-label');
+      if (heroCol) heroCol.textContent = product.collectionName || product.collection;
+
+      document.getElementById('product-display-name').textContent = product.name;
+      document.getElementById('product-display-tagline').textContent = product.tagline;
+      document.getElementById('product-display-price').textContent = product.formattedPrice || '$' + Number(product.price).toLocaleString();
+      document.getElementById('product-display-desc').textContent = product.description;
+      document.getElementById('product-collection-badge').textContent = product.collectionName || product.collection;
+      
+      const skuEl = document.getElementById('product-sku-badge');
+      if (skuEl) {
+        skuEl.textContent = `SKU: ${product.sku || 'REF-' + product.id.toUpperCase()}`;
+      }
+
+      // Update Specs Table
+      document.getElementById('spec-movement').textContent = product.movement;
+      document.getElementById('spec-case').textContent = product.caseMaterial;
+      document.getElementById('spec-diameter').textContent = `${product.caseDiameter} Diameter × ${product.caseThickness} Thickness`;
+      
+      const dialEl = document.getElementById('spec-dial');
+      if (dialEl) {
+        dialEl.textContent = product.dialColor || 'Obsidian Sunburst with Double Anti-Reflective Sapphire Crystal';
+      }
+
+      document.getElementById('spec-strap').textContent = product.strapMaterial;
+      document.getElementById('spec-water').textContent = product.waterResistance;
+      document.getElementById('spec-avail').innerHTML = `<span class="badge badge--highlight">${product.availability || 'Available by Allocation'}</span>`;
+
+      // Main Image & Gallery Thumbs
+      const mainImg = document.getElementById('main-gallery-image');
+      mainImg.src = product.image;
+      mainImg.alt = product.name;
+
+      const thumbsList = document.getElementById('gallery-thumbs-list');
+      const gallery = product.gallery && product.gallery.length > 0 ? product.gallery : [product.image];
+
+      thumbsList.innerHTML = gallery.map((imgSrc, idx) => `
+        <img src="${imgSrc}" class="gallery-thumb ${idx === 0 ? 'is-active' : ''}" alt="Thumbnail ${idx + 1}" data-full-src="${imgSrc}" tabindex="0" role="button" aria-label="Select gallery image ${idx + 1}">
+      `).join('');
+
+      function selectThumb(thumb) {
+        thumbsList.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('is-active'));
+        thumb.classList.add('is-active');
+        mainImg.src = thumb.getAttribute('data-full-src');
+      }
+
+      thumbsList.querySelectorAll('.gallery-thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => selectThumb(thumb));
+        thumb.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectThumb(thumb);
+          }
+        });
+      });
+
+      // Quantity Logic
+      let quantity = 1;
+      const qtyInput = document.getElementById('qty-input');
+      const minusBtn = document.getElementById('qty-minus');
+      const plusBtn = document.getElementById('qty-plus');
+
+      minusBtn.addEventListener('click', () => {
+        if (quantity > 1) {
+          quantity--;
+          qtyInput.value = quantity;
+        }
+      });
+
+      plusBtn.addEventListener('click', () => {
+        quantity++;
+        qtyInput.value = quantity;
+      });
+
+      // Add to Bag Button
+      const addToBagBtn = document.getElementById('add-to-bag-btn');
+      addToBagBtn.addEventListener('click', () => {
+        window.CartStore.addToCart(product.id, quantity);
+      });
+
+      // Wishlist Button
+      const wishlistBtn = document.getElementById('product-wishlist-toggle');
+      wishlistBtn.setAttribute('data-wishlist-id', product.id);
+
+      // Accordion for product details
+      document.querySelectorAll('.page-product .faq-accordion-header').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const body = btn.nextElementSibling;
+          const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', !isExpanded);
+          body.style.display = isExpanded ? 'none' : 'block';
+        });
+      });
+
+      // Render Related Products (exclude current)
+      const catalog = typeof window.getCatalog === 'function' ? window.getCatalog() : (window.STACKLY_PRODUCTS || []);
+      const related = catalog.filter(p => p.id !== product.id).slice(0, 3);
+      const relGrid = document.getElementById('related-products-grid');
+      if (relGrid) {
+        relGrid.innerHTML = related.map(p => {
+          if (typeof window.renderWatchCardHtml === 'function') {
+            return window.renderWatchCardHtml(p);
+          }
+          return `
+            <article class="product-card">
+              <div class="product-card__thumb">
+                <img src="${p.image}" alt="${p.name}">
+                <button class="product-card__wishlist-btn" data-wishlist-id="${p.id}" aria-label="Save ${p.name} to Wishlist"><span class="material-icons" aria-hidden="true">favorite_border</span></button>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__coll">${p.collectionName || p.collection}</span>
+                <h3 class="product-card__name">${p.name}</h3>
+                <div class="product-card__price">${p.formattedPrice || '$' + Number(p.price).toLocaleString()}</div>
+                <div class="product-card__actions">
+                  <a href="./product.html?id=${p.id}" class="btn btn--outline btn--sm">View Details</a>
+                  <button class="btn btn--secondary btn--sm" data-add-to-bag="${p.id}">Add to Bag</button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+      }
+
+      window.CartStore?.updateHeaderBadges();
+    });
+  </script>
+</body>
+</html>

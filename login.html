@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Sign In — STACKLY Luxury Watches</title>
+  <meta name="description" content="Sign in to your private STACKLY client portal or boutique administration dashboard.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-auth">
+
+  <!-- Site Header with Brand Logo Top Left & Back to Home Top Right -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container" style="justify-content: space-between;">
+      <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+        <img
+          src="./images/logo-dark.webp"
+          alt="STACKLY Luxury Watches"
+          class="nav-logo-img"
+        >
+      </a>
+
+      <div class="nav-actions">
+        <a href="./index.html" class="btn btn--outline btn--sm" aria-label="Back to Home">
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px;">arrow_back</span>
+          <span class="btn-text-responsive">Back to Home</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content (Prompt Sec 12) -->
+  <main class="auth-wrapper">
+    <div class="auth-card glass-panel">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-eyebrow">Private Portal</span>
+        <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Client Sign In</h1>
+        <div class="divider-line"></div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary);">Access your private portfolio, bespoke allocations, and concierge services.</p>
+      </div>
+
+      <!-- Role Selector Dropdown / Buttons -->
+      <div class="form-group" style="margin-bottom: 1.5rem;">
+        <label for="auth-role-select" class="form-label">Portal Access Level</label>
+        <select id="auth-role-select" class="form-select">
+          <option value="user" selected>Private Collector / Client Portal</option>
+          <option value="admin">Manufacture Atelier Director / Admin</option>
+        </select>
+      </div>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="login-email" class="form-label">Email Address *</label>
+          <input type="email" id="login-email" class="form-input" required value="client@stackly-horology.com" placeholder="client@stackly-horology.com">
+        </div>
+
+        <div class="form-group">
+          <label for="login-password" class="form-label">Password *</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="login-password" class="form-input" required value="Patron2026!" placeholder="Enter your password">
+            <button type="button" class="password-toggle-btn" data-toggle-password="login-password" aria-label="Toggle password visibility">
+              <span class="material-icons" aria-hidden="true">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; font-size: 0.85rem;">
+          <label class="filter-label" style="font-size: 0.85rem;">
+            <input type="checkbox" id="remember-me" checked> Remember Device
+          </label>
+          <a href="./404.html" style="color: var(--champagne-gold); text-decoration: underline;" aria-label="Forgot Password Recovery">Forgot Password?</a>
+        </div>
+
+        <button type="submit" id="login-submit-btn" class="btn btn--primary btn--lg" style="width: 100%;">
+          <span>Access Private Portal</span>
+          <span class="material-icons" aria-hidden="true" style="font-size: 1.1rem; margin-left: 0.4rem;">login</span>
+        </button>
+
+        <div id="login-status-msg" class="auth-status-message" style="display: none; margin-top: 1rem;"></div>
+      </form>
+
+      <div style="text-align: center; margin-top: 2rem; border-top: 1px solid var(--border-gold-subtle); padding-top: 1.5rem; font-size: 0.88rem; color: var(--text-secondary);">
+        Don't have a private account yet?
+        <a href="./register.html" style="color: var(--champagne-gold); font-weight: 600; text-decoration: underline; margin-left: 0.4rem;">Register Here</a>
+      </div>
+
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="./index.html" style="font-size: 0.82rem; color: var(--accent-muted); display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px;">arrow_back</span>
+          <span>Back to Boutique Home</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding: 2rem 0;">
+    <div class="container footer-bottom">
+      <span>&copy; 2026 STACKLY Horology. Secure client demonstration portal.</span>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./contact.html">Concierge Desk</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const roleSelect = document.getElementById('auth-role-select');
+      const emailInput = document.getElementById('login-email');
+      const passInput = document.getElementById('login-password');
+      const form = document.getElementById('login-form');
+      const submitBtn = document.getElementById('login-submit-btn');
+      const statusMsg = document.getElementById('login-status-msg');
+
+      // Pre-fill demo credentials on role change
+      roleSelect.addEventListener('change', () => {
+        if (roleSelect.value === 'admin') {
+          emailInput.value = 'director@stackly-horology.com';
+          passInput.value = 'Manufacture2026!';
+        } else {
+          emailInput.value = 'client@stackly-horology.com';
+          passInput.value = 'Patron2026!';
+        }
+      });
+
+      // Password toggle
+      document.querySelectorAll('[data-toggle-password]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-toggle-password');
+          const input = document.getElementById(targetId);
+          const icon = btn.querySelector('.material-icons');
+          if (input) {
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            if (icon) icon.textContent = isPassword ? 'visibility_off' : 'visibility';
+          }
+        });
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+        const password = passInput.value.trim();
+        const role = roleSelect.value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!email || !emailRegex.test(email)) {
+          statusMsg.className = 'auth-status-message is-error';
+          statusMsg.style.display = 'flex';
+          statusMsg.innerHTML = '<span class="material-icons" aria-hidden="true" style="margin-right: 0.5rem;">error</span> Please enter a valid email address.';
+          return;
+        }
+
+        if (!password) {
+          statusMsg.className = 'auth-status-message is-error';
+          statusMsg.style.display = 'flex';
+          statusMsg.innerHTML = '<span class="material-icons" aria-hidden="true" style="margin-right: 0.5rem;">error</span> Please enter your credentials password.';
+          return;
+        }
+
+        // Loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Verifying Credentials...</span><span class="material-icons" aria-hidden="true" style="margin-left: 0.4rem;">hourglass_empty</span>';
+
+        const clientName = role === 'admin' ? 'Boutique Director' : 'Lord Sterling';
+
+        setTimeout(() => {
+          if (window.AuthStore) {
+            window.AuthStore.login(clientName, email, role);
+          }
+
+          statusMsg.className = 'auth-status-message is-success';
+          statusMsg.style.display = 'flex';
+          statusMsg.innerHTML = `<span class="material-icons" aria-hidden="true" style="margin-right: 0.5rem;">check_circle</span> Authentication successful. Entering ${role === 'admin' ? 'Administration Atelier' : 'Client Salon'}...`;
+
+          setTimeout(() => {
+            if (role === 'admin') {
+              window.location.href = './admin-dashboard.html';
+            } else {
+              window.location.href = './user-dashboard.html';
+            }
+          }, 600);
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>

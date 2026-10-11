@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections — STACKLY Luxury Watches | Haute Horlogerie Portfolio</title>
+  <meta name="description" content="Explore all STACKLY collections: Automatic, Chronograph, Dress, Diving, Minimalist, and Limited Edition Tourbillons.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-collections">
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Complimentary Service Announcement">
+    <span>Complimentary Insured Worldwide White-Glove Delivery on All Timepieces</span>
+    <a href="./services.html">Learn More</a>
+  </aside>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+        <img
+          src="./images/logo-dark.webp"
+          alt="STACKLY Luxury Watches"
+          class="nav-logo-img"
+        >
+      </a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./collections.html" class="nav-link is-active">Collections</a>
+        <a href="./services.html" class="nav-link">Services</a>
+        <a href="./blog.html" class="nav-link">Journal</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-action-btn" data-open-search aria-label="Search Timepieces">
+          <span class="material-icons" aria-hidden="true">search</span>
+        </button>
+        <a href="./login.html" class="nav-action-btn header-auth-link" aria-label="Account Login or Dashboard">
+          <span class="material-icons" aria-hidden="true">person</span>
+          <span class="header-auth-text">Sign In</span>
+        </a>
+        <a href="./wishlist.html" class="nav-action-btn" aria-label="Wishlist">
+          <span class="material-icons" aria-hidden="true">favorite_border</span>
+          <span class="action-count-badge wishlist-count-badge">0</span>
+        </a>
+        <a href="./cart.html" class="nav-action-btn" aria-label="Shopping Bag">
+          <span class="material-icons" aria-hidden="true">shopping_bag</span>
+          <span class="action-count-badge cart-count-badge">0</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border-gold-subtle); margin-bottom: 1.5rem;">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <button class="mobile-menu-close" aria-label="Close Navigation Menu">
+          <span class="material-icons" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html">Collections</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./blog.html">Journal</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./wishlist.html">Wishlist</a></li>
+        <li><a href="./cart.html">Shopping Bag</a></li>
+        <li><a href="./login.html">Account & Dashboard</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content: Exactly 9 Major Sections -->
+  <main id="main-content">
+
+    <!-- Section 1: Collections Hero -->
+    <section class="page-hero" aria-label="Collections Hero">
+      <div class="container reveal-on-scroll is-revealed">
+        <span class="section-eyebrow">Haute Horlogerie Portfolio</span>
+        <h1>Exceptional Timepieces</h1>
+        <div class="divider-line"></div>
+        <p class="section-description">A curated catalog of precision mechanical timepieces, each engineered to the highest standards of fine watchmaking.</p>
+      </div>
+    </section>
+
+    <!-- Main Collections Filter & Explorer Interface -->
+    <section class="section" style="padding-top: 2rem;" aria-label="Collections Filter & Explorer">
+      <div class="container collections-layout">
+        
+        <!-- Functional Filter Sidebar -->
+        <aside class="filter-sidebar" aria-label="Filter Watches">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem;">Refine Selection</h3>
+            <button id="filter-reset-btn" class="btn-icon-subtle" style="font-size: 0.78rem; text-decoration: underline;">Reset All</button>
+          </div>
+
+          <!-- Collection Type Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group__title">Collection</h4>
+            <div class="filter-options">
+              <label class="filter-label">
+                <input type="radio" name="filter-collection" value="all" checked> All Collections
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-collection" value="limited"> Limited Editions
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-collection" value="dress"> Classic Dress
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-collection" value="sport"> Sport & Chronograph
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-collection" value="minimalist"> Modern Minimalist
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-collection" value="automatic"> Automatic Calibers
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group__title">Price Range</h4>
+            <div class="filter-options">
+              <label class="filter-label">
+                <input type="radio" name="filter-price" value="all" checked> All Prices
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-price" value="under-15k"> Under $15,000
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-price" value="15k-30k"> $15,000 – $30,000
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-price" value="over-30k"> $30,000 & Above
+              </label>
+            </div>
+          </div>
+
+          <!-- Movement Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group__title">Movement</h4>
+            <div class="filter-options">
+              <label class="filter-label">
+                <input type="radio" name="filter-movement" value="all" checked> All Movements
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-movement" value="tourbillon"> Tourbillon
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-movement" value="manual"> Manual-Wind
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-movement" value="automatic"> Automatic
+              </label>
+            </div>
+          </div>
+
+          <!-- Strap Material Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group__title">Strap Material</h4>
+            <div class="filter-options">
+              <label class="filter-label">
+                <input type="radio" name="filter-strap" value="all" checked> All Straps
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-strap" value="alligator"> Alligator Leather
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-strap" value="steel"> Steel Bracelet / Mesh
+              </label>
+              <label class="filter-label">
+                <input type="radio" name="filter-strap" value="rubber"> FKM / Leather Hybrid
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid Area with Sorting -->
+        <div>
+          <div class="collection-sort-bar">
+            <span id="product-count-display" style="font-size: 0.9rem; color: var(--accent-muted);">Showing all timepieces</span>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+              <label for="collection-sort-select" style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">Sort By:</label>
+              <select id="collection-sort-select" class="form-select" style="width: auto; padding: 0.4rem 0.8rem; font-size: 0.85rem;" aria-label="Sort products">
+                <option value="featured">Featured First</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Alphabetical: A to Z</option>
+                <option value="name-desc">Alphabetical: Z to A</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="dynamic-products-grid" class="products-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <!-- Products rendered dynamically from products.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 2: Featured Collection Spotlight -->
+    <section class="section section--alt" aria-label="Featured Collection">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Haute Complication Highlight</span>
+          <h2 class="section-title">Featured: The Skeleton Tourbillons</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Our flagship horology combines single-axis anti-gravity cages with skeletonized titanium architecture.</p>
+        </header>
+
+        <div class="craftsmanship-grid">
+          <div class="reveal-on-scroll">
+            <img src="./images/chronos-type-0.webp" alt="CHRONOS TYPE-0 Tourbillon" style="border-radius: var(--radius-sm); border: 1px solid var(--secondary-border); max-width: 420px; margin: 0 auto;">
+          </div>
+          <div class="reveal-on-scroll">
+            <span class="badge badge--highlight">Flagship Horology</span>
+            <h3 style="font-size: 2.2rem; margin: 1rem 0;">CHRONOS TYPE-0</h3>
+            <p>The purest realization of STACKLY technical virtuosity. Every bridge is hand-beveled with diamond paste, and the openworked flying tourbillon cage completes one rotation every 60 seconds.</p>
+            <div style="margin: 1.5rem 0; font-size: 1.5rem; color: var(--white); font-family: var(--font-serif);">$48,500 USD</div>
+            <div style="display: flex; gap: 1rem;">
+              <a href="./product.html?id=chronos-type-0" class="btn btn--primary">View Reference Details</a>
+              <button class="btn btn--secondary" data-add-to-bag="chronos-type-0">Add to Bag</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Automatic Watches Section -->
+    <section class="section" aria-label="Automatic Watches">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Perpetual Kinetics</span>
+          <h2 class="section-title">Automatic Calibers</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Timepieces wound continuously by the kinetic motion of your day, featuring solid tungsten and 950 platinum winding rotors.</p>
+        </header>
+        <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <!-- Heritage Automatic -->
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/heritage-automatic.webp" alt="Heritage Automatic Watch" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="heritage-automatic"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Automatic Watches</span>
+              <h3 class="product-card__name">Heritage Automatic</h3>
+              <div class="product-card__price">$12,500</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=heritage-automatic" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="heritage-automatic">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+          <!-- Meridian GMT -->
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/meridian-gmt.webp" alt="Meridian GMT Dual-Time Watch" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="meridian-gmt"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Automatic Watches</span>
+              <h3 class="product-card__name">Meridian Dual-Time GMT</h3>
+              <div class="product-card__price">$17,500</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=meridian-gmt" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="meridian-gmt">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+          <!-- Nautilus Diver -->
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/nautilus-diver.webp" alt="Nautilus Diver Pro" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="nautilus-diver"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Automatic Watches</span>
+              <h3 class="product-card__name">Nautilus Diver Pro</h3>
+              <div class="product-card__price">$16,400</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=nautilus-diver" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="nautilus-diver">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Chronograph Watches Section -->
+    <section class="section section--alt" aria-label="Chronograph Watches">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Fractional Seconds</span>
+          <h2 class="section-title">Chronograph Watches</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">High-precision column-wheel chronographs delivering crisp tactile button actuation and instantaneous flyback timing.</p>
+        </header>
+        <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 0 auto;">
+          <!-- Vanguard Chrono -->
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/vanguard-chronograph.webp" alt="Vanguard Chronograph Watch" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="vanguard-chronograph"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Sport & Chronograph</span>
+              <h3 class="product-card__name">Vanguard Chronograph</h3>
+              <div class="product-card__price">$19,800</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=vanguard-chronograph" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="vanguard-chronograph">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+          <!-- Imperium Platinum -->
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/imperium-platinum.webp" alt="Imperium Perpetual Chrono" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="imperium-platinum"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Grand Complications</span>
+              <h3 class="product-card__name">Imperium Perpetual</h3>
+              <div class="product-card__price">$62,000</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=imperium-platinum" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="imperium-platinum">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Dress Watches Section -->
+    <section class="section" aria-label="Dress Watches">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Black-Tie Horology</span>
+          <h2 class="section-title">Dress Watches</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Ultra-thin cases, pure silver grand feu dials, and solid 950 platinum cases sculpted for discerning evening events.</p>
+        </header>
+        <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/aethelgard-classic.webp" alt="Aethelgard Classic" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="aethelgard-classic"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Classic Dress</span>
+              <h3 class="product-card__name">Aethelgard Classic</h3>
+              <div class="product-card__price">$14,200</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=aethelgard-classic" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="aethelgard-classic">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/celeste-moonphase.webp" alt="Celeste Moonphase" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="celeste-moonphase"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Astronomical Dress</span>
+              <h3 class="product-card__name">Celeste Moonphase</h3>
+              <div class="product-card__price">$22,000</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=celeste-moonphase" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="celeste-moonphase">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/elysium-dress.webp" alt="Elysium Ultra-Thin" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="elysium-dress"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">5.8mm Ultra-Thin</span>
+              <h3 class="product-card__name">Elysium Ultra-Thin</h3>
+              <div class="product-card__price">$11,800</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=elysium-dress" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="elysium-dress">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Sports Watches Section -->
+    <section class="section section--alt" aria-label="Sports Watches">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Endurance & Depths</span>
+          <h2 class="section-title">Sports Watches</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Tested in deep saltwater chambers and high-acceleration shock laboratories for ultimate lifestyle durability.</p>
+        </header>
+        <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 0 auto;">
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/nautilus-diver.webp" alt="Nautilus Diver Pro" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="nautilus-diver"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">300m Diving Pro</span>
+              <h3 class="product-card__name">Nautilus Diver Pro</h3>
+              <div class="product-card__price">$16,400</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=nautilus-diver" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="nautilus-diver">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/vanguard-chronograph.webp" alt="Vanguard Chrono" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="vanguard-chronograph"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Flyback Sport</span>
+              <h3 class="product-card__name">Vanguard Chronograph</h3>
+              <div class="product-card__price">$19,800</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=vanguard-chronograph" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="vanguard-chronograph">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Gold and Precious-Metal Styles -->
+    <section class="section" aria-label="Gold and Precious-Metal Styles">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Precious Metallurgy</span>
+          <h2 class="section-title">Gold & Precious Metals</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Hand-polished 18k rose gold, warm yellow gold, and solid 950 platinum cases crafted to capture and reflect light with exceptional nobility.</p>
+        </header>
+        <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/imperium-platinum.webp" alt="Imperium Perpetual 950 Platinum" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="imperium-platinum" aria-label="Save Imperium Perpetual to Wishlist"><span class="material-icons" aria-hidden="true">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">950 Solid Platinum</span>
+              <h3 class="product-card__name">Imperium Perpetual</h3>
+              <div class="product-card__price">$62,000</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=imperium-platinum" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="imperium-platinum">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/celeste-moonphase.webp" alt="Celeste Moonphase 18k Rose Gold" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="celeste-moonphase" aria-label="Save Celeste Moonphase to Wishlist"><span class="material-icons" aria-hidden="true">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">18k Rose Gold</span>
+              <h3 class="product-card__name">Celeste Moonphase</h3>
+              <div class="product-card__price">$22,000</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=celeste-moonphase" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="celeste-moonphase">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/aethelgard-classic.webp" alt="Aethelgard Classic Champagne Gold" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="aethelgard-classic" aria-label="Save Aethelgard Classic to Wishlist"><span class="material-icons" aria-hidden="true">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Champagne Gold Bezel</span>
+              <h3 class="product-card__name">Aethelgard Classic</h3>
+              <div class="product-card__price">$14,200</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=aethelgard-classic" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="aethelgard-classic">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Limited Editions Section -->
+    <section class="section section--alt" aria-label="Limited Editions">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Numbered References</span>
+          <h2 class="section-title">Limited Editions</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Rare high complications produced in strictly capped quantities of 15 to 30 pieces worldwide.</p>
+        </header>
+        <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/chronos-type-0.webp" alt="CHRONOS TYPE-0" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="chronos-type-0"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">25 Pieces Worldwide</span>
+              <h3 class="product-card__name">CHRONOS TYPE-0</h3>
+              <div class="product-card__price">$48,500</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=chronos-type-0" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="chronos-type-0">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/monolith-tourbillon.webp" alt="Monolith Tourbillon" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="monolith-tourbillon"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">15 Pieces Worldwide</span>
+              <h3 class="product-card__name">Monolith Tourbillon</h3>
+              <div class="product-card__price">$54,000</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=monolith-tourbillon" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="monolith-tourbillon">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal-on-scroll">
+            <div class="product-card__thumb">
+              <img src="./images/imperium-platinum.webp" alt="Imperium Platinum" loading="lazy">
+              <button class="product-card__wishlist-btn" data-wishlist-id="imperium-platinum"><span class="material-icons">favorite_border</span></button>
+            </div>
+            <div class="product-card__info">
+              <span class="product-card__coll">Bespoke Commission Only</span>
+              <h3 class="product-card__name">Imperium Perpetual</h3>
+              <div class="product-card__price">$62,000</div>
+              <div class="product-card__actions">
+                <a href="./product.html?id=imperium-platinum" class="btn btn--outline btn--sm">View Details</a>
+                <button class="btn btn--secondary btn--sm" data-add-to-bag="imperium-platinum">Add to Bag</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Final CTA -->
+    <section class="cta-luxury-section" aria-label="Final Call to Action">
+      <div class="container cta-luxury-content reveal-on-scroll">
+        <span class="section-eyebrow">Private Acquisition</span>
+        <h2 class="section-title">Schedule a Private Showing</h2>
+        <div class="divider-line"></div>
+        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Speak with a senior STACKLY horological concierge regarding allocation availability and bespoke engravings.</p>
+        <div class="cta-actions">
+          <a href="./contact.html" class="btn btn--primary btn--lg">Book Consultation</a>
+          <a href="./services.html" class="btn btn--secondary btn--lg">Ownership Services</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+          >
+        </a>
+        <p style="margin-top: 1rem;">A contemporary luxury horology boutique dedicated to micro-mechanical precision and enduring aesthetic distinction.</p>
+        <div class="footer-social-links" style="display: flex; gap: 1rem; margin-top: 1.2rem;">
+          <a href="./404.html" aria-label="STACKLY on Instagram" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">photo_camera</span></a>
+          <a href="./404.html" aria-label="STACKLY on YouTube" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">smart_display</span></a>
+          <a href="./404.html" aria-label="STACKLY on LinkedIn" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">business</span></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About STACKLY</a></li>
+          <li><a href="./collections.html">All Collections</a></li>
+          <li><a href="./services.html">Care & Services</a></li>
+          <li><a href="./blog.html">Horology Journal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="./contact.html">Concierge Contact</a></li>
+          <li><a href="./services.html#shipping">Insured Delivery</a></li>
+          <li><a href="./services.html#warranty">5-Year Warranty</a></li>
+          <li><a href="./services.html#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Private Account</h4>
+        <ul class="footer-links">
+          <li><a href="./login.html">Client Sign In</a></li>
+          <li><a href="./register.html">Create Account</a></li>
+          <li><a href="./wishlist.html">Saved Timepieces</a></li>
+          <li><a href="./cart.html">Shopping Bag</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Private Dispatch</h4>
+        <form class="newsletter-form">
+          <div class="newsletter-input-group">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address for private newsletter">
+          </div>
+          <button type="submit" class="btn btn--secondary btn--sm">Subscribe</button>
+          <div class="newsletter-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>&copy; 2026 STACKLY Horology. All rights reserved. Time, Crafted to Last.</span>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./about.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search Timepieces Modal">
+    <div class="search-modal-content">
+      <button class="search-close-btn" data-close-search aria-label="Close Search">&times;</button>
+      <div class="search-input-wrap">
+        <input type="text" id="search-modal-input" class="search-modal-input" placeholder="Search by name, caliber, or collection..." autocomplete="off">
+      </div>
+      <div id="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+
+  <!-- Collections Interactive Filtering & Sorting Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('dynamic-products-grid');
+      const countEl = document.getElementById('product-count-display');
+      const sortSelect = document.getElementById('collection-sort-select');
+      const resetBtn = document.getElementById('filter-reset-btn');
+
+      // Check URL parameters for preset collection filter
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlType = urlParams.get('filter') || urlParams.get('collection') || urlParams.get('type');
+      if (urlType) {
+        const matchingRadio = document.querySelector(`input[name="filter-collection"][value="${urlType}"]`);
+        if (matchingRadio) matchingRadio.checked = true;
+      }
+
+      function getCatalogList() {
+        if (typeof window.getCatalog === 'function') {
+          return window.getCatalog();
+        }
+        return window.STACKLY_PRODUCTS || [];
+      }
+
+      function getSelectedFilters() {
+        const coll = document.querySelector('input[name="filter-collection"]:checked')?.value || 'all';
+        const price = document.querySelector('input[name="filter-price"]:checked')?.value || 'all';
+        const movement = document.querySelector('input[name="filter-movement"]:checked')?.value || 'all';
+        const strap = document.querySelector('input[name="filter-strap"]:checked')?.value || 'all';
+        const sort = sortSelect?.value || 'featured';
+
+        return { coll, price, movement, strap, sort };
+      }
+
+      function filterAndRender() {
+        if (!grid) return;
+        const catalog = getCatalogList();
+        const { coll, price, movement, strap, sort } = getSelectedFilters();
+
+        let list = [...catalog];
+
+        // 1. Collection
+        if (coll !== 'all') {
+          list = list.filter(p => p.collection === coll);
+        }
+
+        // 2. Price
+        if (price === 'under-15k') {
+          list = list.filter(p => p.price < 15000);
+        } else if (price === '15k-30k') {
+          list = list.filter(p => p.price >= 15000 && p.price <= 30000);
+        } else if (price === 'over-30k') {
+          list = list.filter(p => p.price > 30000);
+        }
+
+        // 3. Movement
+        if (movement === 'tourbillon') {
+          list = list.filter(p => (p.movement || p.movementType || '').toLowerCase().includes('tourbillon'));
+        } else if (movement === 'manual') {
+          list = list.filter(p => (p.movement || p.movementType || '').toLowerCase().includes('manual'));
+        } else if (movement === 'automatic') {
+          list = list.filter(p => (p.movement || p.movementType || '').toLowerCase().includes('automatic'));
+        }
+
+        // 4. Strap
+        if (strap === 'alligator') {
+          list = list.filter(p => (p.strapMaterial || p.strapType || '').toLowerCase().includes('alligator') || (p.strapMaterial || '').toLowerCase().includes('leather'));
+        } else if (strap === 'steel') {
+          list = list.filter(p => (p.strapMaterial || p.strapType || '').toLowerCase().includes('steel') || (p.strapMaterial || '').toLowerCase().includes('mesh'));
+        } else if (strap === 'rubber') {
+          list = list.filter(p => (p.strapMaterial || p.strapType || '').toLowerCase().includes('rubber') || (p.strapMaterial || '').toLowerCase().includes('fkm'));
+        }
+
+        // 5. Sorting
+        if (sort === 'price-asc') {
+          list.sort((a, b) => a.price - b.price);
+        } else if (sort === 'price-desc') {
+          list.sort((a, b) => b.price - a.price);
+        } else if (sort === 'name-asc') {
+          list.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sort === 'name-desc') {
+          list.sort((a, b) => b.name.localeCompare(a.name));
+        }
+
+        // Update count
+        if (countEl) {
+          countEl.textContent = `Showing ${list.length} of ${catalog.length} timepieces`;
+        }
+
+        // Render HTML
+        if (list.length === 0) {
+          grid.innerHTML = `
+            <div style="grid-column: 1 / -1; padding: 4rem 2rem; text-align: center; background: var(--primary-card); border: 1px solid var(--secondary-border); border-radius: var(--radius-sm);">
+              <span class="material-icons" style="font-size: 40px; color: var(--gold-glow); margin-bottom: 1rem;" aria-hidden="true">search_off</span>
+              <h3>No Matching Timepieces</h3>
+              <p style="color: var(--accent-muted); margin: 0.5rem 0 1.5rem;">Try clearing your filters or exploring our other collections.</p>
+              <button id="empty-reset-btn" class="btn btn--secondary btn--sm">Reset Filters</button>
+            </div>
+          `;
+          document.getElementById('empty-reset-btn')?.addEventListener('click', resetFilters);
+          return;
+        }
+
+        grid.innerHTML = list.map(p => {
+          if (typeof window.renderWatchCardHtml === 'function') {
+            return window.renderWatchCardHtml(p);
+          }
+          return `
+            <article class="product-card">
+              <div class="product-card__thumb">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <div class="product-card-floating-actions">
+                  <button class="product-card__action-btn" data-quickview-id="${p.id}" aria-label="Quick view ${p.name}">
+                    <span class="material-icons" aria-hidden="true">visibility</span>
+                  </button>
+                  <button class="product-card__action-btn" data-wishlist-id="${p.id}" aria-label="Save ${p.name} to Wishlist">
+                    <span class="material-icons" aria-hidden="true">favorite_border</span>
+                  </button>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__coll">${p.collectionName || p.collection}</span>
+                <h3 class="product-card__name">${p.name}</h3>
+                <div class="product-card__price">${p.formattedPrice || '$' + Number(p.price).toLocaleString()}</div>
+                <div class="product-card__actions">
+                  <a href="./product.html?id=${p.id}" class="btn btn--outline btn--sm">View Details</a>
+                  <button class="btn btn--secondary btn--sm" data-add-to-bag="${p.id}">Add to Bag</button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        window.CartStore?.updateHeaderBadges();
+      }
+
+      function resetFilters() {
+        document.querySelectorAll('input[type="radio"][value="all"]').forEach(r => r.checked = true);
+        if (sortSelect) sortSelect.value = 'featured';
+        filterAndRender();
+      }
+
+      // Listeners
+      document.querySelectorAll('input[type="radio"]').forEach(r => {
+        r.addEventListener('change', filterAndRender);
+      });
+
+      if (sortSelect) sortSelect.addEventListener('change', filterAndRender);
+      if (resetBtn) resetBtn.addEventListener('click', resetFilters);
+
+      filterAndRender();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Wishlist — STACKLY Luxury Watches</title>
+  <meta name="description" content="View and manage your curated selection of saved STACKLY timepieces.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-wishlist">
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Complimentary Service Announcement">
+    <span>Complimentary Insured Worldwide White-Glove Delivery on All Timepieces</span>
+    <a href="./services.html">Learn More</a>
+  </aside>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+        <img
+          src="./images/logo-dark.webp"
+          alt="STACKLY Luxury Watches"
+          class="nav-logo-img"
+        >
+      </a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./collections.html" class="nav-link">Collections</a>
+        <a href="./services.html" class="nav-link">Services</a>
+        <a href="./blog.html" class="nav-link">Journal</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-action-btn" data-open-search aria-label="Search Timepieces">
+          <span class="material-icons" aria-hidden="true">search</span>
+        </button>
+        <a href="./login.html" class="nav-action-btn header-auth-link" aria-label="Account Login or Dashboard">
+          <span class="material-icons" aria-hidden="true">person</span>
+          <span class="header-auth-text">Sign In</span>
+        </a>
+        <a href="./wishlist.html" class="nav-action-btn is-active" aria-label="Wishlist">
+          <span class="material-icons" aria-hidden="true">favorite</span>
+          <span class="action-count-badge wishlist-count-badge">0</span>
+        </a>
+        <a href="./cart.html" class="nav-action-btn" aria-label="Shopping Bag">
+          <span class="material-icons" aria-hidden="true">shopping_bag</span>
+          <span class="action-count-badge cart-count-badge">0</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border-gold-subtle); margin-bottom: 1.5rem;">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <button class="mobile-menu-close" aria-label="Close Navigation Menu">
+          <span class="material-icons" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html">Collections</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./blog.html">Journal</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./wishlist.html">Wishlist</a></li>
+        <li><a href="./cart.html">Shopping Bag</a></li>
+        <li><a href="./login.html">Account & Dashboard</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Wishlist Hero Section -->
+    <section class="page-hero" aria-label="Wishlist Hero">
+      <div class="container reveal-on-scroll is-revealed">
+        <span class="section-eyebrow">Personal Curation</span>
+        <h1>Your Private Wishlist</h1>
+        <div class="divider-line"></div>
+        <p class="section-description">Saved references for consideration, private salon viewing, or bespoke allocation requests.</p>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top: 3.5rem; padding-bottom: 6rem;">
+
+      <!-- Wishlist Grid -->
+      <div id="wishlist-grid" class="products-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="wishlist-empty-state" class="glass-panel" style="display: none; text-align: center; padding: 6rem 2rem;">
+        <span class="material-icons" style="font-size: 56px; color: var(--gold-glow); margin-bottom: 1rem;" aria-hidden="true">favorite_border</span>
+        <h2>Your Wishlist Is Empty</h2>
+        <p style="max-width: 500px; margin: 1rem auto 2rem auto; color: var(--text-secondary);">Save timepieces to this private salon list by clicking the heart icon on any reference.</p>
+        <a href="./collections.html" class="btn btn--primary btn--lg">Explore Master Collections</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+          >
+        </a>
+        <p style="margin-top: 1rem;">A contemporary luxury horology boutique dedicated to micro-mechanical precision and enduring aesthetic distinction.</p>
+        <div class="footer-social-links" style="display: flex; gap: 1rem; margin-top: 1.2rem;">
+          <a href="./404.html" aria-label="STACKLY on Instagram" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">photo_camera</span></a>
+          <a href="./404.html" aria-label="STACKLY on YouTube" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">smart_display</span></a>
+          <a href="./404.html" aria-label="STACKLY on LinkedIn" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">business</span></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About STACKLY</a></li>
+          <li><a href="./collections.html">All Collections</a></li>
+          <li><a href="./services.html">Care & Services</a></li>
+          <li><a href="./blog.html">Horology Journal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="./contact.html">Concierge Contact</a></li>
+          <li><a href="./services.html#shipping">Insured Delivery</a></li>
+          <li><a href="./services.html#warranty">5-Year Warranty</a></li>
+          <li><a href="./services.html#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Private Account</h4>
+        <ul class="footer-links">
+          <li><a href="./login.html">Client Sign In</a></li>
+          <li><a href="./register.html">Create Account</a></li>
+          <li><a href="./wishlist.html">Saved Timepieces</a></li>
+          <li><a href="./cart.html">Shopping Bag</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Private Dispatch</h4>
+        <form class="newsletter-form">
+          <div class="newsletter-input-group">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address for private newsletter">
+          </div>
+          <button type="submit" class="btn btn--secondary btn--sm">Subscribe</button>
+          <div class="newsletter-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>&copy; 2026 STACKLY Horology. All rights reserved. Time, Crafted to Last.</span>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./about.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search Timepieces Modal">
+    <div class="search-modal-content">
+      <button class="search-close-btn" data-close-search aria-label="Close Search">&times;</button>
+      <div class="search-input-wrap">
+        <input type="text" id="search-modal-input" class="search-modal-input" placeholder="Search by name, caliber, or collection..." autocomplete="off">
+      </div>
+      <div id="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+
+  <!-- Wishlist Dynamic Display Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('wishlist-grid');
+      const emptyState = document.getElementById('wishlist-empty-state');
+
+      function renderWishlist() {
+        const wishlist = window.CartStore.getWishlist();
+
+        if (wishlist.length === 0) {
+          grid.style.display = 'none';
+          emptyState.style.display = 'block';
+          return;
+        }
+
+        grid.style.display = 'grid';
+        emptyState.style.display = 'none';
+
+        grid.innerHTML = wishlist.map(id => {
+          const p = window.getProductById(id);
+          if (!p) return '';
+          return `
+            <article class="product-card">
+              <div class="product-card__thumb">
+                <img src="${p.image}" alt="${p.name}">
+                <button class="product-card__wishlist-btn is-active" data-wishlist-id="${p.id}" title="Remove from wishlist" aria-label="Remove ${p.name} from wishlist">
+                  <span class="material-icons" aria-hidden="true">favorite</span>
+                </button>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__coll">${p.collectionName}</span>
+                <h3 class="product-card__name">${p.name}</h3>
+                <div class="product-card__price">${p.formattedPrice}</div>
+                <div class="product-card__actions" style="margin-top: 1rem;">
+                  <button class="btn btn--primary btn--sm btn-move-bag" data-id="${p.id}">Move to Bag</button>
+                  <a href="./product.html?id=${p.id}" class="btn btn--outline btn--sm">Details</a>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        grid.querySelectorAll('.btn-move-bag').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            window.CartStore.moveWishlistToCart(id);
+            renderWishlist();
+          });
+        });
+      }
+
+      renderWishlist();
+      window.addEventListener('stackly:wishlist-updated', renderWishlist);
+    });
+  </script>
+</body>
+</html>

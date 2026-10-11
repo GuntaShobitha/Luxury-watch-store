@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique Administration — STACKLY Luxury Watches</title>
+  <meta name="description" content="STACKLY Boutique Management Portal — Product Catalog, Order Telemetry, Revenue Charts, and Client Allocations.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-admin-dashboard">
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="dashboard-menu-toggle btn-icon" aria-label="Toggle Dashboard Navigation">
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+          >
+        </a>
+      </div>
+
+      <div class="admin-session-pill" style="font-size: 0.78rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-gold-subtle); padding: 0.35rem 0.9rem; border-radius: var(--radius-sm); color: var(--champagne-gold); text-transform: uppercase; letter-spacing: 0.1em;">
+        Atelier Director Session
+      </div>
+
+      <div class="nav-actions">
+        <a href="./index.html" class="btn btn--outline btn--sm" aria-label="View Boutique">
+          <span class="btn-text-responsive">View Boutique</span>
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-left: 0.3rem;">storefront</span>
+        </a>
+        <button data-logout-button class="btn btn--secondary btn--sm" aria-label="Logout">
+          <span class="btn-text-responsive">Logout</span>
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-left: 0.3rem;">logout</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Dashboard Layout (Prompt Sec 13) -->
+  <main class="dashboard-layout">
+    
+    <!-- Sidebar Navigation (Responsive) -->
+    <aside class="dashboard-sidebar" aria-label="Administration Sidebar Navigation">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-gold-subtle);">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <button class="dashboard-sidebar-close btn-icon" aria-label="Close Sidebar" style="width: 32px; height: 32px; border-radius: 50%;">
+          <span class="material-icons" aria-hidden="true" style="font-size: 18px;">close</span>
+        </button>
+      </div>
+      <div style="margin-bottom: 1.8rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border-gold-subtle);">
+        <span class="section-eyebrow">Director Session</span>
+        <h3 style="font-size: 1.3rem; margin: 0.3rem 0;">Boutique Director</h3>
+        <small style="color: var(--accent-muted);">director@stackly-horology.com</small>
+      </div>
+
+      <nav style="display: flex; flex-direction: column; flex-grow: 1;">
+        <a href="#admin-overview" class="dashboard-nav-item is-active" data-dashboard-tab="admin-tab-overview">
+          <span class="material-icons" aria-hidden="true">analytics</span>
+          <span>Overview KPIs</span>
+        </a>
+        <a href="#admin-products" class="dashboard-nav-item" data-dashboard-tab="admin-tab-products">
+          <span class="material-icons" aria-hidden="true">watch</span>
+          <span>Products Catalog</span>
+        </a>
+        <a href="#admin-collections" class="dashboard-nav-item" data-dashboard-tab="admin-tab-collections">
+          <span class="material-icons" aria-hidden="true">auto_stories</span>
+          <span>Collections</span>
+        </a>
+        <a href="#admin-orders" class="dashboard-nav-item" data-dashboard-tab="admin-tab-orders">
+          <span class="material-icons" aria-hidden="true">receipt_long</span>
+          <span>Orders & Telemetry</span>
+        </a>
+        <a href="#admin-customers" class="dashboard-nav-item" data-dashboard-tab="admin-tab-customers">
+          <span class="material-icons" aria-hidden="true">group</span>
+          <span>Patron Directory</span>
+        </a>
+        <a href="#admin-inventory" class="dashboard-nav-item" data-dashboard-tab="admin-tab-inventory">
+          <span class="material-icons" aria-hidden="true">warehouse</span>
+          <span>Vault Inventory</span>
+        </a>
+        <a href="#admin-service" class="dashboard-nav-item" data-dashboard-tab="admin-tab-service">
+          <span class="material-icons" aria-hidden="true">home_repair_service</span>
+          <span>Service Requests</span>
+        </a>
+        <a href="#admin-reports" class="dashboard-nav-item" data-dashboard-tab="admin-tab-reports">
+          <span class="material-icons" aria-hidden="true">monitoring</span>
+          <span>Financial Reports</span>
+        </a>
+        <a href="#admin-settings" class="dashboard-nav-item" data-dashboard-tab="admin-tab-settings">
+          <span class="material-icons" aria-hidden="true">tune</span>
+          <span>Boutique Settings</span>
+        </a>
+      </nav>
+
+      <div style="padding-top: 1.5rem; border-top: 1px solid var(--border-gold-subtle);">
+        <button data-logout-button class="btn btn--outline btn--sm" style="width: 100%;">
+          <span>Sign Out</span>
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-left: 0.3rem;">logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Content Area -->
+    <div class="dashboard-content-area">
+
+      <!-- Director Hero Banner -->
+      <div class="dashboard-hero-banner">
+        <span class="section-eyebrow">Manufacture Director Console</span>
+        <h2 style="font-size: 2.2rem; margin: 0.3rem 0;">Atelier Administration & Telemetry</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        <p style="margin: 0; max-width: 680px; color: var(--text-secondary);">Direct access to global timepiece catalog, armored courier logistics, Freeport reserves, and VIP patron allocations.</p>
+        <div style="display: flex; gap: 1rem; margin-top: 1.4rem; flex-wrap: wrap;">
+          <span class="badge badge--highlight">Director: Henri Laurent</span>
+          <span class="badge">Geneva Atelier Node #01</span>
+          <span class="badge" style="color: #4cd964; border-color: rgba(76, 217, 100, 0.4);">Security Status: Level 5 Active</span>
+        </div>
+      </div>
+
+      <!-- 1. Overview KPIs Tab -->
+      <section id="admin-tab-overview" class="dashboard-pane is-active" aria-label="Admin Overview">
+        <!-- Section 1.1: KPI Cards Grid -->
+        <div class="dashboard-stats-grid">
+          <div class="stat-card">
+            <div class="stat-card__label">Total References</div>
+            <div id="admin-stat-products" class="stat-card__val">12</div>
+            <small style="color: var(--accent-muted); font-size: 0.75rem;">Active in Master Catalog</small>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__label">Active Orders</div>
+            <div id="admin-stat-orders" class="stat-card__val">20</div>
+            <small style="color: var(--accent-muted); font-size: 0.75rem;">In Transit & Bench Assembly</small>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__label">Demonstration Volume</div>
+            <div id="admin-stat-revenue" class="stat-card__val" style="font-size: 1.8rem; color: var(--champagne-gold);">$482,900</div>
+            <small style="color: var(--accent-muted); font-size: 0.75rem;">Trailing 7-Month Acquisition Volume</small>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__label">Restricted Allocations</div>
+            <div class="stat-card__val" style="color: var(--white);">2 Pieces</div>
+            <small style="color: var(--accent-muted); font-size: 0.75rem;">Critical Low Stock Warning</small>
+          </div>
+        </div>
+
+        <!-- Section 1.2: 2D Canvas Chart for Revenue -->
+        <div class="dashboard-section-block" style="margin-top: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.8rem;">
+            <div>
+              <h3 class="dashboard-section-title" style="margin: 0;">
+                <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">show_chart</span>
+                <span>Monthly Revenue & Allocation Velocity</span>
+              </h3>
+              <p class="dashboard-section-desc" style="margin-bottom: 0;">Trailing 7-month acquisition financial telemetry across international salons.</p>
+            </div>
+            <span class="badge badge--highlight">Native 2D Canvas</span>
+          </div>
+          <div style="width: 100%; height: 220px; position: relative;">
+            <canvas id="admin-revenue-canvas" style="width: 100%; height: 220px; display: block;"></canvas>
+          </div>
+        </div>
+
+        <!-- Section 1.3: Vault Status & Courier Protocols -->
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; margin-top: 2rem;">
+          <div class="dashboard-section-block" style="margin-bottom: 0;">
+            <h3 class="dashboard-section-title">
+              <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">vpn_key</span>
+              <span>Vault Status & Critical Allocations</span>
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">CHRONOS TYPE-0 Tourbillon has only 3 numbered allocations remaining worldwide. Immediate dispatch clearance required for Order #STK-89241 to Paris salon.</p>
+            <div style="margin-top: 1.2rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+              <span class="badge badge--highlight">Vault Armored Level 5</span>
+              <span class="badge">Geneva Freeport Secure</span>
+              <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Allocations Locked', 'Remaining allocations reserved for VIP patrons.');">Lock Remaining Allocations</button>
+            </div>
+          </div>
+
+          <div class="dashboard-section-block" style="margin-bottom: 0;">
+            <h3 class="dashboard-section-title">
+              <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">flight</span>
+              <span>Global Courier Telemetry</span>
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">All active dispatches operating with 100% on-time armored metrics. Lloyd’s of London coverage verified.</p>
+            <a href="#admin-orders" class="btn btn--secondary btn--sm" data-dashboard-tab="admin-tab-orders" style="margin-top: 0.8rem;">Open Telemetry Ledger</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Products Tab & Add Product Form -->
+      <section id="admin-tab-products" class="dashboard-pane" aria-label="Products Catalog">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 2rem;">Products Catalog</h2>
+            <div class="divider-line" style="margin-left: 0;"></div>
+            <p style="color: var(--text-secondary); margin: 0;">Centralized master catalog of active STACKLY timepieces.</p>
+          </div>
+          <button class="btn btn--primary btn--sm" onclick="document.getElementById('admin-add-product-container').scrollIntoView({behavior: 'smooth'});">
+            <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-right: 0.3rem;">add</span>
+            <span>Add New Reference</span>
+          </button>
+        </div>
+
+        <!-- Section 2.1: Master Catalog Management Table -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">watch</span>
+            <span>Active Master References Table</span>
+          </h3>
+          <p class="dashboard-section-desc">Manage pricing, specifications, and decommission discontinued calibers.</p>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Reference & Details</th>
+                  <th>Retail Price</th>
+                  <th>Caliber</th>
+                  <th>Stock Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products-table-body">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 2.2: Add Product Form Card -->
+        <div id="admin-add-product-container" class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">post_add</span>
+            <span>Add New Reference to Catalog</span>
+          </h3>
+          <p class="dashboard-section-desc">Create a custom watch reference. The piece will be saved into local storage and immediately appear in the live boutique.</p>
+
+          <form id="admin-add-product-form" style="max-width: 780px;">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="new-product-name">Product Name *</label>
+                <input type="text" id="new-product-name" class="form-input" required placeholder="e.g. Zenith Tourbillon Pro">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-product-price">Price (USD) *</label>
+                <input type="number" id="new-product-price" class="form-input" required placeholder="e.g. 35000">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="new-product-collection">Collection *</label>
+                <select id="new-product-collection" class="form-select" required>
+                  <option value="limited">Limited Edition</option>
+                  <option value="dress">Classic Dress</option>
+                  <option value="sport">Sport & Chronograph</option>
+                  <option value="minimalist">Modern Minimalist</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-product-movement">Movement Type</label>
+                <input type="text" id="new-product-movement" class="form-input" placeholder="e.g. Caliber ST-05 Flying Tourbillon">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="new-product-case">Case Metallurgy</label>
+                <input type="text" id="new-product-case" class="form-input" placeholder="e.g. Grade 5 Titanium & Obsidian Bezel">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-product-strap">Strap Material</label>
+                <input type="text" id="new-product-strap" class="form-input" placeholder="e.g. Black Alligator with Deployant Clasp">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="new-product-tagline">Tagline / Brief Summary</label>
+              <input type="text" id="new-product-tagline" class="form-input" placeholder="e.g. High-Complication Skeletonized Architecture">
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--sm" style="margin-top: 0.5rem;">
+              <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-right: 0.3rem;">save</span>
+              <span>Publish Reference</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Section 2.3: Quick Stock Allocation Adjuster Matrix -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">inventory</span>
+            <span>Batch Inventory Allocation Matrix</span>
+          </h3>
+          <p class="dashboard-section-desc">Quickly adjust vault stock depth across active references.</p>
+
+          <div class="quick-stock-grid">
+            <div class="quick-stock-item">
+              <div style="display: flex; gap: 0.8rem; align-items: center;">
+                <img src="./images/chronos-type-0.webp" alt="CHRONOS TYPE-0" style="width: 42px; height: 42px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                <div>
+                  <strong>CHRONOS TYPE-0</strong>
+                  <small style="display: block; color: var(--accent-muted);">Stock: 3 pieces</small>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.4rem;">
+                <button class="stock-stepper-btn" onclick="window.CartStore?.showToast('Stock Adjusted', 'CHRONOS stock decreased to 2.');">-</button>
+                <button class="stock-stepper-btn" onclick="window.CartStore?.showToast('Stock Adjusted', 'CHRONOS stock increased to 4.');">+</button>
+              </div>
+            </div>
+
+            <div class="quick-stock-item">
+              <div style="display: flex; gap: 0.8rem; align-items: center;">
+                <img src="./images/aethelgard-classic.webp" alt="Aethelgard Classic" style="width: 42px; height: 42px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                <div>
+                  <strong>Aethelgard Classic</strong>
+                  <small style="display: block; color: var(--accent-muted);">Stock: 8 pieces</small>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.4rem;">
+                <button class="stock-stepper-btn" onclick="window.CartStore?.showToast('Stock Adjusted', 'Aethelgard stock decreased.');">-</button>
+                <button class="stock-stepper-btn" onclick="window.CartStore?.showToast('Stock Adjusted', 'Aethelgard stock increased.');">+</button>
+              </div>
+            </div>
+
+            <div class="quick-stock-item">
+              <div style="display: flex; gap: 0.8rem; align-items: center;">
+                <img src="./images/monolith-tourbillon.webp" alt="Monolith Tourbillon" style="width: 42px; height: 42px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                <div>
+                  <strong>Monolith Tourbillon</strong>
+                  <small style="display: block; color: var(--accent-muted);">Stock: 1 piece (Low)</small>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.4rem;">
+                <button class="stock-stepper-btn" onclick="window.CartStore?.showToast('Stock Adjusted', 'Monolith stock adjusted.');">-</button>
+                <button class="stock-stepper-btn" onclick="window.CartStore?.showToast('Stock Adjusted', 'Monolith stock increased.');">+</button>
+              </div>
+            </div>
+
+            <div class="quick-stock-item">
+              <div style="display: flex; gap: 0.8rem; align-items: center;">
+                <img src="./images/vanguard-chronograph.webp" alt="Vanguard Chronograph" style="width: 42px; height: 42px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border);">
+                <div>
+                  <strong>Vanguard Chronograph</strong>
+                  <small style="display: block; color: var(--accent-muted);">Stock: 6 pieces</small>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.4rem;">
+                <button class="stock-stepper-btn" onclick="window.CartStore?.showToast('Stock Adjusted', 'Vanguard stock adjusted.');">-</button>
+                <button class="stock-stepper-btn" onclick="window.CartStore?.showToast('Stock Adjusted', 'Vanguard stock increased.');">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Collections Tab -->
+      <section id="admin-tab-collections" class="dashboard-pane" aria-label="Collections">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Collections Overview & Curations</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        
+        <!-- Section 3.1: Collection Cards Overview -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">category</span>
+            <span>Active Collection Capsules</span>
+          </h3>
+          <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 1.2rem;">
+            <div class="stat-card" style="display: flex; gap: 1.2rem; align-items: center;">
+              <img src="./images/admin-capsule-1.webp" alt="Limited Editions & Tourbillons" style="width: 84px; height: 84px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); flex-shrink: 0;">
+              <div>
+                <h4>Limited Editions (Haute Complications)</h4>
+                <p style="color: var(--text-secondary); margin: 0.3rem 0 0.5rem 0; font-size: 0.85rem;">Active references include CHRONOS TYPE-0, Monolith Tourbillon, Imperium Perpetual. Strictly numbered allocations.</p>
+                <span class="badge badge--highlight">Allocation Cap: 70 Pieces Total</span>
+              </div>
+            </div>
+            <div class="stat-card" style="display: flex; gap: 1.2rem; align-items: center;">
+              <img src="./images/admin-capsule-3.webp" alt="Classic Dress Watches" style="width: 84px; height: 84px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); flex-shrink: 0;">
+              <div>
+                <h4>Classic Dress Watches</h4>
+                <p style="color: var(--text-secondary); margin: 0.3rem 0 0.5rem 0; font-size: 0.85rem;">Active references include Aethelgard Classic, Celeste Moonphase, Elysium Ultra-Thin. Grand feu dials.</p>
+                <span class="badge">Permanent Masterwork Series</span>
+              </div>
+            </div>
+            <div class="stat-card" style="display: flex; gap: 1.2rem; align-items: center;">
+              <img src="./images/admin-capsule-2.webp" alt="Sport & Chronograph" style="width: 84px; height: 84px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); flex-shrink: 0;">
+              <div>
+                <h4>Sport & Chronograph</h4>
+                <p style="color: var(--text-secondary); margin: 0.3rem 0 0.5rem 0; font-size: 0.85rem;">Active references include Vanguard Chronograph, Nautilus Diver Pro. Ceramic bezels, 300m rating.</p>
+                <span class="badge">High Performance</span>
+              </div>
+            </div>
+            <div class="stat-card" style="display: flex; gap: 1.2rem; align-items: center;">
+              <img src="./images/admin-capsule-4.webp" alt="Modern Minimalist" style="width: 84px; height: 84px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-gold); flex-shrink: 0;">
+              <div>
+                <h4>Modern Minimalist</h4>
+                <p style="color: var(--text-secondary); margin: 0.3rem 0 0.5rem 0; font-size: 0.85rem;">Active references include Solis Minimalist, Heritage Automatic. Sunburst dials & slim profiles.</p>
+                <span class="badge">Contemporary Atelier</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3.2: Collection Demand & Revenue Analytics -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">leaderboard</span>
+            <span>Collection Demand & Revenue Analytics</span>
+          </h3>
+          <p class="dashboard-section-desc">Performance matrix across all four horological lines.</p>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Collection Line</th>
+                  <th>Active References</th>
+                  <th>Acquisition Volume</th>
+                  <th>Average Waitlist</th>
+                  <th>Demand Index</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Limited Editions</strong></td>
+                  <td>3 Pieces</td>
+                  <td style="color: var(--champagne-gold);">$284,500</td>
+                  <td>14 Weeks</td>
+                  <td><span class="badge badge--highlight">Very High</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Classic Dress</strong></td>
+                  <td>3 Pieces</td>
+                  <td style="color: var(--champagne-gold);">$112,000</td>
+                  <td>3 Weeks</td>
+                  <td><span class="badge">Stable</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Sport & Chronograph</strong></td>
+                  <td>2 Pieces</td>
+                  <td style="color: var(--champagne-gold);">$68,200</td>
+                  <td>2 Weeks</td>
+                  <td><span class="badge">High</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Modern Minimalist</strong></td>
+                  <td>2 Pieces</td>
+                  <td style="color: var(--champagne-gold);">$18,200</td>
+                  <td>Immediate</td>
+                  <td><span class="badge">Moderate</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 3.3: Create New Collection Capsule Form -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">playlist_add</span>
+            <span>Curate New Collection Capsule</span>
+          </h3>
+          <p class="dashboard-section-desc">Establish a new seasonal capsule for exhibition at Geneva Watch Week.</p>
+          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Capsule Created', 'New collection capsule logged in atelier ledger.'); this.reset();">
+            <div class="form-group">
+              <label class="form-label">Capsule Title</label>
+              <input type="text" class="form-input" placeholder="e.g. Celestial Chronometry 2027" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Target Launch Season</label>
+              <select class="form-select">
+                <option>Spring 2027 (Watches & Wonders Geneva)</option>
+                <option>Autumn 2027 (Salon Belles Montres Paris)</option>
+                <option>Winter 2027 (Private Salon Degustation)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Curation Vision Statement</label>
+              <textarea class="form-textarea" rows="2" placeholder="Describe the metallurgical and horological theme..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--sm">Register Collection Capsule</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- 4. Orders Tab -->
+      <section id="admin-tab-orders" class="dashboard-pane" aria-label="Orders and Telemetry">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Orders & Transit Telemetry</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        <p style="margin-bottom: 2rem; color: var(--text-secondary);">Real-time dispatch management and transit status simulation.</p>
+
+        <!-- Section 4.1: Master Orders Table -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">local_shipping</span>
+            <span>Master Acquisition & Status Simulator Table</span>
+          </h3>
+          <p class="dashboard-section-desc">Simulate order progression by selecting a new status in the dropdown below.</p>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Order Ref</th>
+                  <th>Date</th>
+                  <th>Timepieces Acquired</th>
+                  <th>Settlement</th>
+                  <th>Status Simulator</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-table-body">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4.2: Logistics Performance Metrics -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">speed</span>
+            <span>Armored Logistics Performance Metrics</span>
+          </h3>
+          <div class="products-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1.2rem;">
+            <div class="stat-card">
+              <span class="stat-card__label">On-Time Armored Handover</span>
+              <div class="stat-card__val" style="color: #4cd964;">100.0%</div>
+              <small style="color: var(--accent-muted);">Zero incidents in 24 months</small>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__label">Average Flight Transit</span>
+              <div class="stat-card__val">18.4 Hours</div>
+              <small style="color: var(--accent-muted);">Geneva to Paris / London</small>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__label">Underwriter Risk Ratio</span>
+              <div class="stat-card__val">0.00%</div>
+              <small style="color: var(--accent-muted);">Lloyd's Specie Syndicate A++</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4.3: Manual Order Dispatch Creation -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">receipt</span>
+            <span>Manual VIP Order Allocation Dispatch</span>
+          </h3>
+          <p class="dashboard-section-desc">Issue a direct armored dispatch for an offline VIP salon acquisition.</p>
+          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Order Dispatched', 'Manual VIP order recorded and cleared for Brink’s carriage.'); this.reset();">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label">Patron Full Name</label>
+                <input type="text" class="form-input" placeholder="e.g. Duke of Cambridge" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Watch Reference</label>
+                <select class="form-select">
+                  <option>CHRONOS TYPE-0 ($48,500)</option>
+                  <option>Aethelgard Classic ($14,200)</option>
+                  <option>Imperium Perpetual ($62,000)</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--sm">Authorize Armored Dispatch</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- 5. Customers Tab -->
+      <section id="admin-tab-customers" class="dashboard-pane" aria-label="Patron Directory">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Patron Directory & VIP Estate</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+        
+        <!-- Section 5.1: Patron Directory Table -->
+        <div class="dashboard-section-block" style="margin-top: 2rem;">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">group</span>
+            <span>Authenticated Patron Ledger</span>
+          </h3>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Client Name</th>
+                  <th>Email</th>
+                  <th>Telephony</th>
+                  <th>Tier Status</th>
+                  <th>Session State</th>
+                </tr>
+              </thead>
+              <tbody id="admin-customers-table-body">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 5.2: VIP Waitlist Allocations -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">hourglass_empty</span>
+            <span>Restricted Reference Waitlist Queue</span>
+          </h3>
+          <p class="dashboard-section-desc">Patrons awaiting allocation approvals for strictly numbered releases.</p>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Patron Name</th>
+                  <th>Requested Reference</th>
+                  <th>Deposit Status</th>
+                  <th>Queue Rank</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Baroness Elena Rostova</strong></td>
+                  <td>Monolith Tourbillon #02/15</td>
+                  <td><span class="badge badge--highlight">20% Escrow Cleared</span></td>
+                  <td>Rank #1</td>
+                  <td><button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Allocation Cleared', 'Monolith allocated to Baroness Rostova.');">Grant Allocation</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Dr. Julian Vance</strong></td>
+                  <td>Imperium Perpetual #03/10</td>
+                  <td><span class="badge">Proof of Funds</span></td>
+                  <td>Rank #2</td>
+                  <td><button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Allocation Cleared', 'Imperium allocated to Dr. Vance.');">Grant Allocation</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 5.3: Concierge Outreach Composer -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">mail</span>
+            <span>Direct Concierge Dispatch Composer</span>
+          </h3>
+          <p class="dashboard-section-desc">Send confidential previews directly to authenticated collectors.</p>
+          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Dispatch Sent', 'Confidential invitation dispatched to patron.'); this.reset();">
+            <div class="form-group">
+              <label class="form-label">Target Patron</label>
+              <select class="form-select">
+                <option>Lord Sterling (client@stackly-horology.com)</option>
+                <option>Baroness Elena Rostova (e.rostova@geneva-capital.ch)</option>
+                <option>Dr. Julian Vance (jvance@london-surgery.co.uk)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Private Invitation Subject</label>
+              <input type="text" class="form-input" value="Confidential Atelier Allocation: CHRONOS TYPE-0 Final Release" required>
+            </div>
+            <button type="submit" class="btn btn--primary btn--sm">Send Encrypted Dispatch</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- 6. Inventory Tab -->
+      <section id="admin-tab-inventory" class="dashboard-pane" aria-label="Vault Inventory">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Vault Inventory Allocation</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+
+        <!-- Section 6.1: Master Vault Allocations Grid -->
+        <div class="dashboard-section-block" style="margin-top: 2rem;">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">account_balance</span>
+            <span>Global Vault Reserve Depths</span>
+          </h3>
+          <div class="products-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 1.2rem;">
+            <div class="stat-card">
+              <h4>CHRONOS TYPE-0</h4>
+              <p style="color: var(--text-secondary); margin-top: 0.5rem;">Vault Allocation: <strong>3 of 25 pieces</strong><br>Remaining release status: Strictly restricted allocation.</p>
+              <span class="badge badge--highlight">Restricted Allocation</span>
+            </div>
+            <div class="stat-card">
+              <h4>Aethelgard Classic</h4>
+              <p style="color: var(--text-secondary); margin-top: 0.5rem;">Vault Allocation: <strong>8 pieces</strong><br>Status: Ready for immediate dispatch.</p>
+              <span class="badge">Immediate Carriage</span>
+            </div>
+            <div class="stat-card">
+              <h4>Monolith Tourbillon</h4>
+              <p style="color: var(--text-secondary); margin-top: 0.5rem;">Vault Allocation: <strong>1 of 15 pieces</strong><br><span style="color: var(--champagne-gold); text-decoration: underline;">Critical Low Allocation</span></p>
+              <span class="badge badge--highlight" style="color: #ff6b6b; border-color: rgba(255, 107, 107, 0.4);">Critical Alert</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6.2: Freeport Breakdown Table -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">warehouse</span>
+            <span>Freeport Reserves Breakdown</span>
+          </h3>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Vault Location</th>
+                  <th>Security Rating</th>
+                  <th>Pieces in Custody</th>
+                  <th>Total Insured Capital</th>
+                  <th>Audit Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Geneva Freeport Atelier</strong></td>
+                  <td>Class 5 Securitas</td>
+                  <td>14 Pieces</td>
+                  <td style="color: var(--champagne-gold);">$342,000</td>
+                  <td><span class="badge badge--highlight">Certified Current</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Zurich Subterranean Vault</strong></td>
+                  <td>Swiss Armored Banking</td>
+                  <td>8 Pieces</td>
+                  <td style="color: var(--champagne-gold);">$198,500</td>
+                  <td><span class="badge badge--highlight">Certified Current</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Paris Place Vendôme Salon</strong></td>
+                  <td>Reinforced Salon Safe</td>
+                  <td>4 Pieces</td>
+                  <td style="color: var(--champagne-gold);">$89,200</td>
+                  <td><span class="badge">Daily Inspection</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 6.3: Component Supply Queue -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">precision_manufacturing</span>
+            <span>Component Supply & Atelier Fabrication Queue</span>
+          </h3>
+          <p class="dashboard-section-desc">Raw materials and movement parts currently in precision machining.</p>
+          <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="stat-card" style="padding: 1.2rem;">
+              <strong>Grade 5 Titanium Blanks</strong>
+              <small style="color: var(--accent-muted); display: block; margin-top: 0.3rem;">35 units &bull; CNC Lathe Milling in progress</small>
+            </div>
+            <div class="stat-card" style="padding: 1.2rem;">
+              <strong>Grand Feu Silver Blanks</strong>
+              <small style="color: var(--accent-muted); display: block; margin-top: 0.3rem;">20 units &bull; 800°C Oven Baking in progress</small>
+            </div>
+            <div class="stat-card" style="padding: 1.2rem;">
+              <strong>Monocrystalline Silicon Springs</strong>
+              <small style="color: var(--accent-muted); display: block; margin-top: 0.3rem;">50 units &bull; Photolithography etching complete</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Service Requests Tab -->
+      <section id="admin-tab-service" class="dashboard-pane" aria-label="Service Requests">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Atelier Maintenance Bench & Calibration</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+
+        <!-- Section 7.1: Active Bench Queue -->
+        <div class="dashboard-section-block" style="margin-top: 2rem;">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">construction</span>
+            <span>Active Bench Work Orders</span>
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+            <div style="background: var(--charcoal); border: 1px solid var(--border-gold-subtle); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <strong>Service Ticket #AT-401</strong>
+                <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">CHRONOS TYPE-0 &bull; Routine 5-Year Overhaul &bull; Watchmaker: Master Laurent</p>
+              </div>
+              <span class="status-badge status-processing">Bench In Progress</span>
+            </div>
+            <div style="background: var(--charcoal); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <strong>Service Ticket #AT-398</strong>
+                <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">Aethelgard Classic &bull; Custom Alligator Strap Sizing & Polish</p>
+              </div>
+              <span class="status-badge status-completed">Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7.2: Timegrapher Quality Control Diagnostics -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">speed</span>
+            <span>Chronometric Quality Control Matrix</span>
+          </h3>
+          <p class="dashboard-section-desc">Witschi electronic timegrapher readings across 5 operating positions.</p>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Ticket</th>
+                  <th>Reference</th>
+                  <th>Amplitude</th>
+                  <th>Beat Error</th>
+                  <th>Rate Delta</th>
+                  <th>Barometric Seal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#AT-401</strong></td>
+                  <td>CHRONOS TYPE-0</td>
+                  <td>298&deg;</td>
+                  <td>0.1 ms</td>
+                  <td>+0.2 s/d</td>
+                  <td><span class="badge badge--highlight">5 ATM Passed</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#AT-398</strong></td>
+                  <td>Aethelgard Classic</td>
+                  <td>312&deg;</td>
+                  <td>0.0 ms</td>
+                  <td>+0.4 s/d</td>
+                  <td><span class="badge badge--highlight">3 ATM Passed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 7.3: Issue New Service Work Order Form -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">post_add</span>
+            <span>Issue New Atelier Service Ticket</span>
+          </h3>
+          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Work Order Created', 'Service Ticket logged and assigned to bench.'); this.reset();">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label">Client Name</label>
+                <input type="text" class="form-input" placeholder="e.g. Lord Sterling" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Timepiece Reference</label>
+                <input type="text" class="form-input" placeholder="e.g. Ref. ST-01-T #07/25" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Intervention Class</label>
+              <select class="form-select">
+                <option>Full Mechanical Overhaul & De-Magnetization</option>
+                <option>Ultrasonic Casing & Sapphire Restoration</option>
+                <option>Strap Sizing & Deployment Clasp Replacement</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--primary btn--sm">Log Atelier Ticket</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- 8. Reports Tab -->
+      <section id="admin-tab-reports" class="dashboard-pane" aria-label="Reports">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Financial Analytics & Asset Audits</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+
+        <!-- Section 8.1: Executive Metrics -->
+        <div class="dashboard-section-block" style="margin-top: 2rem;">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">analytics</span>
+            <span>Executive Financial Performance Telemetry</span>
+          </h3>
+          <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 1.2rem;">
+            <div class="stat-card">
+              <div class="stat-card__label">Average Reference Acquisition Value</div>
+              <div class="stat-card__val">$24,145</div>
+              <small style="color: var(--accent-muted);">+8.4% vs previous demonstration period</small>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__label">Annual Gross Volume</div>
+              <div class="stat-card__val">$1,280,000</div>
+              <small style="color: var(--accent-muted);">Audited by Swiss Horological Advisory</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 8.2: Regional Market Volume Breakdown -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">pie_chart</span>
+            <span>Regional Market Volume Breakdown</span>
+          </h3>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Market Jurisdiction</th>
+                  <th>Share of Volume</th>
+                  <th>Total Dispatches</th>
+                  <th>Primary Preference</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Western Europe (Geneva / Paris / London)</strong></td>
+                  <td>45.0%</td>
+                  <td>9 Dispatches</td>
+                  <td>Flying Tourbillons & Grand Feu Dress</td>
+                </tr>
+                <tr>
+                  <td><strong>North America (New York / Miami / LA)</strong></td>
+                  <td>30.0%</td>
+                  <td>6 Dispatches</td>
+                  <td>Sport Chronographs & Dive Complications</td>
+                </tr>
+                <tr>
+                  <td><strong>Asia-Pacific (Tokyo / Singapore / Hong Kong)</strong></td>
+                  <td>20.0%</td>
+                  <td>4 Dispatches</td>
+                  <td>Ultra-Thin & Perpetual Calendars</td>
+                </tr>
+                <tr>
+                  <td><strong>Middle East (Dubai / Doha)</strong></td>
+                  <td>5.0%</td>
+                  <td>1 Dispatch</td>
+                  <td>Numbered Bespoke Commissions</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 8.3: Financial Statement Export -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">file_download</span>
+            <span>Export Audited Accounting Ledgers</span>
+          </h3>
+          <p class="dashboard-section-desc">Generate official demonstration CSV ledger or certified PDF for tax and estate accounting.</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Ledger Downloaded', 'Financial Audit Ledger (CSV) generated.');">Export CSV Ledger</button>
+            <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Report Downloaded', 'Certified Financial PDF Statement generated.');">Download PDF Summary</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Settings Tab -->
+      <section id="admin-tab-settings" class="dashboard-pane" aria-label="Settings">
+        <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Boutique & Atelier Governance Settings</h2>
+        <div class="divider-line" style="margin-left: 0;"></div>
+
+        <!-- Section 9.1: Security Protocols -->
+        <div class="dashboard-section-block" style="margin-top: 2rem;">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">gavel</span>
+            <span>Atelier Security Protocols</span>
+          </h3>
+          <div style="max-width: 600px;">
+            <label class="filter-label" style="margin-bottom: 1rem;">
+              <input type="checkbox" checked> Require two-factor authentication for armored courier dispatch.
+            </label>
+            <label class="filter-label" style="margin-bottom: 1.5rem;">
+              <input type="checkbox" checked> Auto-archive closed service tickets after 30 days.
+            </label>
+            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Settings Updated', 'Atelier security preferences recorded.');">Update Atelier Settings</button>
+          </div>
+        </div>
+
+        <!-- Section 9.2: Currency & Tax Configurations -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">monetization_on</span>
+            <span>Currency & Freeport Customs Settings</span>
+          </h3>
+          <div class="form-row-2" style="max-width: 600px;">
+            <div class="form-group">
+              <label class="form-label">Base Reporting Currency</label>
+              <select class="form-select">
+                <option selected>USD ($) — United States Dollar</option>
+                <option>CHF (CHF) — Swiss Franc</option>
+                <option>EUR (€) — Euro</option>
+                <option>GBP (£) — British Pound</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Freeport Tax Status</label>
+              <select class="form-select">
+                <option selected>Geneva Freeport (Exempt bonded warehouse)</option>
+                <option>Standard EU VAT Included</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Currency Saved', 'Atelier financial configurations updated.');">Save Financial Rules</button>
+        </div>
+
+        <!-- Section 9.3: Director Audit Trail Telemetry -->
+        <div class="dashboard-section-block">
+          <h3 class="dashboard-section-title">
+            <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">fingerprint</span>
+            <span>Director Access Audit Trail</span>
+          </h3>
+          <p class="dashboard-section-desc">Tamper-evident log of administrative sessions and stock modifications.</p>
+          <div class="dashboard-table-wrap">
+            <table class="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Session Director</th>
+                  <th>Action Log</th>
+                  <th>Security Node</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Today, 14:22</td>
+                  <td>Henri Laurent (director@stackly-horology.com)</td>
+                  <td>Status modified for Order #STK-89241 to "Insured Transit"</td>
+                  <td>Geneva Terminal #1</td>
+                </tr>
+                <tr>
+                  <td>Today, 11:05</td>
+                  <td>Henri Laurent (director@stackly-horology.com)</td>
+                  <td>Catalog reference published: CHRONOS TYPE-0</td>
+                  <td>Geneva Terminal #1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding: 2rem 0;">
+    <div class="container footer-bottom">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <span>&copy; 2026 STACKLY Horology. Atelier Administration. Demonstration Frontend.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/dashboard.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

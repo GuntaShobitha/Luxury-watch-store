@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Registration — STACKLY Luxury Watches</title>
+  <meta name="description" content="Register for a private STACKLY client account to access private allocations and digital concierge services.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-auth">
+
+  <!-- Site Header with Brand Logo Top Left & Back to Home Top Right -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container" style="justify-content: space-between;">
+      <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+        <img
+          src="./images/logo-dark.webp"
+          alt="STACKLY Luxury Watches"
+          class="nav-logo-img"
+        >
+      </a>
+
+      <div class="nav-actions">
+        <a href="./index.html" class="btn btn--outline btn--sm" aria-label="Back to Home">
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px;">arrow_back</span>
+          <span class="btn-text-responsive">Back to Home</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content (Prompt Sec 12) -->
+  <main class="auth-wrapper">
+    <div class="auth-card glass-panel" style="max-width: 560px;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="section-eyebrow">Patron Membership</span>
+        <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Create Client Account</h1>
+        <div class="divider-line"></div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary);">Join our patron society for private allocations, bespoke requests, and private concierge access.</p>
+      </div>
+
+      <form id="register-form" novalidate>
+        <div class="form-group">
+          <label for="reg-name" class="form-label">Full Legal Name *</label>
+          <input type="text" id="reg-name" class="form-input" required placeholder="Lord / Lady / Mr. / Ms. Full Name">
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="reg-email" class="form-label">Email Address *</label>
+            <input type="email" id="reg-email" class="form-input" required placeholder="client@example.com">
+          </div>
+          <div class="form-group">
+            <label for="reg-phone" class="form-label">Telephone Number *</label>
+            <input type="tel" id="reg-phone" class="form-input" required placeholder="+1 (555) 000-0000">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="reg-pass" class="form-label">Password *</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="reg-pass" class="form-input" required placeholder="Min 8 characters">
+              <button type="button" class="password-toggle-btn" data-toggle-password="reg-pass" aria-label="Toggle password visibility">
+                <span class="material-icons" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reg-confirm" class="form-label">Confirm Password *</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="reg-confirm" class="form-input" required placeholder="Re-enter password">
+              <button type="button" class="password-toggle-btn" data-toggle-password="reg-confirm" aria-label="Toggle password visibility">
+                <span class="material-icons" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="reg-role" class="form-label">Account Privilege Level</label>
+          <select id="reg-role" class="form-select">
+            <option value="user" selected>Private Collector / Client Portal</option>
+            <option value="admin">Manufacture Atelier Director / Admin</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top: 1.5rem;">
+          <label class="filter-label" style="font-size: 0.85rem;">
+            <input type="checkbox" id="reg-terms" required checked> I accept the Terms of Service & Privacy Policy.
+          </label>
+        </div>
+
+        <button type="submit" id="reg-submit-btn" class="btn btn--primary btn--lg" style="width: 100%; margin-top: 1rem;">
+          <span>Register Patron Account</span>
+          <span class="material-icons" aria-hidden="true" style="font-size: 1.1rem; margin-left: 0.4rem;">person_add</span>
+        </button>
+
+        <div id="reg-status-msg" class="auth-status-message" style="display: none; margin-top: 1rem;"></div>
+      </form>
+
+      <div style="text-align: center; margin-top: 2rem; border-top: 1px solid var(--border-gold-subtle); padding-top: 1.5rem; font-size: 0.88rem; color: var(--text-secondary);">
+        Already registered?
+        <a href="./login.html" style="color: var(--champagne-gold); font-weight: 600; text-decoration: underline; margin-left: 0.4rem;">Sign In</a>
+      </div>
+
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="./index.html" style="font-size: 0.82rem; color: var(--accent-muted); display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span class="material-icons" aria-hidden="true" style="font-size: 16px;">arrow_back</span>
+          <span>Back to Boutique Home</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding: 2rem 0;">
+    <div class="container footer-bottom">
+      <span>&copy; 2026 STACKLY Horology. Secure client registration session.</span>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./contact.html">Concierge Desk</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('register-form');
+      const submitBtn = document.getElementById('reg-submit-btn');
+      const statusMsg = document.getElementById('reg-status-msg');
+
+      // Password visibility toggles
+      document.querySelectorAll('[data-toggle-password]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.getAttribute('data-toggle-password');
+          const input = document.getElementById(targetId);
+          const icon = btn.querySelector('.material-icons');
+          if (input) {
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            if (icon) icon.textContent = isPassword ? 'visibility_off' : 'visibility';
+          }
+        });
+      });
+
+      function showError(msg) {
+        statusMsg.className = 'auth-status-message is-error';
+        statusMsg.style.display = 'flex';
+        statusMsg.innerHTML = `<span class="material-icons" aria-hidden="true" style="margin-right: 0.5rem;">error</span> ${msg}`;
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('reg-name').value.trim();
+        const email = document.getElementById('reg-email').value.trim();
+        const phone = document.getElementById('reg-phone').value.trim();
+        const pass = document.getElementById('reg-pass').value.trim();
+        const confirm = document.getElementById('reg-confirm').value.trim();
+        const role = document.getElementById('reg-role').value;
+        const terms = document.getElementById('reg-terms').checked;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[\d\+\s\(\)\-]{7,20}$/;
+
+        if (!name) {
+          showError('Please provide your full legal name.');
+          return;
+        }
+
+        if (!email || !emailRegex.test(email)) {
+          showError('Please provide a valid email address.');
+          return;
+        }
+
+        if (!phone || !phoneRegex.test(phone)) {
+          showError('Please provide a valid telephone number.');
+          return;
+        }
+
+        if (pass.length < 8) {
+          showError('Password must contain at least 8 characters.');
+          return;
+        }
+
+        if (pass !== confirm) {
+          showError('Passwords do not match. Please re-enter.');
+          return;
+        }
+
+        if (!terms) {
+          showError('Please confirm acceptance of terms.');
+          return;
+        }
+
+        // Duplicate email prevention check
+        if (window.AuthStore && typeof window.AuthStore.getUsers === 'function') {
+          const existingUsers = window.AuthStore.getUsers();
+          const emailExists = existingUsers.some(u => u.email.toLowerCase() === email.toLowerCase());
+          if (emailExists) {
+            showError('An account with this email address already exists. Please sign in instead.');
+            return;
+          }
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Creating Account...</span><span class="material-icons" aria-hidden="true" style="margin-left: 0.4rem;">hourglass_empty</span>';
+
+        setTimeout(() => {
+          if (window.AuthStore) {
+            window.AuthStore.register(name, email, pass, role, phone);
+            window.AuthStore.login(name, email, role);
+          }
+
+          statusMsg.className = 'auth-status-message is-success';
+          statusMsg.style.display = 'flex';
+          statusMsg.innerHTML = '<span class="material-icons" aria-hidden="true" style="margin-right: 0.5rem;">check_circle</span> Patron account created successfully. Entering your portal...';
+
+          setTimeout(() => {
+            if (role === 'admin') {
+              window.location.href = './admin-dashboard.html';
+            } else {
+              window.location.href = './user-dashboard.html';
+            }
+          }, 600);
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>

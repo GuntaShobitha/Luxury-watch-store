@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY Luxury Watches — A Legacy Measured in Time | Haute Horlogerie</title>
+  <meta name="description" content="Discover STACKLY Luxury Watches: Swiss-inspired haute horlogerie, skeletonized flying tourbillons, noble metallurgy, and timeless craftsmanship.">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- GSAP & ScrollTrigger for Homepage 3D Interactions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+<body class="page-home">
+
+  <!-- Complimentary Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Complimentary Service Announcement">
+    <span>Complimentary Insured Worldwide Armored Delivery on All Timepieces</span>
+    <a href="./services.html">Discover Client Services</a>
+  </aside>
+
+  <!-- Global Sticky Site Header (Prompt Sec 2 & 20) -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+        <img
+          src="./images/logo-dark.webp"
+          alt="STACKLY Luxury Watches"
+          class="nav-logo-img"
+        >
+      </a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./index.html" class="nav-link is-active">Home</a>
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./collections.html" class="nav-link">Collections</a>
+        <a href="./services.html" class="nav-link">Services</a>
+        <a href="./blog.html" class="nav-link">Journal</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-action-btn" data-open-search aria-label="Search Timepieces">
+          <span class="material-icons" aria-hidden="true">search</span>
+        </button>
+        <a href="./login.html" class="nav-action-btn header-auth-link" aria-label="Account Login or Dashboard">
+          <span class="material-icons" aria-hidden="true">person</span>
+          <span class="header-auth-text">Sign In</span>
+        </a>
+        <a href="./wishlist.html" class="nav-action-btn" aria-label="Wishlist">
+          <span class="material-icons" aria-hidden="true">favorite</span>
+          <span class="action-count-badge wishlist-count-badge">0</span>
+        </a>
+        <a href="./cart.html" class="nav-action-btn" aria-label="Shopping Bag">
+          <span class="material-icons" aria-hidden="true">shopping_bag</span>
+          <span class="action-count-badge cart-count-badge">0</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer (Prompt Sec 21) -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-gold-subtle);">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <button class="mobile-menu-close" aria-label="Close Navigation Menu">
+          <span class="material-icons" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="./index.html" class="is-active">Home</a></li>
+        <li><a href="./about.html">About STACKLY</a></li>
+        <li><a href="./collections.html">Collections</a></li>
+        <li><a href="./services.html">Boutique Services</a></li>
+        <li><a href="./blog.html">Horology Journal</a></li>
+        <li><a href="./contact.html">Concierge Desk</a></li>
+        <li><a href="./wishlist.html">Private Wishlist</a></li>
+        <li><a href="./cart.html">Shopping Bag</a></li>
+        <li><a href="./login.html">Client Portal & Login</a></li>
+      </ul>
+    </div>
+    <div class="mobile-nav-footer">
+      <small style="color: var(--text-muted); display: block; margin-bottom: 0.8rem;">Private Salon & Concierge Desk</small>
+      <a href="./login.html" class="btn btn--secondary btn--sm" style="width: 100%;">Patron Sign In</a>
+    </div>
+  </aside>
+
+  <!-- Main Content: Exactly 11 Major Sections (Prompt Sec 4) -->
+  <main id="main-content">
+
+    <!-- Section 1: Luxury Hero (Prompt Sec 4.1) -->
+    <section id="hero-section" class="hero-section" aria-label="Luxury Hero Section">
+      <div class="container hero-grid">
+        <div class="hero-content reveal-on-scroll is-revealed">
+          <div class="hero-flagship-pill glass-panel">
+            <span class="material-icons" style="font-size: 16px; color: var(--champagne-gold);" aria-hidden="true">star</span>
+            <span class="hero-flagship-pill__text">Haute Horlogerie — Caliber ST-01</span>
+          </div>
+          <h1 class="hero-title">A Legacy Measured in Time.</h1>
+          <p class="hero-subtitle">Meticulously engineered in our high-precision atelier. We combine aerospace-grade metallurgy with centuries of Swiss hand-finishing traditions to create timepieces of permanent distinction.</p>
+          <div class="hero-actions">
+            <a href="./collections.html" class="btn btn--primary btn--lg">Explore Collection</a>
+            <a href="./about.html" class="btn btn--secondary btn--lg">Discover Our Craft</a>
+          </div>
+          <div class="hero-specs-row">
+            <div class="hero-spec-item">
+              <span class="hero-spec-label">Caliber</span>
+              <span class="hero-spec-value">Flying Tourbillon ST-01</span>
+            </div>
+            <div class="hero-spec-item">
+              <span class="hero-spec-label">Metallurgy</span>
+              <span class="hero-spec-value">Grade 5 Titanium & Obsidian</span>
+            </div>
+            <div class="hero-spec-item">
+              <span class="hero-spec-label">Power Reserve</span>
+              <span class="hero-spec-value">72-Hour Twin Barrel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-3d-wrapper">
+          <div id="home-3d-canvas-container" class="home-3d-container">
+            <!-- Three.js Canvas Injected Exclusively Here -->
+          </div>
+          <div id="home-3d-fallback" class="home-3d-fallback">
+            <img src="./images/chronos-type-0.webp" alt="STACKLY Flagship Flying Tourbillon Luxury Timepiece" width="480" height="480">
+          </div>
+          <div class="home-3d-badge glass-panel">
+            <span class="material-icons" aria-hidden="true">3d_rotation</span>
+            <span>Interactive 3D Caliber</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Minimal Scroll Indicator -->
+      <a href="#featured-collections" class="hero-scroll-indicator" aria-label="Scroll to Featured Collections">
+        <span>Explore</span>
+        <div class="hero-scroll-indicator__line"></div>
+      </a>
+    </section>
+
+    <!-- Section 2: Featured Collections (Prompt Sec 4.2) -->
+    <section id="featured-collections" class="section section--alt" aria-label="Curated Featured Collections">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Haute Horlogerie Portfolio</span>
+          <h2 class="section-title">Curated Collections</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Four distinct pillars of mechanical expression, designed for connoisseurs of architectural restraint, chronometric precision, and noble craftsmanship.</p>
+        </header>
+
+        <div class="materials-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <!-- 1. Signature Collection -->
+          <article class="material-card reveal-on-scroll">
+            <div class="material-card__media">
+              <img src="./images/collection-limited.webp" alt="STACKLY Signature Collection" loading="lazy" width="400" height="260">
+            </div>
+            <div class="material-card__content">
+              <span class="badge badge--highlight" style="width: fit-content; margin-bottom: 0.6rem;">Master Complications</span>
+              <h3 class="material-card__title">Signature Collection</h3>
+              <p class="material-card__desc">Openworked flying tourbillons, perpetual calendars, and strictly limited numbered commissions in titanium and platinum.</p>
+              <a href="./collections.html?filter=limited" class="btn btn--outline btn--sm" style="margin-top: auto;">Explore Signature</a>
+            </div>
+          </article>
+
+          <!-- 2. Automatic Collection -->
+          <article class="material-card reveal-on-scroll">
+            <div class="material-card__media">
+              <img src="./images/heritage-automatic.webp" alt="STACKLY Automatic Collection" loading="lazy" width="400" height="260">
+            </div>
+            <div class="material-card__content">
+              <span class="badge badge--muted" style="width: fit-content; margin-bottom: 0.6rem;">Kinetic Winding</span>
+              <h3 class="material-card__title">Automatic Collection</h3>
+              <p class="material-card__desc">Perpetually wound by the rhythm of daily movement with heavy tungsten oscillating weights and Clous de Paris guilloché.</p>
+              <a href="./collections.html?filter=automatic" class="btn btn--outline btn--sm" style="margin-top: auto;">Explore Automatic</a>
+            </div>
+          </article>
+
+          <!-- 3. Chronograph Collection -->
+          <article class="material-card reveal-on-scroll">
+            <div class="material-card__media">
+              <img src="./images/vanguard-chronograph.webp" alt="STACKLY Chronograph Collection" loading="lazy" width="400" height="260">
+            </div>
+            <div class="material-card__content">
+              <span class="badge badge--muted" style="width: fit-content; margin-bottom: 0.6rem;">Precision Timing</span>
+              <h3 class="material-card__title">Chronograph Collection</h3>
+              <p class="material-card__desc">Integrated column-wheels and vertical clutch flybacks engineered for instantaneous tactile actuation and sportsmanship.</p>
+              <a href="./collections.html?filter=sport" class="btn btn--outline btn--sm" style="margin-top: auto;">Explore Chronographs</a>
+            </div>
+          </article>
+
+          <!-- 4. Heritage Collection -->
+          <article class="material-card reveal-on-scroll">
+            <div class="material-card__media">
+              <img src="./images/collection-classic.webp" alt="STACKLY Heritage Collection" loading="lazy" width="400" height="260">
+            </div>
+            <div class="material-card__content">
+              <span class="badge badge--muted" style="width: fit-content; margin-bottom: 0.6rem;">Timeless Dress</span>
+              <h3 class="material-card__title">Heritage Collection</h3>
+              <p class="material-card__desc">Ultra-thin manual-wind references, grand feu enamel dials, and svelte platinum silhouettes tailored for black-tie elegance.</p>
+              <a href="./collections.html?filter=dress" class="btn btn--outline btn--sm" style="margin-top: auto;">Explore Heritage</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Bestselling Timepieces (Prompt Sec 4.3) -->
+    <section id="bestsellers-section" class="section" aria-label="Bestselling Luxury Watches">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Atelier Icons</span>
+          <h2 class="section-title">Bestselling Timepieces</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Acclaimed references celebrated by international collectors for their micromechanical balance, hand-beveled anglage, and enduring aesthetics.</p>
+        </header>
+
+        <div class="products-grid">
+          <!-- 1. CHRONOS TYPE-0 -->
+          <article class="product-card reveal-on-scroll" data-product-id="chronos-type-0">
+            <span class="product-card__badge">Limited Edition</span>
+            <div class="product-card__actions">
+              <button class="product-action-btn" data-wishlist-id="chronos-type-0" aria-label="Save CHRONOS TYPE-0 to Wishlist">
+                <span class="material-icons" aria-hidden="true">favorite_border</span>
+              </button>
+              <button class="product-action-btn" data-quickview-id="chronos-type-0" aria-label="Quick View CHRONOS TYPE-0">
+                <span class="material-icons" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+            <div class="product-card__media">
+              <a href="./product.html?id=chronos-type-0" aria-label="View CHRONOS TYPE-0 details">
+                <img src="./images/chronos-type-0.webp" alt="STACKLY CHRONOS TYPE-0 Skeletonized Tourbillon" loading="lazy" width="300" height="300">
+              </a>
+            </div>
+            <div class="product-card__content">
+              <div class="product-card__variants">
+                <span class="variant-dot variant-dot--black" title="Obsidian Titanium"></span>
+                <span class="variant-dot variant-dot--gold" title="Champagne Gold Accents"></span>
+              </div>
+              <h3 class="product-card__title"><a href="./product.html?id=chronos-type-0" style="color: inherit; text-decoration: none;">CHRONOS TYPE-0</a></h3>
+              <p class="product-card__tagline">Skeletonized Flying Tourbillon in Grade 5 Titanium</p>
+              <div class="product-card__meta">
+                <span class="product-card__price">$48,500</span>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Caliber ST-01 Tourbillon</span>
+              </div>
+              <div class="product-card__footer-btns">
+                <a href="./product.html?id=chronos-type-0" class="btn btn--secondary btn--sm">View Details</a>
+                <button class="btn btn--primary btn--sm" data-add-to-bag="chronos-type-0">Shop Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Aethelgard Classic -->
+          <article class="product-card reveal-on-scroll" data-product-id="aethelgard-classic">
+            <span class="product-card__badge">Solid 950 Platinum</span>
+            <div class="product-card__actions">
+              <button class="product-action-btn" data-wishlist-id="aethelgard-classic" aria-label="Save Aethelgard Classic to Wishlist">
+                <span class="material-icons" aria-hidden="true">favorite_border</span>
+              </button>
+              <button class="product-action-btn" data-quickview-id="aethelgard-classic" aria-label="Quick View Aethelgard Classic">
+                <span class="material-icons" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+            <div class="product-card__media">
+              <a href="./product.html?id=aethelgard-classic" aria-label="View Aethelgard Classic details">
+                <img src="./images/aethelgard-classic.webp" alt="STACKLY Aethelgard Classic Grand Feu Dress Watch" loading="lazy" width="300" height="300">
+              </a>
+            </div>
+            <div class="product-card__content">
+              <div class="product-card__variants">
+                <span class="variant-dot variant-dot--silver" title="950 Platinum"></span>
+                <span class="variant-dot variant-dot--black" title="Matte Alligator"></span>
+              </div>
+              <h3 class="product-card__title"><a href="./product.html?id=aethelgard-classic" style="color: inherit; text-decoration: none;">Aethelgard Classic</a></h3>
+              <p class="product-card__tagline">Pure Sartorial Grand Feu Silver Dial</p>
+              <div class="product-card__meta">
+                <span class="product-card__price">$14,200</span>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Ultra-Thin Manual-Wind</span>
+              </div>
+              <div class="product-card__footer-btns">
+                <a href="./product.html?id=aethelgard-classic" class="btn btn--secondary btn--sm">View Details</a>
+                <button class="btn btn--primary btn--sm" data-add-to-bag="aethelgard-classic">Shop Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Vanguard Chronograph -->
+          <article class="product-card reveal-on-scroll" data-product-id="vanguard-chronograph">
+            <span class="product-card__badge">Column-Wheel Flyback</span>
+            <div class="product-card__actions">
+              <button class="product-action-btn" data-wishlist-id="vanguard-chronograph" aria-label="Save Vanguard Chronograph to Wishlist">
+                <span class="material-icons" aria-hidden="true">favorite_border</span>
+              </button>
+              <button class="product-action-btn" data-quickview-id="vanguard-chronograph" aria-label="Quick View Vanguard Chronograph">
+                <span class="material-icons" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+            <div class="product-card__media">
+              <a href="./product.html?id=vanguard-chronograph" aria-label="View Vanguard Chronograph details">
+                <img src="./images/vanguard-chronograph.webp" alt="STACKLY Vanguard Flyback Chronograph" loading="lazy" width="300" height="300">
+              </a>
+            </div>
+            <div class="product-card__content">
+              <div class="product-card__variants">
+                <span class="variant-dot variant-dot--black" title="Obsidian DLC"></span>
+                <span class="variant-dot variant-dot--silver" title="Platinum Infill"></span>
+              </div>
+              <h3 class="product-card__title"><a href="./product.html?id=vanguard-chronograph" style="color: inherit; text-decoration: none;">Vanguard Chronograph</a></h3>
+              <p class="product-card__tagline">Integrated Flyback with Ceramic Tachymeter</p>
+              <div class="product-card__meta">
+                <span class="product-card__price">$19,800</span>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Caliber ST-204 Automatic</span>
+              </div>
+              <div class="product-card__footer-btns">
+                <a href="./product.html?id=vanguard-chronograph" class="btn btn--secondary btn--sm">View Details</a>
+                <button class="btn btn--primary btn--sm" data-add-to-bag="vanguard-chronograph">Shop Now</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a href="./collections.html" class="btn btn--secondary btn--lg">
+            <span>View All Bestselling Timepieces</span>
+            <span class="material-icons" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Craftsmanship (Prompt Sec 4.4) -->
+    <section id="craftsmanship-section" class="section section--alt" aria-label="Artisanal Watchmaking Craftsmanship">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">The Anatomy of Perfection</span>
+          <h2 class="section-title">Craftsmanship Distinctions</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">The distinguishing details that define haute horlogerie: microscopic tolerances, noble metals, and hand-rubbed gentian anglage.</p>
+        </header>
+
+        <div class="why-stackly-grid">
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">tune</span>
+            </div>
+            <h3>Precision Movements</h3>
+            <p>High-beat calibers operating at 28,800 vph with paramagnetic balance springs, twin mainspring barrels, and 72-hour power reserves.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">diamond</span>
+            </div>
+            <h3>Sapphire Crystal</h3>
+            <p>Double-domed synthetic corundum sapphire with Mohs hardness 9 and multi-layer anti-reflective vapor deposition on both surfaces.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">shield</span>
+            </div>
+            <h3>Noble Metals & Ceramics</h3>
+            <p>Aerospace Grade 5 titanium billets, solid 950 platinum, and zirconium oxide ceramics sintered at 1,400°C for lifetime scratch immunity.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">style</span>
+            </div>
+            <h3>Fine Leather & Bracelets</h3>
+            <p>Hand-saddled Louisiana alligator, burnished French calfskin, and surgical steel Milanese mesh with patented micro-adjust deployant clasps.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">water_drop</span>
+            </div>
+            <h3>Hydrostatic Security</h3>
+            <p>Pressure-tested water resistance from 30 to 300 meters, reinforced by hermetic synthetic O-rings and screw-locked crowns.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">brush</span>
+            </div>
+            <h3>Hand-Finished Anglage</h3>
+            <p>Internal bridge angles beveled by hand at 45° with gentian wood pegs and diamond paste to create luminous mirror-white borders.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: New Arrivals (Prompt Sec 4.5) -->
+    <section id="new-arrivals-section" class="section" aria-label="New Watch Arrivals">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Atelier Novelties 2026</span>
+          <h2 class="section-title">New Arrivals</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Our most recently introduced references, pushing the frontiers of astrological complications, forged carbon lightness, and grand complications.</p>
+        </header>
+
+        <div class="products-grid">
+          <!-- Celeste Moonphase -->
+          <article class="product-card reveal-on-scroll" data-product-id="celeste-moonphase">
+            <span class="product-card__badge">New Arrival</span>
+            <div class="product-card__actions">
+              <button class="product-action-btn" data-wishlist-id="celeste-moonphase" aria-label="Save Celeste Moonphase to Wishlist">
+                <span class="material-icons" aria-hidden="true">favorite_border</span>
+              </button>
+              <button class="product-action-btn" data-quickview-id="celeste-moonphase" aria-label="Quick View Celeste Moonphase">
+                <span class="material-icons" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+            <div class="product-card__media">
+              <a href="./product.html?id=celeste-moonphase" aria-label="View Celeste Moonphase details">
+                <img src="./images/celeste-moonphase.webp" alt="STACKLY Celeste Moonphase Aventurine Watch" loading="lazy" width="300" height="300">
+              </a>
+            </div>
+            <div class="product-card__content">
+              <div class="product-card__variants">
+                <span class="variant-dot variant-dot--blue" title="Aventurine Blue"></span>
+                <span class="variant-dot variant-dot--gold" title="Platinum Moon Disc"></span>
+              </div>
+              <h3 class="product-card__title"><a href="./product.html?id=celeste-moonphase" style="color: inherit; text-decoration: none;">Celeste Moonphase</a></h3>
+              <p class="product-card__tagline">Aventurine Dial with 122-Year Astronomical Moonphase</p>
+              <div class="product-card__meta">
+                <span class="product-card__price">$22,000</span>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Caliber ST-505</span>
+              </div>
+              <div class="product-card__footer-btns">
+                <a href="./product.html?id=celeste-moonphase" class="btn btn--secondary btn--sm">View Details</a>
+                <button class="btn btn--primary btn--sm" data-add-to-bag="celeste-moonphase">Shop Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Monolith Tourbillon -->
+          <article class="product-card reveal-on-scroll" data-product-id="monolith-tourbillon">
+            <span class="product-card__badge">New Arrival</span>
+            <div class="product-card__actions">
+              <button class="product-action-btn" data-wishlist-id="monolith-tourbillon" aria-label="Save Monolith Tourbillon to Wishlist">
+                <span class="material-icons" aria-hidden="true">favorite_border</span>
+              </button>
+              <button class="product-action-btn" data-quickview-id="monolith-tourbillon" aria-label="Quick View Monolith Tourbillon">
+                <span class="material-icons" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+            <div class="product-card__media">
+              <a href="./product.html?id=monolith-tourbillon" aria-label="View Monolith Tourbillon details">
+                <img src="./images/monolith-tourbillon.webp" alt="STACKLY Monolith Forged Carbon Tourbillon" loading="lazy" width="300" height="300">
+              </a>
+            </div>
+            <div class="product-card__content">
+              <div class="product-card__variants">
+                <span class="variant-dot variant-dot--black" title="Forged Carbon"></span>
+              </div>
+              <h3 class="product-card__title"><a href="./product.html?id=monolith-tourbillon" style="color: inherit; text-decoration: none;">Monolith Tourbillon</a></h3>
+              <p class="product-card__tagline">Forged Carbon Chassis with 7-Day Twin-Barrel Reserve</p>
+              <div class="product-card__meta">
+                <span class="product-card__price">$54,000</span>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">168-Hour Autonomy</span>
+              </div>
+              <div class="product-card__footer-btns">
+                <a href="./product.html?id=monolith-tourbillon" class="btn btn--secondary btn--sm">View Details</a>
+                <button class="btn btn--primary btn--sm" data-add-to-bag="monolith-tourbillon">Shop Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Imperium Perpetual -->
+          <article class="product-card reveal-on-scroll" data-product-id="imperium-platinum">
+            <span class="product-card__badge">New Arrival</span>
+            <div class="product-card__actions">
+              <button class="product-action-btn" data-wishlist-id="imperium-platinum" aria-label="Save Imperium Perpetual to Wishlist">
+                <span class="material-icons" aria-hidden="true">favorite_border</span>
+              </button>
+              <button class="product-action-btn" data-quickview-id="imperium-platinum" aria-label="Quick View Imperium Perpetual">
+                <span class="material-icons" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+            <div class="product-card__media">
+              <a href="./product.html?id=imperium-platinum" aria-label="View Imperium Perpetual details">
+                <img src="./images/imperium-platinum.webp" alt="STACKLY Imperium Perpetual Calendar Platinum" loading="lazy" width="300" height="300">
+              </a>
+            </div>
+            <div class="product-card__content">
+              <div class="product-card__variants">
+                <span class="variant-dot variant-dot--silver" title="950 Solid Platinum"></span>
+                <span class="variant-dot variant-dot--gold" title="Rose Gold Rotor"></span>
+              </div>
+              <h3 class="product-card__title"><a href="./product.html?id=imperium-platinum" style="color: inherit; text-decoration: none;">Imperium Perpetual</a></h3>
+              <p class="product-card__tagline">Grand Complication Programmed Until Secular Year 2100</p>
+              <div class="product-card__meta">
+                <span class="product-card__price">$62,000</span>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">Solid 950 Platinum</span>
+              </div>
+              <div class="product-card__footer-btns">
+                <a href="./product.html?id=imperium-platinum" class="btn btn--secondary btn--sm">View Details</a>
+                <button class="btn btn--primary btn--sm" data-add-to-bag="imperium-platinum">Shop Now</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: The Art of Watchmaking (Prompt Sec 4.6) -->
+    <section id="art-of-watchmaking-section" class="section section--alt" aria-label="The Art of Watchmaking">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Atelier Philosophy</span>
+          <h2 class="section-title">The Art of Watchmaking</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">A chronicle of micromechanical engineering and ancestral discipline: from parametric 3D calculations to final chronometric certification.</p>
+        </header>
+
+        <div class="process-timeline">
+          <div class="process-step reveal-on-scroll">
+            <div class="process-step-num">01</div>
+            <div class="process-step-info">
+              <h3>Design & Micro-Architecture</h3>
+              <p>Parametric calculations establish equilibrium across the openworked caliber, balancing structural component stress with optical transparency.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal-on-scroll">
+            <div class="process-step-num">02</div>
+            <div class="process-step-info">
+              <h3>5-Axis CNC Micro-Milling</h3>
+              <p>Robotic cutters mill mainplates and bridges from raw Grade 5 titanium billets within microscopic tolerances of 2 microns.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal-on-scroll">
+            <div class="process-step-num">03</div>
+            <div class="process-step-info">
+              <h3>Hand-Anglage & Black Polish</h3>
+              <p>Artisans bevel interior angles using diamond micro-files, followed by zinc plate black-polishing that reflects light with absolute specular brilliance.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal-on-scroll">
+            <div class="process-step-num">04</div>
+            <div class="process-step-info">
+              <h3>Single-Watchmaker Assembly</h3>
+              <p>A single dedicated master watchmaker oversees the entire assembly of all 248 components, jewel pressings, and tourbillon cage balancing.</p>
+            </div>
+          </div>
+
+          <div class="process-step reveal-on-scroll">
+            <div class="process-step-num">05</div>
+            <div class="process-step-info">
+              <h3>500-Hour Chronometric Testing</h3>
+              <p>Each completed watch endures 500 hours of temperature, shock, and 6-position chronometer regulation before receiving its atelier seal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Find Your Timepiece (Prompt Sec 4.7) -->
+    <section id="find-timepiece" class="section" aria-label="Find Your Timepiece Interactive Discovery">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Interactive Atelier Finder</span>
+          <h2 class="section-title">Find Your Timepiece</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Refine our portfolio by collection, price tier, movement architecture, metallurgy, dial color, and strap material with instantaneous live results.</p>
+        </header>
+
+        <!-- Interactive Discovery Widget -->
+        <div class="find-timepiece-widget reveal-on-scroll">
+          <div class="find-filters-grid">
+            <!-- 1. Collection -->
+            <div class="find-filter-group">
+              <label for="find-collection" class="find-filter-label">Collection</label>
+              <select id="find-collection" class="find-filter-select" aria-label="Filter by collection">
+                <option value="all">All Collections</option>
+                <option value="limited">Limited Editions</option>
+                <option value="automatic">Automatic Calibers</option>
+                <option value="sport">Sport & Chronograph</option>
+                <option value="dress">Classic Dress Watches</option>
+                <option value="minimalist">Modern Minimalist</option>
+              </select>
+            </div>
+
+            <!-- 2. Price Range -->
+            <div class="find-filter-group">
+              <label for="find-price" class="find-filter-label">Price Range</label>
+              <select id="find-price" class="find-filter-select" aria-label="Filter by price range">
+                <option value="all">All Price Ranges</option>
+                <option value="under-15k">Under $15,000</option>
+                <option value="15k-30k">$15,000 – $30,000</option>
+                <option value="over-30k">$30,000 & Above</option>
+              </select>
+            </div>
+
+            <!-- 3. Movement Type -->
+            <div class="find-filter-group">
+              <label for="find-movement" class="find-filter-label">Movement Type</label>
+              <select id="find-movement" class="find-filter-select" aria-label="Filter by movement type">
+                <option value="all">All Movement Types</option>
+                <option value="tourbillon">Flying Tourbillon</option>
+                <option value="manual">Manual-Wind</option>
+                <option value="automatic">Automatic Caliber</option>
+              </select>
+            </div>
+
+            <!-- 4. Case Material -->
+            <div class="find-filter-group">
+              <label for="find-case" class="find-filter-label">Case Metallurgy</label>
+              <select id="find-case" class="find-filter-select" aria-label="Filter by case material">
+                <option value="all">All Case Materials</option>
+                <option value="titanium">Grade 5 Titanium</option>
+                <option value="platinum">950 Solid Platinum</option>
+                <option value="ceramic">Obsidian Ceramic</option>
+                <option value="steel">Architectural Steel</option>
+                <option value="carbon">Forged Carbon Fiber</option>
+              </select>
+            </div>
+
+            <!-- 5. Dial Color -->
+            <div class="find-filter-group">
+              <label for="find-dial" class="find-filter-label">Dial Palette</label>
+              <select id="find-dial" class="find-filter-select" aria-label="Filter by dial color">
+                <option value="all">All Dial Colors</option>
+                <option value="black">Obsidian Black</option>
+                <option value="silver">Grand Feu Silver</option>
+                <option value="blue">Starry Aventurine Blue</option>
+                <option value="anthracite">Anthracite Sunburst</option>
+              </select>
+            </div>
+
+            <!-- 6. Strap Type -->
+            <div class="find-filter-group">
+              <label for="find-strap" class="find-filter-label">Strap & Bracelet</label>
+              <select id="find-strap" class="find-filter-select" aria-label="Filter by strap type">
+                <option value="all">All Straps & Bracelets</option>
+                <option value="alligator">Hand-Stitched Alligator</option>
+                <option value="steel">Steel Bracelet & Mesh</option>
+                <option value="rubber">FKM Rubber / Hybrid</option>
+                <option value="suede">Italian Suede</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="find-actions-bar">
+            <span id="find-results-count" style="font-size: 0.92rem; color: var(--champagne-gold); font-weight: 500;">Loading Timepieces...</span>
+            <button id="find-reset-btn" class="btn btn--outline btn--sm" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+              <span class="material-icons" style="font-size: 16px;" aria-hidden="true">refresh</span>
+              <span>Reset Filters</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Filtered Results Grid -->
+        <div id="find-results-grid" class="products-grid">
+          <!-- Rendered dynamically by js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Why Choose STACKLY (Prompt Sec 4.8) -->
+    <section id="why-choose-section" class="section section--alt" aria-label="Why Choose STACKLY Luxury Watches">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Uncompromising Standards</span>
+          <h2 class="section-title">Why Choose STACKLY</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Our foundational commitments to horological integrity, transparent provenance, and enduring patron relationships.</p>
+        </header>
+
+        <div class="why-stackly-grid">
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">handyman</span>
+            </div>
+            <h3>Precision Craftsmanship</h3>
+            <p>Every piece is individually assembled, regulated, and verified by dedicated master watchmakers adhering to strict haute horlogerie standards.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">stars</span>
+            </div>
+            <h3>Premium Noble Materials</h3>
+            <p>From solid 950 platinum to sintered obsidian ceramic and hypoallergenic Grade 5 titanium, our constituent metals resist time itself.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">verified</span>
+            </div>
+            <h3>Rigorous Quality Assurance</h3>
+            <p>Every caliber undergoes 500 hours of multi-positional testing, shock resistance diagnostics, and thermal variation calibration before delivery.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">workspace_premium</span>
+            </div>
+            <h3>5-Year Comprehensive Warranty</h3>
+            <p>Full international coverage against manufacturing defects and timing rate deviations, supported by our permanent atelier registry.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">security</span>
+            </div>
+            <h3>Secure Checkout Design</h3>
+            <p>Discrete frontend demonstration checkout simulating armored courier coordination, encrypted communication, and confidentiality.</p>
+          </div>
+
+          <div class="why-card reveal-on-scroll">
+            <div class="why-card-icon">
+              <span class="material-icons" aria-hidden="true">support_agent</span>
+            </div>
+            <h3>Dedicated Client Support</h3>
+            <p>Personal horological concierges assist with reference selection, bespoke strap fittings, salon appointments, and lifelong care.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Brand Heritage and Statistics (Prompt Sec 4.9) -->
+    <section id="heritage-statistics-section" class="section" aria-label="Brand Heritage and Statistics">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Demonstration Horological Benchmarks</span>
+          <h2 class="section-title">Heritage & Atelier Metrics</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Quantifiable telemetry reflecting the artisanal hours, mechanical components, and chronometric rigor invested in every STACKLY reference.</p>
+        </header>
+
+        <div class="stats-banner-grid">
+          <div class="stat-counter-card reveal-on-scroll">
+            <span class="stat-counter-number" data-target="248">0</span>
+            <span class="stat-counter-label">Caliber Components</span>
+            <span class="stat-counter-sub">Milled within 2μm tolerance</span>
+          </div>
+
+          <div class="stat-counter-card reveal-on-scroll">
+            <span class="stat-counter-number" data-target="180" data-suffix="h">0</span>
+            <span class="stat-counter-label">Hand-Finishing</span>
+            <span class="stat-counter-sub">Gentian wood anglage & anglage</span>
+          </div>
+
+          <div class="stat-counter-card reveal-on-scroll">
+            <span class="stat-counter-number" data-target="500" data-suffix="h">0</span>
+            <span class="stat-counter-label">Chronometric Testing</span>
+            <span class="stat-counter-sub">6-position rate verification</span>
+          </div>
+
+          <div class="stat-counter-card reveal-on-scroll">
+            <span class="stat-counter-number" data-target="100" data-suffix="%">0</span>
+            <span class="stat-counter-label">Independent Assembly</span>
+            <span class="stat-counter-sub">Single watchmaker per caliber</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Editorial and Testimonials (Prompt Sec 4.10) -->
+    <section id="editorial-testimonials-section" class="section section--alt" aria-label="Editorial and Connoisseur Perspectives">
+      <div class="container">
+        <header class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Horological Essays & Perspectives</span>
+          <h2 class="section-title">Editorial & Patron Voices</h2>
+          <div class="divider-line"></div>
+          <p class="section-description">Explore insights from the STACKLY Journal alongside perspectives from our community of global collectors.</p>
+        </header>
+
+        <!-- Editorial Articles Row -->
+        <div class="journal-preview-grid" style="margin-bottom: 4rem;">
+          <article class="journal-card reveal-on-scroll">
+            <div class="journal-card__media">
+              <img src="./images/journal-horology.webp" alt="The Architecture of Tourbillons" loading="lazy" width="400" height="240">
+            </div>
+            <div class="journal-card__content">
+              <span class="journal-card__date">Technical Horology &bull; Autumn 2026</span>
+              <h3 class="journal-card__title">The Architecture of Flying Tourbillons</h3>
+              <p class="journal-card__excerpt">How cantilevered tourbillon carriages counteract gravitational pull while achieving optical weightlessness without an upper bridge.</p>
+              <button class="btn btn--outline btn--sm" data-read-article="tourbillons" style="margin-top: auto; width: fit-content;">Read Monograph</button>
+            </div>
+          </article>
+
+          <article class="journal-card reveal-on-scroll">
+            <div class="journal-card__media">
+              <img src="./images/journal-styling.webp" alt="Harmonizing Tailoring and Horology" loading="lazy" width="400" height="240">
+            </div>
+            <div class="journal-card__content">
+              <span class="journal-card__date">Sartorial Code &bull; Summer 2026</span>
+              <h3 class="journal-card__title">Harmonizing Bespoke Tailoring & Horology</h3>
+              <p class="journal-card__excerpt">How shirt cuff dimensions, case profiles, and alligator strap patinas interact to establish executive discretion and personal distinction.</p>
+              <button class="btn btn--outline btn--sm" data-read-article="sartorial-styling" style="margin-top: auto; width: fit-content;">Read Monograph</button>
+            </div>
+          </article>
+
+          <article class="journal-card reveal-on-scroll">
+            <div class="journal-card__media">
+              <img src="./images/services-care.webp" alt="Watch-Care Guidance" loading="lazy" width="400" height="240">
+            </div>
+            <div class="journal-card__content">
+              <span class="journal-card__date">Patron Care &bull; Year-Round</span>
+              <h3 class="journal-card__title">Essential Watch-Care & Maintenance</h3>
+              <p class="journal-card__excerpt">Expert rituals for ultrasonic cleaning, magnetic field avoidance, and five-year servicing cycles to safeguard mechanical heirloom longevity.</p>
+              <button class="btn btn--outline btn--sm" data-read-article="care-guide" style="margin-top: auto; width: fit-content;">Read Monograph</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sample Patron Testimonials -->
+        <div style="border-top: 1px solid var(--border); padding-top: 3.5rem;">
+          <header class="section-header reveal-on-scroll" style="margin-bottom: 2.5rem;">
+            <span class="section-eyebrow">Collector Dispatches (Sample Feedback)</span>
+            <h3 style="font-size: 2rem;">Patron Impressions</h3>
+          </header>
+
+          <div class="why-stackly-grid">
+            <div class="why-card reveal-on-scroll">
+              <div style="display: flex; gap: 0.3rem; color: var(--champagne-gold); margin-bottom: 1rem;">
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+              </div>
+              <p style="font-style: italic; color: var(--warm-ivory);">“The hand-anglage on the CHRONOS TYPE-0 bridges rivals the independent watchmakers of Le Brassus. The watch wears with extraordinary lightness on the wrist.”</p>
+              <small style="color: var(--champagne-gold); display: block; margin-top: 1rem; font-weight: 600;">— H. Von Richter, Zurich (Patron Allocation)</small>
+            </div>
+
+            <div class="why-card reveal-on-scroll">
+              <div style="display: flex; gap: 0.3rem; color: var(--champagne-gold); margin-bottom: 1rem;">
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+              </div>
+              <p style="font-style: italic; color: var(--warm-ivory);">“The Aethelgard Classic grand feu dial possesses a permanent milky depth that photography fails to capture. Truly an heirloom designed to outlive its owner.”</p>
+              <small style="color: var(--champagne-gold); display: block; margin-top: 1rem; font-weight: 600;">— Lady Genevieve C., London (Private Salon Patron)</small>
+            </div>
+
+            <div class="why-card reveal-on-scroll">
+              <div style="display: flex; gap: 0.3rem; color: var(--champagne-gold); margin-bottom: 1rem;">
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+                <span class="material-icons" style="font-size: 18px;" aria-hidden="true">star</span>
+              </div>
+              <p style="font-style: italic; color: var(--warm-ivory);">“From confidential concierge dialogue to white-glove delivery, the client journey was impeccable. STACKLY embodies the essence of modern luxury.”</p>
+              <small style="color: var(--champagne-gold); display: block; margin-top: 1rem; font-weight: 600;">— M. S. Al-Sabah, Dubai (Horological Connoisseur)</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: Newsletter, CTA and Footer (Prompt Sec 4.11) -->
+    <section id="cta-section" class="cta-luxury-section" aria-label="Private Commission Call to Action">
+      <div class="container cta-luxury-content reveal-on-scroll">
+        <span class="section-eyebrow">Atelier Commissions & Allocations</span>
+        <h2 class="section-title">Your Next Chapter Begins with Time.</h2>
+        <div class="divider-line"></div>
+        <p style="font-size: 1.15rem; max-width: 620px; margin: 0 auto 2.5rem auto; color: var(--text-secondary);">Experience the full collection online or schedule a confidential salon viewing with our private horological concierge desk.</p>
+        <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
+          <a href="./collections.html" class="btn btn--primary btn--lg">Explore Full Collection</a>
+          <a href="./contact.html" class="btn btn--secondary btn--lg">Contact Private Concierge</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer (Prompt Sec 2, 4.11, 18, 19) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <!-- 1. Brand Column -->
+      <div class="footer-brand-col">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+          >
+        </a>
+        <p class="footer-brand-desc" style="margin-top: 1.2rem;">A Swiss-inspired luxury horology boutique dedicated to micro-mechanical precision, skeletonized tourbillons, and timeless design.</p>
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <a href="./404.html" class="btn-icon" aria-label="Visit our Global Salon Portal (404 demonstration)">
+            <span class="material-icons" aria-hidden="true">public</span>
+          </a>
+          <a href="./404.html" class="btn-icon" aria-label="Share Monograph Channel (404 demonstration)">
+            <span class="material-icons" aria-hidden="true">share</span>
+          </a>
+          <a href="./404.html" class="btn-icon" aria-label="Atelier Dispatch Broadcast (404 demonstration)">
+            <span class="material-icons" aria-hidden="true">podcasts</span>
+          </a>
+          <a href="./404.html" class="btn-icon" aria-label="Horology Forum (404 demonstration)">
+            <span class="material-icons" aria-hidden="true">forum</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Product Categories -->
+      <div>
+        <h4 class="footer-col-title">Master Collections</h4>
+        <ul class="footer-links-list">
+          <li><a href="./collections.html?filter=limited">Signature Tourbillons</a></li>
+          <li><a href="./collections.html?filter=automatic">Automatic Calibers</a></li>
+          <li><a href="./collections.html?filter=sport">Vanguard Chronographs</a></li>
+          <li><a href="./collections.html?filter=dress">Classic Dress Platinum</a></li>
+          <li><a href="./collections.html?filter=minimalist">Solis Minimalist</a></li>
+          <li><a href="./product.html?id=chronos-type-0">Flagship CHRONOS TYPE-0</a></li>
+        </ul>
+      </div>
+
+      <!-- 3. Customer Care & Company Links -->
+      <div>
+        <h4 class="footer-col-title">Concierge & Policies</h4>
+        <ul class="footer-links-list">
+          <li><a href="./about.html">About STACKLY Atelier</a></li>
+          <li><a href="./services.html">Boutique Services & Care</a></li>
+          <li><a href="./blog.html">Horology Journal</a></li>
+          <li><a href="./contact.html">Concierge Inquiries</a></li>
+          <li><a href="./services.html#warranty">5-Year Warranty Terms</a></li>
+          <li><a href="./user-dashboard.html">Client Portal & Tracking</a></li>
+        </ul>
+      </div>
+
+      <!-- 4. Newsletter Subscription Form (Prompt Sec 4.11) -->
+      <div>
+        <h4 class="footer-col-title">Private Dispatch</h4>
+        <p class="footer-newsletter-text">Receive confidential invitations to preview limited edition references and atelier salon appointments.</p>
+        <form class="footer-newsletter-form newsletter-form" aria-label="Newsletter Subscription">
+          <div class="newsletter-input-group">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address for private newsletter">
+          </div>
+          <button type="submit" class="btn btn--secondary btn--sm">Subscribe</button>
+          <div class="newsletter-feedback" aria-live="polite"></div>
+        </form>
+        <small style="color: var(--text-muted); display: block; margin-top: 0.8rem;">Demonstration input. Validated in client session without backend storage.</small>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>&copy; 2026 STACKLY Luxury Watches. All rights reserved. Time, Crafted to Last.</span>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./about.html">Terms of Service</a>
+        <a href="./contact.html">Atelier Locators</a>
+        <a href="./404.html">Security Ledger</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search Timepieces Modal">
+    <div class="search-modal-container">
+      <div class="search-input-wrap">
+        <input type="text" id="search-modal-input" class="search-input" placeholder="Search by reference, caliber, metal, or collection..." autocomplete="off">
+        <button class="search-close-btn" data-close-search aria-label="Close Search">
+          <span class="material-icons" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <div id="search-modal-results"></div>
+    </div>
+  </div>
+
+  <!-- Shared Application Scripts (Vanilla JS only) -->
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+  <!-- Homepage 3D Tourbillon Script (Loaded exclusively on index.html) -->
+  <script type="module" src="./js/home-3d.js"></script>
+</body>
+</html>

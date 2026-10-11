@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Bag — STACKLY Luxury Watches</title>
+  <meta name="description" content="Review your selected timepieces in the STACKLY private shopping bag before white-glove checkout.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-cart">
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Complimentary Service Announcement">
+    <span>Complimentary Insured Worldwide White-Glove Delivery on All Timepieces</span>
+    <a href="./services.html">Learn More</a>
+  </aside>
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+        <img
+          src="./images/logo-dark.webp"
+          alt="STACKLY Luxury Watches"
+          class="nav-logo-img"
+        >
+      </a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="./index.html" class="nav-link">Home</a>
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./collections.html" class="nav-link">Collections</a>
+        <a href="./services.html" class="nav-link">Services</a>
+        <a href="./blog.html" class="nav-link">Journal</a>
+        <a href="./contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-action-btn" data-open-search aria-label="Search Timepieces">
+          <span class="material-icons" aria-hidden="true">search</span>
+        </button>
+        <a href="./login.html" class="nav-action-btn header-auth-link" aria-label="Account Login or Dashboard">
+          <span class="material-icons" aria-hidden="true">person</span>
+          <span class="header-auth-text">Sign In</span>
+        </a>
+        <a href="./wishlist.html" class="nav-action-btn" aria-label="Wishlist">
+          <span class="material-icons" aria-hidden="true">favorite_border</span>
+          <span class="action-count-badge wishlist-count-badge">0</span>
+        </a>
+        <a href="./cart.html" class="nav-action-btn is-active" aria-label="Shopping Bag">
+          <span class="material-icons" aria-hidden="true">shopping_bag</span>
+          <span class="action-count-badge cart-count-badge">0</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border-gold-subtle); margin-bottom: 1.5rem;">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <button class="mobile-menu-close" aria-label="Close Navigation Menu">
+          <span class="material-icons" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collections.html">Collections</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="./blog.html">Journal</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./wishlist.html">Wishlist</a></li>
+        <li><a href="./cart.html">Shopping Bag</a></li>
+        <li><a href="./login.html">Account & Dashboard</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Cart Hero Section -->
+    <section class="page-hero" aria-label="Shopping Bag Hero">
+      <div class="container reveal-on-scroll is-revealed">
+        <span class="section-eyebrow">Private Acquisition</span>
+        <h1>Your Shopping Bag</h1>
+        <div class="divider-line"></div>
+        <p class="section-description">Complimentary insured white-glove armored delivery worldwide with permanent lifetime authenticity certification.</p>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top: 3.5rem; padding-bottom: 6rem;">
+
+      <!-- Cart Layout -->
+      <div id="cart-content-wrapper">
+        <div class="cart-layout">
+          
+          <!-- Items Table -->
+          <div class="glass-panel" style="padding: 1.5rem; overflow-x: auto;">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th>Timepiece</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cart-items-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Order Summary Card -->
+          <aside class="order-summary-card glass-panel" style="padding: 2rem;">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem;">Order Summary</h3>
+            
+            <div class="summary-row">
+              <span style="color: var(--text-secondary);">Subtotal</span>
+              <span id="summary-subtotal" style="font-weight: 600;">$0</span>
+            </div>
+
+            <div class="summary-row">
+              <span style="color: var(--text-secondary);">Insured Global Shipping</span>
+              <span style="color: var(--white); font-weight: 500;">Complimentary</span>
+            </div>
+
+            <div id="promo-row" class="summary-row" style="display: none;">
+              <span style="color: var(--white);">Patron Privilege (10%)</span>
+              <span id="summary-discount" style="color: var(--white);">-$0</span>
+            </div>
+
+            <!-- Promo Code Input -->
+            <div style="margin: 1.5rem 0;">
+              <div style="display: flex; gap: 0.5rem;">
+                <input type="text" id="promo-input" class="form-input" placeholder="Privilege Code (try STACKLY10)" style="padding: 0.6rem 0.8rem; font-size: 0.85rem;">
+                <button id="apply-promo-btn" class="btn btn--secondary btn--sm">Apply</button>
+              </div>
+              <small id="promo-feedback" style="display: block; margin-top: 4px; font-size: 0.75rem;"></small>
+            </div>
+
+            <div class="summary-row summary-row--total">
+              <span>Estimated Total</span>
+              <span id="summary-total">$0</span>
+            </div>
+
+            <p style="font-size: 0.75rem; color: var(--accent-muted); text-align: center; margin-top: 1rem;">Frontend demonstration. No live charges or server processing.</p>
+
+            <a href="./checkout.html" id="proceed-checkout-btn" class="btn btn--primary" style="width: 100%; margin-top: 1rem;">
+              <span>Proceed to White-Glove Checkout</span>
+              <span class="material-icons" aria-hidden="true" style="margin-left: 0.4rem;">arrow_forward</span>
+            </a>
+
+            <div style="margin-top: 1.5rem; text-align: center;">
+              <a href="./collections.html" class="collection-card__link" style="font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <span class="material-icons" aria-hidden="true" style="font-size: 16px;">arrow_back</span>
+                <span>Continue Exploring Watches</span>
+              </a>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+
+      <!-- Empty Cart State -->
+      <div id="cart-empty-state" class="glass-panel" style="display: none; text-align: center; padding: 6rem 2rem;">
+        <span class="material-icons" style="font-size: 56px; color: var(--gold-glow); margin-bottom: 1rem;" aria-hidden="true">shopping_bag</span>
+        <h2>Your Shopping Bag Is Empty</h2>
+        <p style="max-width: 500px; margin: 1rem auto 2rem auto; color: var(--text-secondary);">You have not yet added any fine timepieces to your selection. Discover our collections to begin your acquisition.</p>
+        <a href="./collections.html" class="btn btn--primary btn--lg">Explore Collections</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+          >
+        </a>
+        <p style="margin-top: 1rem;">A contemporary luxury horology boutique dedicated to micro-mechanical precision and enduring aesthetic distinction.</p>
+        <div class="footer-social-links" style="display: flex; gap: 1rem; margin-top: 1.2rem;">
+          <a href="./404.html" aria-label="STACKLY on Instagram" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">photo_camera</span></a>
+          <a href="./404.html" aria-label="STACKLY on YouTube" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">smart_display</span></a>
+          <a href="./404.html" aria-label="STACKLY on LinkedIn" style="color: var(--gold-subtle);"><span class="material-icons" aria-hidden="true">business</span></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Explore</h4>
+        <ul class="footer-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About STACKLY</a></li>
+          <li><a href="./collections.html">All Collections</a></li>
+          <li><a href="./services.html">Care & Services</a></li>
+          <li><a href="./blog.html">Horology Journal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="./contact.html">Concierge Contact</a></li>
+          <li><a href="./services.html#shipping">Insured Delivery</a></li>
+          <li><a href="./services.html#warranty">5-Year Warranty</a></li>
+          <li><a href="./services.html#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Private Account</h4>
+        <ul class="footer-links">
+          <li><a href="./login.html">Client Sign In</a></li>
+          <li><a href="./register.html">Create Account</a></li>
+          <li><a href="./wishlist.html">Saved Timepieces</a></li>
+          <li><a href="./cart.html">Shopping Bag</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Private Dispatch</h4>
+        <form class="newsletter-form">
+          <div class="newsletter-input-group">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email address for private newsletter">
+          </div>
+          <button type="submit" class="btn btn--secondary btn--sm">Subscribe</button>
+          <div class="newsletter-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>&copy; 2026 STACKLY Horology. All rights reserved. Time, Crafted to Last.</span>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./about.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal Overlay -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search Timepieces Modal">
+    <div class="search-modal-content">
+      <button class="search-close-btn" data-close-search aria-label="Close Search">&times;</button>
+      <div class="search-input-wrap">
+        <input type="text" id="search-modal-input" class="search-modal-input" placeholder="Search by name, caliber, or collection..." autocomplete="off">
+      </div>
+      <div id="search-modal-results"></div>
+    </div>
+  </div>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/main.js"></script>
+
+  <!-- Cart Page Dynamic Interaction Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tableBody = document.getElementById('cart-items-body');
+      const cartWrapper = document.getElementById('cart-content-wrapper');
+      const emptyState = document.getElementById('cart-empty-state');
+
+      const subtotalEl = document.getElementById('summary-subtotal');
+      const totalEl = document.getElementById('summary-total');
+      const promoRow = document.getElementById('promo-row');
+      const discountEl = document.getElementById('summary-discount');
+      const promoInput = document.getElementById('promo-input');
+      const applyPromoBtn = document.getElementById('apply-promo-btn');
+      const promoFeedback = document.getElementById('promo-feedback');
+
+      function renderCart() {
+        const cart = window.CartStore.getCart();
+
+        if (cart.length === 0) {
+          cartWrapper.style.display = 'none';
+          emptyState.style.display = 'block';
+          return;
+        }
+
+        cartWrapper.style.display = 'block';
+        emptyState.style.display = 'none';
+
+        tableBody.innerHTML = cart.map(item => {
+          const p = window.getProductById(item.id);
+          if (!p) return '';
+          const lineTotal = p.price * item.quantity;
+          return `
+            <tr>
+              <td>
+                <div class="cart-product-cell">
+                  <img src="${p.image}" alt="${p.name}" class="cart-product-thumb">
+                  <div>
+                    <h4 style="font-size: 1.15rem; margin-bottom: 0.2rem;"><a href="./product.html?id=${p.id}">${p.name}</a></h4>
+                    <span style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase;">${p.collectionName}</span>
+                  </div>
+                </div>
+              </td>
+              <td>${p.formattedPrice}</td>
+              <td>
+                <div class="quantity-control">
+                  <button class="quantity-btn btn-qty-minus" data-id="${p.id}" aria-label="Decrease quantity">&minus;</button>
+                  <span class="quantity-input" style="display: inline-flex; align-items: center; justify-content: center;">${item.quantity}</span>
+                  <button class="quantity-btn btn-qty-plus" data-id="${p.id}" aria-label="Increase quantity">&plus;</button>
+                </div>
+              </td>
+              <td style="font-weight: 600; font-family: var(--font-serif); font-size: 1.15rem;">$${lineTotal.toLocaleString()}</td>
+              <td>
+                <button class="btn-icon-subtle btn-cart-remove" data-id="${p.id}" title="Remove item" aria-label="Remove ${p.name}">
+                  <span class="material-icons" aria-hidden="true">delete</span>
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+
+        // Update Summary
+        const totals = window.CartStore.getTotals();
+        subtotalEl.textContent = `$${totals.subtotal.toLocaleString()}`;
+        totalEl.textContent = `$${totals.total.toLocaleString()}`;
+
+        if (totals.discount > 0) {
+          promoRow.style.display = 'flex';
+          discountEl.textContent = `-$${totals.discount.toLocaleString()}`;
+        } else {
+          promoRow.style.display = 'none';
+        }
+
+        // Attach buttons
+        tableBody.querySelectorAll('.btn-qty-minus').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            window.CartStore.updateQuantity(id, -1);
+            renderCart();
+          });
+        });
+
+        tableBody.querySelectorAll('.btn-qty-plus').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            window.CartStore.updateQuantity(id, 1);
+            renderCart();
+          });
+        });
+
+        tableBody.querySelectorAll('.btn-cart-remove').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            window.CartStore.removeFromCart(id);
+            renderCart();
+          });
+        });
+      }
+
+      // Promo code handler
+      applyPromoBtn.addEventListener('click', () => {
+        const code = promoInput.value.trim().toUpperCase();
+        if (code === 'STACKLY10') {
+          sessionStorage.setItem('stacklyPromo', 'STACKLY10');
+          promoFeedback.style.color = 'var(--white)';
+          promoFeedback.textContent = '10% Patron Privilege Applied.';
+          renderCart();
+        } else {
+          promoFeedback.style.color = '#e57373';
+          promoFeedback.textContent = 'Invalid or expired privilege code.';
+        }
+      });
+
+      renderCart();
+      window.addEventListener('stackly:cart-updated', renderCart);
+    });
+  </script>
+</body>
+</html>

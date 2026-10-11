@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>White-Glove Checkout — STACKLY Luxury Watches</title>
+  <meta name="description" content="Secure frontend demonstration checkout for STACKLY luxury timepieces.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-checkout">
+
+  <!-- Sticky Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+        <img
+          src="./images/logo-dark.webp"
+          alt="STACKLY Luxury Watches"
+          class="nav-logo-img"
+        >
+      </a>
+
+      <div class="checkout-security-badge" style="font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem;">
+        <span class="material-icons" aria-hidden="true" style="font-size: 18px; color: var(--champagne-gold);">lock</span>
+        <span>Secure Demonstration Checkout</span>
+      </div>
+
+      <div class="nav-actions">
+        <a href="./cart.html" class="nav-action-btn" aria-label="Return to Shopping Bag">
+          <span class="material-icons" aria-hidden="true">shopping_bag</span>
+          <span class="action-count-badge cart-count-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Checkout Hero Section -->
+    <section class="page-hero" aria-label="Checkout Hero">
+      <div class="container reveal-on-scroll is-revealed">
+        <span class="section-eyebrow">Secure Handover Protocol</span>
+        <h1>Armored Settlement & Dispatch</h1>
+        <div class="divider-line"></div>
+        <p class="section-description">Confidential white-glove courier custody, Lloyd's of London insured carriage, and tamper-evident delivery verification.</p>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top: 3.5rem; padding-bottom: 6rem;">
+      
+      <div class="glass-panel" style="padding: 1rem 1.5rem; margin-bottom: 2.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+        <strong style="color: var(--white);">Demonstration Notice:</strong> This is an interactive frontend luxury demonstration. No real financial credentials or banking details are collected or processed.
+      </div>
+
+      <div class="checkout-grid">
+        
+        <!-- Left: Form Fields -->
+        <div>
+          <form id="checkout-form" novalidate>
+            
+            <!-- 1. Contact Information -->
+            <section class="glass-panel" style="padding: 2.2rem; margin-bottom: 2rem;">
+              <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">1. Contact Information</h2>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="checkout-name" class="form-label">Full Name *</label>
+                  <input type="text" id="checkout-name" class="form-input" required placeholder="Lord / Lady / Mr. / Ms. Full Name">
+                </div>
+                <div class="form-group">
+                  <label for="checkout-email" class="form-label">Email Address *</label>
+                  <input type="email" id="checkout-email" class="form-input" required placeholder="client@example.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="checkout-phone" class="form-label">Telephone for Courier Coordination *</label>
+                <input type="tel" id="checkout-phone" class="form-input" required placeholder="+1 (555) 000-0000">
+              </div>
+            </section>
+
+            <!-- 2. Shipping Address -->
+            <section class="glass-panel" style="padding: 2.2rem; margin-bottom: 2rem;">
+              <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">2. Shipping Destination</h2>
+              <div class="form-group">
+                <label for="checkout-address" class="form-label">Street Address *</label>
+                <input type="text" id="checkout-address" class="form-input" required placeholder="Private Residence or Office Building">
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="checkout-city" class="form-label">City *</label>
+                  <input type="text" id="checkout-city" class="form-input" required placeholder="Paris / London / New York">
+                </div>
+                <div class="form-group">
+                  <label for="checkout-postal" class="form-label">Postal / Zip Code *</label>
+                  <input type="text" id="checkout-postal" class="form-input" required placeholder="10001">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="checkout-country" class="form-label">Country / Region *</label>
+                <select id="checkout-country" class="form-select" required>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="France">France</option>
+                  <option value="Monaco">Monaco</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Singapore">Singapore</option>
+                </select>
+              </div>
+            </section>
+
+            <!-- 3. Delivery Method -->
+            <section class="glass-panel" style="padding: 2.2rem; margin-bottom: 2rem;">
+              <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">3. Armored Transit Method</h2>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <label class="filter-label" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--white); padding: 1rem; border-radius: var(--radius-sm);">
+                  <input type="radio" name="delivery-method" value="white-glove" checked>
+                  <div>
+                    <strong style="color: var(--white);">White-Glove Armored Courier (Complimentary)</strong>
+                    <p style="font-size: 0.8rem; margin: 0; color: var(--text-secondary);">Dedicated armored security transit with discrete signature handover (2-4 business days).</p>
+                  </div>
+                </label>
+                <label class="filter-label" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); padding: 1rem; border-radius: var(--radius-sm);">
+                  <input type="radio" name="delivery-method" value="salon-pickup">
+                  <div>
+                    <strong style="color: var(--white);">Private Salon Collection (Paris or Geneva)</strong>
+                    <p style="font-size: 0.8rem; margin: 0; color: var(--text-secondary);">Personalized concierge reception and custom sizing fitting at our boutique gallery.</p>
+                  </div>
+                </label>
+              </div>
+            </section>
+
+            <!-- 4. Payment Demonstration -->
+            <section class="glass-panel" style="padding: 2.2rem;">
+              <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">4. Settlement Demonstration</h2>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Simulated Demonstration Mode. No real credit card or bank credentials will be stored.</p>
+              
+              <div class="form-group">
+                <label class="form-label">Demonstration Settlement Option</label>
+                <select class="form-select" id="checkout-payment-type">
+                  <option value="wire">Tier-1 International Bank Wire Demonstration</option>
+                  <option value="card">Private Concierge Client Card Demonstration</option>
+                  <option value="escrow">Institutional Escrow Settlement Demonstration</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Demonstration Reference Code</label>
+                <input type="text" class="form-input" value="DEMO-AUTH-VERIFIED-982" readonly>
+              </div>
+            </section>
+
+            <button type="submit" class="btn btn--primary btn--lg" style="width: 100%; margin-top: 2rem;">
+              <span>Confirm Demonstration Acquisition</span>
+              <span class="material-icons" aria-hidden="true" style="margin-left: 0.4rem;">verified</span>
+            </button>
+            <div id="checkout-form-error" style="color: #e57373; text-align: center; margin-top: 0.8rem; display: none;">Please complete all required fields marked with an asterisk (*).</div>
+          </form>
+        </div>
+
+        <!-- Right: Order Summary -->
+        <div>
+          <aside class="order-summary-card glass-panel" style="position: sticky; top: 100px; padding: 2rem;">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem;">Acquisition Summary</h3>
+            <div id="checkout-items-list" style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; max-height: 280px; overflow-y: auto;">
+              <!-- Populated by JS -->
+            </div>
+
+            <div class="summary-row">
+              <span style="color: var(--text-secondary);">Subtotal</span>
+              <span id="checkout-subtotal">$0</span>
+            </div>
+
+            <div class="summary-row">
+              <span style="color: var(--text-secondary);">Insured Armored Transit</span>
+              <span style="color: var(--white); font-weight: 500;">Complimentary</span>
+            </div>
+
+            <div id="checkout-discount-row" class="summary-row" style="display: none;">
+              <span style="color: var(--white);">Patron Privilege (10%)</span>
+              <span id="checkout-discount" style="color: var(--white);">-$0</span>
+            </div>
+
+            <div class="summary-row summary-row--total">
+              <span>Total Settlement</span>
+              <span id="checkout-total">$0</span>
+            </div>
+
+            <div style="margin-top: 2rem; border-top: 1px solid var(--border-gold-subtle); padding-top: 1.2rem; font-size: 0.78rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="material-icons" style="font-size: 16px; color: var(--champagne-gold);" aria-hidden="true">shield</span>
+                <span>Protected by STACKLY 5-Year International Warranty</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="material-icons" style="font-size: 16px; color: var(--champagne-gold);" aria-hidden="true">lock</span>
+                <span>End-to-End Encrypted Concierge Coordination</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Confirmation Modal Overlay -->
+  <div id="confirmation-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Order Confirmation">
+    <div class="glass-panel" style="max-width: 580px; width: 100%; padding: 3rem 2.5rem; text-align: center; margin: auto;">
+      <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border-gold-subtle); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
+        <span class="material-icons" style="font-size: 36px; color: var(--champagne-gold);" aria-hidden="true">check</span>
+      </div>
+      <span class="section-eyebrow">Demonstration Confirmed</span>
+      <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Acquisition Logged</h2>
+      <p style="color: var(--champagne-gold); font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 1.5rem;">Demonstration Order #<span id="confirmed-order-id">STK-00000</span></p>
+      
+      <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text-secondary);">Thank you for testing the STACKLY luxury horology frontend demonstration. Your order has been registered in the local demonstration database and your shopping bag has been cleared.</p>
+      
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-gold-subtle); padding: 1.2rem; border-radius: var(--radius-sm); font-size: 0.85rem; margin-bottom: 2rem; text-align: left;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+          <span style="color: var(--text-secondary);">Courier:</span>
+          <span>White-Glove Armored Handover</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-secondary);">Status:</span>
+          <span class="status-badge status-insured-transit">Insured Transit</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="./user-dashboard.html" class="btn btn--primary">View in Dashboard</a>
+        <a href="./index.html" class="btn btn--secondary">Return to Boutique</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-bottom">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
+          <img
+            src="./images/logo-dark.webp"
+            alt="STACKLY Luxury Watches"
+            class="nav-logo-img"
+            style="height: 28px;"
+          >
+        </a>
+        <span>&copy; 2026 STACKLY Horology. All rights reserved. Time, Crafted to Last.</span>
+      </div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="./about.html">Privacy Policy</a>
+        <a href="./about.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/products.js"></script>
+  <script src="./js/cart.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/dashboard.js"></script>
+  <script src="./js/main.js"></script>
+
+  <!-- Checkout Logic Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const itemsList = document.getElementById('checkout-items-list');
+      const subtotalEl = document.getElementById('checkout-subtotal');
+      const totalEl = document.getElementById('checkout-total');
+      const discountRow = document.getElementById('checkout-discount-row');
+      const discountEl = document.getElementById('checkout-discount');
+
+      const form = document.getElementById('checkout-form');
+      const formError = document.getElementById('checkout-form-error');
+      const modal = document.getElementById('confirmation-modal');
+      const confirmedIdEl = document.getElementById('confirmed-order-id');
+
+      const cart = window.CartStore.getCart();
+
+      // If cart is empty, redirect to collections
+      if (cart.length === 0) {
+        itemsList.innerHTML = `<p style="color: var(--accent-muted);">No items in bag. Redirecting to collections...</p>`;
+        setTimeout(() => { window.location.href = './collections.html'; }, 1500);
+        return;
+      }
+
+      // Populate Items
+      itemsList.innerHTML = cart.map(item => {
+        const p = window.getProductById(item.id);
+        if (!p) return '';
+        return `
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); padding-bottom: 0.8rem;">
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+              <img src="${p.image}" alt="${p.name}" style="width: 50px; height: 50px; object-fit: contain; background: #141414; padding: 4px; border: 1px solid var(--secondary-border); border-radius: var(--radius-sm);">
+              <div>
+                <strong style="font-size: 0.9rem; display: block;">${p.name}</strong>
+                <small style="color: var(--accent-faint);">Qty: ${item.quantity}</small>
+              </div>
+            </div>
+            <span style="font-family: var(--font-serif); font-size: 1.05rem;">$${(p.price * item.quantity).toLocaleString()}</span>
+          </div>
+        `;
+      }).join('');
+
+      // Populate Totals
+      const totals = window.CartStore.getTotals();
+      subtotalEl.textContent = `$${totals.subtotal.toLocaleString()}`;
+      totalEl.textContent = `$${totals.total.toLocaleString()}`;
+
+      if (totals.discount > 0) {
+        discountRow.style.display = 'flex';
+        discountEl.textContent = `-$${totals.discount.toLocaleString()}`;
+      }
+
+      // Pre-fill user profile if logged in
+      const currentUser = window.AuthStore.getUser();
+      if (currentUser) {
+        document.getElementById('checkout-name').value = currentUser.name;
+        document.getElementById('checkout-email').value = currentUser.email;
+      }
+
+      // Handle Submit
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('checkout-name').value.trim();
+        const email = document.getElementById('checkout-email').value.trim();
+        const phone = document.getElementById('checkout-phone').value.trim();
+        const address = document.getElementById('checkout-address').value.trim();
+        const city = document.getElementById('checkout-city').value.trim();
+        const postal = document.getElementById('checkout-postal').value.trim();
+
+        if (!name || !email || !phone || !address || !city || !postal) {
+          formError.style.display = 'block';
+          return;
+        }
+
+        formError.style.display = 'none';
+
+        // Generate Order ID
+        const orderId = `STK-${Math.floor(10000 + Math.random() * 90000)}`;
+
+        // Build Order Record for Dashboard
+        const orderRecord = {
+          id: orderId,
+          date: new Date().toISOString().split('T')[0],
+          items: cart.map(i => {
+            const prod = window.getProductById(i.id);
+            return { id: i.id, name: prod.name, price: prod.price, quantity: i.quantity };
+          }),
+          total: totals.total,
+          status: 'Insured Transit',
+          tracking: `FEDEX-ARMOURED-${Math.floor(100000 + Math.random() * 900000)}`,
+          deliveryMethod: 'White-Glove Armored Courier',
+          shippingAddress: `${address}, ${city}, ${postal}`
+        };
+
+        // Save Order to LocalStorage
+        window.DashboardManager.addOrder(orderRecord);
+
+        // Clear Cart
+        window.CartStore.saveCart([]);
+
+        // Show Confirmation Modal
+        confirmedIdEl.textContent = orderId;
+        modal.classList.add('is-active');
+      });
+    });
+  </script>
+</body>
+</html>
