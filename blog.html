@@ -29,28 +29,28 @@
       <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
         <a href="./index.html" class="nav-link">Home</a>
         <a href="./about.html" class="nav-link">About</a>
-        <a href="./collections.html" class="nav-link">Collections</a>
+        <!-- <a href="./collections.html" class="nav-link">Collections</a> -->
         <a href="./services.html" class="nav-link">Services</a>
-        <a href="./blog.html" class="nav-link is-active">Journal</a>
+        <a href="./blog.html" class="nav-link is-active" >Blog</a>
         <a href="./contact.html" class="nav-link">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="nav-action-btn" data-open-search aria-label="Search Timepieces">
+        <!-- <button class="nav-action-btn" data-open-search aria-label="Search Timepieces">
           <span class="material-icons" aria-hidden="true">search</span>
-        </button>
+        </button> -->
         <a href="./login.html" class="nav-action-btn header-auth-link" aria-label="Account Login or Dashboard">
           <span class="material-icons" aria-hidden="true">person</span>
           <span class="header-auth-text">Sign In</span>
         </a>
-        <a href="./wishlist.html" class="nav-action-btn" aria-label="Wishlist">
-          <span class="material-icons" aria-hidden="true">favorite_border</span>
+        <!-- <a href="./wishlist.html" class="nav-action-btn" aria-label="Wishlist">
+          <span class="material-icons" aria-hidden="true">favorite</span>
           <span class="action-count-badge wishlist-count-badge">0</span>
-        </a>
-        <a href="./cart.html" class="nav-action-btn" aria-label="Shopping Bag">
+        </a> -->
+        <!-- <a href="./cart.html" class="nav-action-btn" aria-label="Shopping Bag">
           <span class="material-icons" aria-hidden="true">shopping_bag</span>
           <span class="action-count-badge cart-count-badge">0</span>
-        </a>
+        </a> -->
         <button class="mobile-menu-toggle" aria-label="Open Mobile Menu" aria-expanded="false">
           <span class="material-icons" aria-hidden="true">menu</span>
         </button>
@@ -58,11 +58,11 @@
     </div>
   </header>
 
-  <!-- Mobile Nav Drawer -->
+  <!-- Mobile Navigation Drawer (Prompt Sec 21) -->
   <div class="mobile-nav-backdrop"></div>
   <aside class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
     <div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border-gold-subtle); margin-bottom: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-gold-subtle);">
         <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
           <img
             src="./images/logo-dark.webp"
@@ -78,18 +78,19 @@
       <ul class="mobile-nav-links">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./about.html">About</a></li>
-        <li><a href="./collections.html">Collections</a></li>
-        <li><a href="./services.html">Services</a></li>
-        <li><a href="./blog.html">Journal</a></li>
+        <!-- <li><a href="./collections.html">Collections</a></li> -->
+        <li><a href="./services.html" >Services</a></li>
+        <li><a href="./blog.html" class="is-active">blog</a></li>
         <li><a href="./contact.html">Contact</a></li>
-        <li><a href="./wishlist.html">Wishlist</a></li>
-        <li><a href="./cart.html">Shopping Bag</a></li>
-        <li><a href="./login.html">Account & Dashboard</a></li>
+        <!-- <li><a href="./wishlist.html">Private Wishlist</a></li> -->
+        <!-- <li><a href="./cart.html">Shopping Bag</a></li> -->
+        <li><a href="./login.html">Client Portal & Login</a></li>
       </ul>
     </div>
-    <div class="mobile-nav-footer">
-      <small style="color: var(--white-50);">Boutique Concierge & Horology Journal</small>
-    </div>
+    <!-- <div class="mobile-nav-footer">
+      <small style="color: var(--text-muted); display: block; margin-bottom: 0.8rem;">Private Salon & Concierge Desk</small>
+      <a href="./login.html" class="btn btn--secondary btn--sm" style="width: 100%;">Patron Sign In</a>
+    </div> -->
   </aside>
 
   <!-- Main Content: Exactly 9 Content Categories & Sections (Prompt Sec 10) -->
