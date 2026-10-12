@@ -50,10 +50,11 @@
 
   <!-- Dashboard Main Layout (Prompt Sec 13) -->
   <main class="dashboard-layout">
+    <div class="dashboard-backdrop" id="dashboard-backdrop" aria-hidden="true"></div>
     
     <!-- Sidebar Navigation (Responsive) -->
     <aside class="dashboard-sidebar" aria-label="Dashboard Sidebar Navigation">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-gold-subtle);">
+      <div class="dashboard-sidebar-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-gold-subtle);">
         <a href="index.html" class="nav-logo" aria-label="STACKLY Luxury Watches home">
           <img
             src="./images/logo-dark.webp"
@@ -336,7 +337,7 @@
           </h3>
           <p class="dashboard-section-desc">Our protocol mandates armed courier custody, tamper-evident GPS satellite seals, and insured Lloyd's of London carriage.</p>
           
-          <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="dashboard-grid-3">
             <div class="stat-card">
               <span class="stat-card__label">Security Partner</span>
               <div style="font-size: 1.15rem; color: var(--white); margin: 0.3rem 0;">Brink’s Global Secure</div>
@@ -385,7 +386,7 @@
             <span>Saved Timepiece References</span>
           </h3>
           <p class="dashboard-section-desc">Explore your curated selection with instantaneous boutique bag transfer.</p>
-          <div id="dashboard-wishlist-grid" class="products-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div id="dashboard-wishlist-grid" class="dashboard-grid-2">
             <!-- Rendered by JS -->
           </div>
         </div>
@@ -397,7 +398,7 @@
             <span>Restricted Allocation Watcher</span>
           </h3>
           <p class="dashboard-section-desc">Subscribe to priority allocation alerts when numbered limited series become available through salon resale or vault cancellations.</p>
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+          <div class="dashboard-grid-2">
             <div style="background: var(--charcoal); padding: 1.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
               <h4 style="margin: 0 0 0.4rem 0;">Monolith Tourbillon (Ref. ST-092)</h4>
               <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Limited to 15 pieces globally. Twin-barrel 7-day reserve.</p>
@@ -476,7 +477,7 @@
           </h3>
           <p class="dashboard-section-desc">Your verified tier status grants private salon hospitality and exclusive manufacture allocations.</p>
 
-          <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="dashboard-grid-3">
             <div class="stat-card">
               <h4>Private Salons</h4>
               <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.4rem;">Unrestricted appointments at Place Vendôme & Rue du Rhône ateliers with champagne hospitality.</p>
@@ -530,7 +531,7 @@
             <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">home</span>
             <span>Registered Delivery Addresses</span>
           </h3>
-          <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 1.2rem;">
+          <div class="dashboard-grid-2" style="margin-top: 1.2rem;">
             <div class="stat-card">
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="badge badge--highlight">Primary Residence</span>
@@ -601,7 +602,7 @@
           </h3>
           <p class="dashboard-section-desc">Prefer in-person collection? Pick up directly in any of our private international salons with champagne service.</p>
 
-          <div class="products-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="dashboard-grid-4">
             <div class="stat-card" style="padding: 1.2rem;">
               <strong>Geneva Atelier</strong>
               <small style="color: var(--accent-muted); display: block; margin-top: 0.3rem;">Rue du Rhône 45, 1204 Geneva</small>
@@ -879,6 +880,15 @@
           </div>
         </div>
       </section>
+
+      <!-- Integrated Content Footer -->
+      <footer class="dashboard-inner-footer">
+        <div>&copy; 2026 STACKLY Horology. Client Provenance & Salon Portal.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="./about.html">Privacy Policy</a>
+          <a href="./contact.html">Concierge Desk</a>
+        </div>
+      </footer>
 
     </div>
   </main>

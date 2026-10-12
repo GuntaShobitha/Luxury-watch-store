@@ -50,10 +50,38 @@ const DashboardManager = {
     localStorage.setItem('stacklyOrders', JSON.stringify(orders));
   },
 
-  // Initialize Tab Switcher
+  // Initialize Tab Switcher & Mobile Drawer
   initTabs() {
     const navItems = document.querySelectorAll('[data-dashboard-tab]');
     const tabPanes = document.querySelectorAll('.dashboard-pane');
+    const contentArea = document.querySelector('.dashboard-content-area');
+    const sidebar = document.querySelector('.dashboard-sidebar');
+
+    // Ensure Drawer Backdrop exists
+    let backdrop = document.querySelector('.dashboard-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.className = 'dashboard-backdrop';
+      backdrop.setAttribute('aria-hidden', 'true');
+      const layout = document.querySelector('.dashboard-layout');
+      if (layout) {
+        layout.insertBefore(backdrop, layout.firstChild);
+      } else {
+        document.body.appendChild(backdrop);
+      }
+    }
+
+    const closeMobileSidebar = () => {
+      if (sidebar) sidebar.classList.remove('is-mobile-open');
+      if (backdrop) backdrop.classList.remove('is-active');
+      document.body.classList.remove('menu-open');
+    };
+
+    const openMobileSidebar = () => {
+      if (sidebar) sidebar.classList.add('is-mobile-open');
+      if (backdrop) backdrop.classList.add('is-active');
+      document.body.classList.add('menu-open');
+    };
 
     navItems.forEach(item => {
       item.addEventListener('click', (e) => {
@@ -67,40 +95,85 @@ const DashboardManager = {
         const targetPane = document.getElementById(targetId);
         if (targetPane) {
           targetPane.classList.add('is-active');
+          if (contentArea) {
+            contentArea.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+          if (targetId === 'admin-tab-overview' && typeof this.renderAdminCanvasChart === 'function') {
+            setTimeout(() => this.renderAdminCanvasChart(), 50);
+          }
         }
 
         // Close mobile drawer if open
-        const sidebar = document.querySelector('.dashboard-sidebar');
-        if (sidebar && window.innerWidth <= 1024) {
-          sidebar.classList.remove('is-mobile-open');
-          document.body.classList.remove('menu-open');
+        if (window.innerWidth <= 1024) {
+          closeMobileSidebar();
         }
       });
     });
 
     // Mobile sidebar toggle
     const toggleBtn = document.querySelector('.dashboard-menu-toggle');
-    const sidebar = document.querySelector('.dashboard-sidebar');
     if (toggleBtn && sidebar) {
       toggleBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const isOpen = sidebar.classList.toggle('is-mobile-open');
-        if (isOpen) {
-          document.body.classList.add('menu-open');
+        if (sidebar.classList.contains('is-mobile-open')) {
+          closeMobileSidebar();
         } else {
-          document.body.classList.remove('menu-open');
+          openMobileSidebar();
         }
       });
     }
 
-    // Sidebar close button
+    // Sidebar close buttons
     document.querySelectorAll('.dashboard-sidebar-close').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        if (sidebar) sidebar.classList.remove('is-mobile-open');
-        document.body.classList.remove('menu-open');
+        closeMobileSidebar();
       });
     });
+
+    // Backdrop click closes drawer
+    if (backdrop) {
+      backdrop.addEventListener('click', closeMobileSidebar);
+    }
+
+    // Escape key closes drawer
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sidebar && sidebar.classList.contains('is-mobile-open')) {
+        closeMobileSidebar();
+      }
+    });
+
+    // Setup independent scroll containment
+    this.initScrollIsolation();
+  },
+
+  // Isolate mouse wheel events on desktop so side nav and body never cross-scroll
+  initScrollIsolation() {
+    const sidebar = document.querySelector('.dashboard-sidebar');
+    const contentArea = document.querySelector('.dashboard-content-area');
+
+    const isolateElement = (el) => {
+      if (!el) return;
+      el.addEventListener('wheel', (e) => {
+        if (window.innerWidth <= 1024) return;
+        const delta = e.deltaY;
+        const up = delta < 0;
+        const scrollHeight = el.scrollHeight;
+        const clientHeight = el.clientHeight;
+        const scrollTop = el.scrollTop;
+
+        if (!up && delta > scrollHeight - clientHeight - scrollTop) {
+          el.scrollTop = scrollHeight;
+          e.preventDefault();
+        } else if (up && -delta > scrollTop) {
+          el.scrollTop = 0;
+          e.preventDefault();
+        }
+      }, { passive: false });
+    };
+
+    isolateElement(sidebar);
+    isolateElement(contentArea);
   },
 
   // Render User Dashboard
@@ -249,6 +322,28 @@ const DashboardManager = {
         </div>
       `;
     }).join('');
+
+    // Attach Wishlist Actions
+    container.querySelectorAll('[data-add-to-bag]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const prodId = btn.getAttribute('data-add-to-bag');
+        if (window.CartStore) {
+          window.CartStore.addItem(prodId, 1);
+        }
+      });
+    });
+
+    container.querySelectorAll('[data-wishlist-id]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const prodId = btn.getAttribute('data-wishlist-id');
+        if (window.CartStore) {
+          window.CartStore.removeFromWishlist(prodId);
+          this.renderUserWishlist();
+        }
+      });
+    });
   },
 
   // Render Native Canvas KPI Chart
@@ -258,15 +353,17 @@ const DashboardManager = {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set high-DPI scaling
+    // Set high-DPI scaling with safe fallback
     const rect = canvas.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = rect.width * dpr;
-    canvas.height = 220 * dpr;
+    const containerW = canvas.parentElement ? canvas.parentElement.clientWidth : 600;
+    const width = rect.width > 50 ? rect.width : (containerW || 600);
+    const height = 220;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
     ctx.scale(dpr, dpr);
 
-    const width = rect.width;
-    const height = 220;
     const padding = { top: 20, right: 30, bottom: 40, left: 60 };
 
     ctx.clearRect(0, 0, width, height);
