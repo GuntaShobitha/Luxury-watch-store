@@ -655,7 +655,7 @@ function renderWatchCardHtml(p) {
       <div class="product-card__content">
         <div class="product-card__variants">${variantsHtml}</div>
         <h3 class="product-card__title">
-          <a href="./product.html?id=${p.id}" style="color: inherit; text-decoration: none;">${p.name}</a>
+          <a href="./404.html" style="color: inherit; text-decoration: none;">${p.name}</a>
         </h3>
         <p class="product-card__tagline">${p.tagline || ''}</p>
         <div class="product-card__meta">
@@ -663,8 +663,8 @@ function renderWatchCardHtml(p) {
           <span style="font-size: 0.78rem; color: var(--text-muted);">${p.movementType || 'Mechanical'}</span>
         </div>
         <div class="product-card__footer-btns">
-          <a href="./product.html?id=${p.id}" class="btn btn--secondary btn--sm">View Details</a>
-          <button class="btn btn--primary btn--sm" data-add-to-bag="${p.id}">Shop Now</button>
+          <a href="./404.html" class="btn btn--secondary btn--sm">View Details</a>
+          <button class="btn btn--primary btn--sm" onclick="window.location.href='./404.html'">Shop Now</button>
         </div>
       </div>
     </article>
@@ -1052,3 +1052,54 @@ function initArticleReaderModal() {
 if (typeof window !== 'undefined') {
   window.renderWatchCardHtml = renderWatchCardHtml;
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const newsletterForms = document.querySelectorAll(".newsletter-form");
+
+  newsletterForms.forEach(function (form) {
+    const emailInput = form.querySelector(".newsletter-input");
+    const feedback = form.querySelector(".newsletter-feedback");
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email = emailInput.value.trim();
+
+      // Clear previous messages
+      feedback.textContent = "";
+      feedback.style.color = "";
+
+      // Check empty email
+      if (email === "") {
+        feedback.textContent = "Please enter your email address.";
+        feedback.style.color = "red";
+        emailInput.focus();
+        return;
+      }
+
+      // Validate email format
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        feedback.textContent = "Please enter a valid email address.";
+        feedback.style.color = "red";
+        emailInput.focus();
+        return;
+      }
+
+      // Success message
+      feedback.textContent = "Thank you! You have subscribed successfully.";
+      feedback.style.color = "green";
+
+      form.reset();
+    });
+
+    // Clear feedback when the user starts typing
+    emailInput.addEventListener("input", function () {
+      feedback.textContent = "";
+    });
+  });
+});

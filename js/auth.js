@@ -4,22 +4,22 @@
  * profile synchronization, and session protection.
  */
 
-const DEFAULT_DEMO_ACCOUNTS = [
-  {
-    name: 'Lord Sterling',
-    email: 'client@stackly-horology.com',
-    phone: '+1 (555) 234-5678',
-    password: 'Monochrome2026!',
-    role: 'user'
-  },
-  {
-    name: 'Boutique Director',
-    email: 'director@stackly-horology.com',
-    phone: '+41 22 819 9000',
-    password: 'Atelier2026!',
-    role: 'admin'
-  }
-];
+// const DEFAULT_DEMO_ACCOUNTS = [
+//   {
+//     name: 'Lord Sterling',
+//     email: 'client@stackly-horology.com',
+//     phone: '+1 (555) 234-5678',
+//     password: 'Monochrome2026!',
+//     role: 'user'
+//   },
+//   {
+//     name: 'Boutique Director',
+//     email: 'director@stackly-horology.com',
+//     phone: '+41 22 819 9000',
+//     password: 'Atelier2026!',
+//     role: 'admin'
+//   }
+// ];
 
 const AuthStore = {
   getUsers() {

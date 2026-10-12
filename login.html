@@ -51,13 +51,13 @@
       <form id="login-form" novalidate>
         <div class="form-group">
           <label for="login-email" class="form-label">Email Address *</label>
-          <input type="email" id="login-email" class="form-input" required value="client@stackly-horology.com" placeholder="client@stackly-horology.com">
+          <input type="email" id="login-email" class="form-input" required value="" placeholder="client@stackly-horology.com">
         </div>
 
         <div class="form-group">
           <label for="login-password" class="form-label">Password *</label>
           <div class="password-input-wrapper">
-            <input type="password" id="login-password" class="form-input" required value="Patron2026!" placeholder="Enter your password">
+            <input type="password" id="login-password" class="form-input" required value="" placeholder="Enter your password">
             <button type="button" class="password-toggle-btn" data-toggle-password="login-password" aria-label="Toggle password visibility">
               <span class="material-icons" aria-hidden="true">visibility</span>
             </button>
@@ -119,13 +119,15 @@
 
       // Pre-fill demo credentials on role change
       roleSelect.addEventListener('change', () => {
-        if (roleSelect.value === 'admin') {
-          emailInput.value = 'director@stackly-horology.com';
-          passInput.value = 'Manufacture2026!';
-        } else {
-          emailInput.value = 'client@stackly-horology.com';
-          passInput.value = 'Patron2026!';
-        }
+        // if (roleSelect.value === 'admin') {
+        //   emailInput.value = 'director@stackly-horology.com';
+        //   passInput.value = 'Manufacture2026!';
+        // } else {
+        //   emailInput.value = 'client@stackly-horology.com';
+        //   passInput.value = 'Patron2026!';
+        // }
+  console.log("This is shobz");
+        
       });
 
       // Password toggle
