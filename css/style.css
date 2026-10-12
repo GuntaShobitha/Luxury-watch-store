@@ -3765,6 +3765,173 @@ body.page-admin-dashboard .dashboard-hero-banner {
   }
 }
 
+/* ==========================================================================
+   HAUTE HORLOGERIE SECTION SCROLL ANIMATIONS
+   Triggers every time section/element appears in viewport
+   ========================================================================== */
+.reveal-on-scroll,
+.section-animate {
+  opacity: 0;
+  transform: translateY(32px);
+  filter: blur(2px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-on-scroll.is-revealed,
+.section-animate.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Section Header Specific Animations */
+.section-animate .section-header .section-eyebrow,
+.reveal-on-scroll .section-eyebrow {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-animate.is-revealed .section-header .section-eyebrow,
+.reveal-on-scroll.is-revealed .section-eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.section-animate .section-header .section-title,
+.reveal-on-scroll .section-title {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-animate.is-revealed .section-header .section-title,
+.reveal-on-scroll.is-revealed .section-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.18s;
+}
+
+.section-animate .divider-line,
+.reveal-on-scroll .divider-line {
+  width: 0;
+  transition: width 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-animate.is-revealed .divider-line,
+.reveal-on-scroll.is-revealed .divider-line {
+  width: 48px;
+  transition-delay: 0.28s;
+}
+
+/* Staggered Cards & Elements within Sections */
+.materials-grid > *,
+.why-stackly-grid > *,
+.innovation-grid > *,
+.journal-preview-grid > *,
+.brand-timeline .timeline-item,
+.featured-collection-grid > *,
+.hero-specs-row > .hero-spec-item,
+.guarantee-grid > .guarantee-item,
+.cover-story-grid > *,
+.cover-story-metrics > .metric-item,
+.editorial-gallery-grid > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.is-revealed .materials-grid > *:nth-child(1),
+.is-revealed .why-stackly-grid > *:nth-child(1),
+.is-revealed .innovation-grid > *:nth-child(1),
+.is-revealed .journal-preview-grid > *:nth-child(1),
+.is-revealed .brand-timeline .timeline-item:nth-child(1),
+.is-revealed .featured-collection-grid > *:nth-child(1),
+.is-revealed .hero-specs-row > .hero-spec-item:nth-child(1),
+.is-revealed .guarantee-grid > .guarantee-item:nth-child(1),
+.is-revealed .cover-story-grid > *:nth-child(1),
+.is-revealed .cover-story-metrics > .metric-item:nth-child(1),
+.is-revealed .editorial-gallery-grid > *:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.is-revealed .materials-grid > *:nth-child(2),
+.is-revealed .why-stackly-grid > *:nth-child(2),
+.is-revealed .innovation-grid > *:nth-child(2),
+.is-revealed .journal-preview-grid > *:nth-child(2),
+.is-revealed .brand-timeline .timeline-item:nth-child(2),
+.is-revealed .featured-collection-grid > *:nth-child(2),
+.is-revealed .hero-specs-row > .hero-spec-item:nth-child(2),
+.is-revealed .guarantee-grid > .guarantee-item:nth-child(2),
+.is-revealed .cover-story-grid > *:nth-child(2),
+.is-revealed .cover-story-metrics > .metric-item:nth-child(2),
+.is-revealed .editorial-gallery-grid > *:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.22s;
+}
+
+.is-revealed .materials-grid > *:nth-child(3),
+.is-revealed .why-stackly-grid > *:nth-child(3),
+.is-revealed .innovation-grid > *:nth-child(3),
+.is-revealed .journal-preview-grid > *:nth-child(3),
+.is-revealed .brand-timeline .timeline-item:nth-child(3),
+.is-revealed .featured-collection-grid > *:nth-child(3),
+.is-revealed .hero-specs-row > .hero-spec-item:nth-child(3),
+.is-revealed .guarantee-grid > .guarantee-item:nth-child(3),
+.is-revealed .cover-story-grid > *:nth-child(3),
+.is-revealed .cover-story-metrics > .metric-item:nth-child(3),
+.is-revealed .editorial-gallery-grid > *:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.34s;
+}
+
+.is-revealed .materials-grid > *:nth-child(4),
+.is-revealed .why-stackly-grid > *:nth-child(4),
+.is-revealed .innovation-grid > *:nth-child(4),
+.is-revealed .journal-preview-grid > *:nth-child(4),
+.is-revealed .brand-timeline .timeline-item:nth-child(4),
+.is-revealed .featured-collection-grid > *:nth-child(4),
+.is-revealed .guarantee-grid > .guarantee-item:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.46s;
+}
+
+/* Subtle image scale reveal inside sections */
+.brand-intro-image-wrap img,
+.featured-watch-media img,
+.cover-story-media img {
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s ease;
+  will-change: transform;
+}
+
+.section-animate:not(.is-revealed) .brand-intro-image-wrap img,
+.section-animate:not(.is-revealed) .featured-watch-media img,
+.section-animate:not(.is-revealed) .cover-story-media img,
+.reveal-on-scroll:not(.is-revealed) img {
+  transform: scale(0.96);
+}
+
+.section-animate.is-revealed .brand-intro-image-wrap img,
+.section-animate.is-revealed .featured-watch-media img,
+.section-animate.is-revealed .cover-story-media img,
+.reveal-on-scroll.is-revealed img {
+  transform: scale(1);
+}
+
 /* Reduced Motion Support (Prompt Section 19 & 24) */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -3772,5 +3939,17 @@ body.page-admin-dashboard .dashboard-hero-banner {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll,
+  .section-animate,
+  .materials-grid > *,
+  .why-stackly-grid > *,
+  .innovation-grid > *,
+  .journal-preview-grid > *,
+  .brand-timeline .timeline-item {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
   }
 }

@@ -264,26 +264,70 @@ function initAccordions() {
   });
 }
 
-// 6. Section Scroll Reveals with IntersectionObserver
+// 6. Section Scroll Reveals with IntersectionObserver (Triggers every time section appears)
 function initScrollReveals() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
+    document.querySelectorAll('.reveal-on-scroll, .section-animate, section, .page-hero').forEach(el => {
+      el.classList.add('is-revealed');
+    });
     return;
   }
 
-  const observer = new IntersectionObserver((entries, obs) => {
+  // Select all sections and key content blocks across Home, About, Contact, Services, Blog
+  const selectors = [
+    'section.section',
+    'section.page-hero',
+    'section.hero-section',
+    'section.cta-luxury-section',
+    'section.journal-cover-story-section',
+    '.reveal-on-scroll',
+    '.section-header',
+    '.brand-intro-grid',
+    '.why-stackly-grid',
+    '.materials-grid',
+    '.featured-watch-editorial',
+    '.brand-timeline',
+    '.innovation-grid',
+    '.faq-container',
+    '.cover-story-grid',
+    '.journal-preview-grid',
+    '.guarantee-grid',
+    '.hero-content'
+  ];
+
+  const elementsToObserve = document.querySelectorAll(selectors.join(', '));
+  if (!elementsToObserve.length) return;
+
+  // Add base animation class and check initial viewport intersection
+  elementsToObserve.forEach(el => {
+    if (!el.classList.contains('reveal-on-scroll') && !el.classList.contains('section-animate')) {
+      el.classList.add('section-animate');
+    }
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('is-revealed');
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // Section is appearing in viewport -> play animation
         entry.target.classList.add('is-revealed');
-        obs.unobserve(entry.target);
+      } else {
+        // Section has left the viewport -> reset so it animates every time it appears
+        const rect = entry.boundingClientRect;
+        if (rect.top > window.innerHeight || rect.bottom < 0) {
+          entry.target.classList.remove('is-revealed');
+        }
       }
     });
   }, {
     rootMargin: '0px 0px -40px 0px',
-    threshold: 0.1
+    threshold: 0.08
   });
 
-  document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+  elementsToObserve.forEach(el => {
     observer.observe(el);
   });
 }
