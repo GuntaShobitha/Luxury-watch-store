@@ -6,6 +6,19 @@
   <title>Client Portal & Dashboard — STACKLY Luxury Watches</title>
   <meta name="description" content="Manage your STACKLY acquisitions, private wishlist, and atelier service requests.">
   <link rel="stylesheet" href="./css/style.css">
+  <style>
+      .error-message {
+    display: block;
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .form-input.invalid,
+  .form-select.invalid {
+    border: 1px solid #dc2626;
+  }
+  </style>
 </head>
 <body class="page-user-dashboard">
 
@@ -238,7 +251,7 @@
               </div>
               <div style="border-top: 1px solid var(--border); padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
                 <span style="font-size: 0.78rem; color: var(--accent-muted);">Insured: $48,500</span>
-                <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Generated', 'Digital Certificate of Authenticity #STK-07-25 downloaded.');">Download Certificate</button>
+                <button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">Download Certificate</button>
               </div>
             </div>
 
@@ -258,7 +271,7 @@
               </div>
               <div style="border-top: 1px solid var(--border); padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
                 <span style="font-size: 0.78rem; color: var(--accent-muted);">Insured: $14,200</span>
-                <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Generated', 'Digital Certificate of Authenticity #STK-142-G downloaded.');">Download Certificate</button>
+                <button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">Download Certificate</button>
               </div>
             </div>
 
@@ -278,7 +291,7 @@
               </div>
               <div style="border-top: 1px solid var(--border); padding-top: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
                 <span style="font-size: 0.78rem; color: var(--accent-muted);">Insured: $19,800</span>
-                <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Generated', 'Digital Certificate of Authenticity #STK-89-V downloaded.');">Download Certificate</button>
+                <button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">Download Certificate</button>
               </div>
             </div>
           </div>
@@ -290,7 +303,7 @@
             <h4 style="font-size: 1.25rem; color: var(--white); margin-bottom: 0.4rem;">Dedicated Private Concierge</h4>
             <p style="margin: 0; color: var(--text-secondary);">Monsieur Laurent Vaneau is assigned as your personal horological advisor for bespoke commissions and salon tastings.</p>
           </div>
-          <a href="./contact.html" class="btn btn--secondary btn--sm">Connect Directly</a>
+          <a href="./404.html" class="btn btn--secondary btn--sm">Connect Directly</a>
         </div>
       </section>
 
@@ -305,7 +318,7 @@
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; flex-wrap: wrap; gap: 1rem;">
             <h3 class="dashboard-section-title" style="margin: 0;">Official Acquisition Ledger</h3>
             <div style="display: flex; gap: 0.8rem;">
-              <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Ledger Exported', 'Certified PDF acquisition ledger downloaded.');">
+              <button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">
                 <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-right: 0.3rem;">download</span>
                 <span>Export Tax Ledger</span>
               </button>
@@ -369,7 +382,7 @@
               <strong style="color: var(--champagne-gold); font-size: 1.1rem;">Total Certified Estate Valuation: $62,700</strong>
               <p style="margin: 0.2rem 0 0 0; font-size: 0.85rem; color: var(--text-secondary);">Independent appraisal estimates secondary replacement value at $78,400 (+25.0%).</p>
             </div>
-            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Request Logged', 'Atelier Director will contact you with complimentary portfolio appraisal.');">Request Valuation Consultation</button>
+            <button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Request Valuation Consultation</button>
           </div>
         </div>
       </section>
@@ -403,12 +416,12 @@
             <div style="background: var(--charcoal); padding: 1.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
               <h4 style="margin: 0 0 0.4rem 0;">Monolith Tourbillon (Ref. ST-092)</h4>
               <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Limited to 15 pieces globally. Twin-barrel 7-day reserve.</p>
-              <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Waitlist Joined', 'You are position #2 on the Monolith allocation list.');">Join Private Waitlist</button>
+              <button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">Join Private Waitlist</button>
             </div>
             <div style="background: var(--charcoal); padding: 1.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border);">
               <h4 style="margin: 0 0 0.4rem 0;">Imperium Perpetual (Ref. ST-880)</h4>
               <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">950 Solid Platinum grand complication programmed to year 2100.</p>
-              <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Waitlist Joined', 'You are position #1 on the Imperium allocation list.');">Join Private Waitlist</button>
+              <button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">Join Private Waitlist</button>
             </div>
           </div>
         </div>
@@ -420,21 +433,50 @@
             <span>Bespoke Caseback Engraving Studio</span>
           </h3>
           <p class="dashboard-section-desc">Pre-configure hand-cut monograms, family crests, or dedication dates for your future acquisitions.</p>
-          <div style="max-width: 600px;">
-            <div class="form-group">
-              <label class="form-label">Patron Initials / Monogram Text</label>
-              <input type="text" class="form-input" placeholder="e.g. S.L. &bull; MMXXVI" maxlength="20">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Engraving Style</label>
-              <select class="form-select">
-                <option>Traditional English Serif Roman</option>
-                <option>Atelier Script Cursive</option>
-                <option>Architectural Modernist Sans</option>
-              </select>
-            </div>
-            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Engraving Saved', 'Your bespoke monogram configuration has been saved to your profile.');">Save Engraving Preference</button>
-          </div>
+          
+<!-- <div id="engravingForm" style="max-width: 600px;">
+  <div class="form-group">
+    <label class="form-label" for="patronMonogram">
+      Patron Initials / Monogram Text
+    </label>
+    <input
+      type="text"
+      id="patronMonogram"
+      class="form-input"
+      placeholder="e.g. S.L. • MMXXVI"
+      maxlength="20"
+    >
+    <small class="error-message"></small>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="engravingStyle">
+      Engraving Style
+    </label>
+    <select id="engravingStyle" class="form-select">
+      <option value="">Select engraving style</option>
+      <option value="serif">
+        Traditional English Serif Roman
+      </option>
+      <option value="script">
+        Atelier Script Cursive
+      </option>
+      <option value="modernist">
+        Architectural Modernist Sans
+      </option>
+    </select>
+    <small class="error-message"></small>
+  </div>
+
+  <button
+    type="button"
+    id="saveEngraving"
+    class="btn btn--secondary btn--sm"
+  >
+    Save Engraving Preference
+  </button>
+</div> -->
+
         </div>
       </section>
 
@@ -455,11 +497,11 @@
             <form id="user-settings-form">
               <div class="form-group">
                 <label class="form-label" for="settings-name-input">Full Formal Name & Title</label>
-                <input type="text" id="settings-name-input" class="form-input" value="Lord Sterling" required>
+                <input type="text" id="settings-name-input" class="form-input" value="Lord Sterling" >
               </div>
               <div class="form-group">
                 <label class="form-label" for="settings-email-input">Primary Email Address</label>
-                <input type="email" id="settings-email-input" class="form-input" value="client@stackly-horology.com" required>
+                <input type="email" id="settings-email-input" class="form-input" value="client@stackly-horology.com" >
               </div>
               <div class="form-group">
                 <label class="form-label" for="settings-phone-input">Private Telephony</label>
@@ -516,7 +558,7 @@
               </select>
             </div>
           </div>
-          <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Wrist Profile Saved', 'Your strap sizing specifications have been updated.');">Save Wrist Profile</button>
+          <button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Save Wrist Profile</button>
         </div>
       </section>
 
@@ -735,7 +777,7 @@
                   <td>12 Jul 2026</td>
                   <td>Complimentary Ultrasonic Polish</td>
                   <td>+0.4 s/day</td>
-                  <td><button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Downloaded', 'Service Report #AT-398 PDF saved.');">PDF Report</button></td>
+                  <td><button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">PDF Report</button></td>
                 </tr>
                 <tr>
                   <td><strong>#AT-312</strong></td>
@@ -743,7 +785,7 @@
                   <td>18 Jan 2026</td>
                   <td>Pre-Delivery Escapement Certification</td>
                   <td>+0.1 s/day</td>
-                  <td><button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Certificate Downloaded', 'Service Report #AT-312 PDF saved.');">PDF Report</button></td>
+                  <td><button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">PDF Report</button></td>
                 </tr>
               </tbody>
             </table>
@@ -814,7 +856,7 @@
             <label class="filter-label">
               <input type="checkbox" checked> Complimentary printed quarterly horological monograph by courier.
             </label>
-            <button class="btn btn--outline btn--sm" style="width: fit-content; margin-top: 0.5rem;" onclick="window.CartStore?.showToast('Channels Saved', 'Notification channel preferences saved.');">Save Channel Settings</button>
+            <button class="btn btn--outline btn--sm" style="width: fit-content; margin-top: 0.5rem;" onclick="window.location.href='./404.html';">Save Channel Settings</button>
           </div>
         </div>
       </section>
@@ -837,7 +879,7 @@
             <label class="filter-label" style="margin-bottom: 1.5rem;">
               <input type="checkbox" checked> Encrypt all correspondence with PGP/Atelier security signatures.
             </label>
-            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Preferences Saved', 'Your communication settings are updated.');">Save Preferences</button>
+            <button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Save Preferences</button>
           </div>
         </div>
 
@@ -876,8 +918,8 @@
           </h3>
           <p class="dashboard-section-desc">Export your complete horological estate ledger, certificates of provenance, and tax receipts in a single encrypted archive.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Export Initiated', 'Encrypted Estate Dossier ZIP archive downloaded.');">Download Complete Estate Dossier</button>
-            <button class="btn btn--outline btn--sm" style="color: #ff6b6b; border-color: rgba(255, 107, 107, 0.4);" onclick="if(confirm('Are you sure you wish to request confidential archival of your salon profile?')) window.CartStore?.showToast('Request Received', 'Atelier Director will contact you to verify identity.');">Request Confidential Account Archival</button>
+            <button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">Download Complete Estate Dossier</button>
+            <button class="btn btn--outline btn--sm" style="color: #ff6b6b; border-color: rgba(255, 107, 107, 0.4);" onclick="window.location.href='./404.html';">Request Confidential Account Archival</button>
           </div>
         </div>
       </section>

@@ -6,6 +6,19 @@
   <title>Boutique Administration — STACKLY Luxury Watches</title>
   <meta name="description" content="STACKLY Boutique Management Portal — Product Catalog, Order Telemetry, Revenue Charts, and Client Allocations.">
   <link rel="stylesheet" href="./css/style.css">
+  <style>
+      .error-message {
+    display: block;
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .form-input.invalid,
+  .form-select.invalid {
+    border: 1px solid #dc2626;
+  }
+  </style>
 </head>
 <body class="page-admin-dashboard">
 
@@ -186,7 +199,7 @@
             <div style="margin-top: 1.2rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
               <span class="badge badge--highlight">Vault Armored Level 5</span>
               <span class="badge">Geneva Freeport Secure</span>
-              <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Allocations Locked', 'Remaining allocations reserved for VIP patrons.');">Lock Remaining Allocations</button>
+              <button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Lock Remaining Allocations</button>
             </div>
           </div>
 
@@ -196,7 +209,7 @@
               <span>Global Courier Telemetry</span>
             </h3>
             <p style="font-size: 0.9rem; color: var(--text-secondary);">All active dispatches operating with 100% on-time armored metrics. Lloyd’s of London coverage verified.</p>
-            <a href="#admin-orders" class="btn btn--secondary btn--sm" data-dashboard-tab="admin-tab-orders" style="margin-top: 0.8rem;">Open Telemetry Ledger</a>
+            <a href="./404.html" class="btn btn--secondary btn--sm" data-dashboard-tab="admin-tab-orders" style="margin-top: 0.8rem;">Open Telemetry Ledger</a>
           </div>
         </div>
       </section>
@@ -248,55 +261,118 @@
           </h3>
           <p class="dashboard-section-desc">Create a custom watch reference. The piece will be saved into local storage and immediately appear in the live boutique.</p>
 
-          <form id="admin-add-product-form" style="max-width: 780px;">
-            <div class="form-row-2">
-              <div class="form-group">
-                <label class="form-label" for="new-product-name">Product Name *</label>
-                <input type="text" id="new-product-name" class="form-input" required placeholder="e.g. Zenith Tourbillon Pro">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="new-product-price">Price (USD) *</label>
-                <input type="number" id="new-product-price" class="form-input" required placeholder="e.g. 35000">
-              </div>
-            </div>
+          
+<form id="admin-add-product-form" style="max-width: 780px;">
+  <div class="form-row-2">
+    <div class="form-group">
+      <label class="form-label" for="new-product-name">
+        Product Name *
+      </label>
+      <input
+        type="text"
+        id="new-product-name"
+        class="form-input"
+        placeholder="e.g. Zenith Tourbillon Pro"
+        
+      >
+      <small class="error-message"></small>
+    </div>
 
-            <div class="form-row-2">
-              <div class="form-group">
-                <label class="form-label" for="new-product-collection">Collection *</label>
-                <select id="new-product-collection" class="form-select" required>
-                  <option value="limited">Limited Edition</option>
-                  <option value="dress">Classic Dress</option>
-                  <option value="sport">Sport & Chronograph</option>
-                  <option value="minimalist">Modern Minimalist</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="new-product-movement">Movement Type</label>
-                <input type="text" id="new-product-movement" class="form-input" placeholder="e.g. Caliber ST-05 Flying Tourbillon">
-              </div>
-            </div>
+    <div class="form-group">
+      <label class="form-label" for="new-product-price">
+        Price (USD) *
+      </label>
+      <input
+        type="number"
+        id="new-product-price"
+        class="form-input"
+        placeholder="e.g. 35000"
+        min="0.01"
+        step="0.01"
+        
+      >
+      <small class="error-message"></small>
+    </div>
+  </div>
 
-            <div class="form-row-2">
-              <div class="form-group">
-                <label class="form-label" for="new-product-case">Case Metallurgy</label>
-                <input type="text" id="new-product-case" class="form-input" placeholder="e.g. Grade 5 Titanium & Obsidian Bezel">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="new-product-strap">Strap Material</label>
-                <input type="text" id="new-product-strap" class="form-input" placeholder="e.g. Black Alligator with Deployant Clasp">
-              </div>
-            </div>
+  <div class="form-row-2">
+    <div class="form-group">
+      <label class="form-label" for="new-product-collection">
+        Collection *
+      </label>
+      <select id="new-product-collection" class="form-select" >
+        <option value="limited">Limited Edition</option>
+        <option value="dress">Classic Dress</option>
+        <option value="sport">Sport & Chronograph</option>
+        <option value="minimalist">Modern Minimalist</option>
+      </select>
+      <small class="error-message"></small>
+    </div>
 
-            <div class="form-group">
-              <label class="form-label" for="new-product-tagline">Tagline / Brief Summary</label>
-              <input type="text" id="new-product-tagline" class="form-input" placeholder="e.g. High-Complication Skeletonized Architecture">
-            </div>
+    <div class="form-group">
+      <label class="form-label" for="new-product-movement">
+        Movement Type
+      </label>
+      <input
+        type="text"
+        id="new-product-movement"
+        class="form-input"
+        placeholder="e.g. Caliber ST-05 Flying Tourbillon"
+      >
+    </div>
+  </div>
 
-            <button type="submit" class="btn btn--primary btn--sm" style="margin-top: 0.5rem;">
-              <span class="material-icons" aria-hidden="true" style="font-size: 16px; margin-right: 0.3rem;">save</span>
-              <span>Publish Reference</span>
-            </button>
-          </form>
+  <div class="form-row-2">
+    <div class="form-group">
+      <label class="form-label" for="new-product-case">
+        Case Metallurgy
+      </label>
+      <input
+        type="text"
+        id="new-product-case"
+        class="form-input"
+        placeholder="e.g. Grade 5 Titanium & Obsidian Bezel"
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="new-product-strap">
+        Strap Material
+      </label>
+      <input
+        type="text"
+        id="new-product-strap"
+        class="form-input"
+        placeholder="e.g. Black Alligator with Deployant Clasp"
+      >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="new-product-tagline">
+      Tagline / Brief Summary
+    </label>
+    <input
+      type="text"
+      id="new-product-tagline"
+      class="form-input"
+      placeholder="e.g. High-Complication Skeletonized Architecture"
+    >
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn--primary btn--sm"
+    style="margin-top: 0.5rem;"
+  >
+    <span
+      class="material-icons"
+      aria-hidden="true"
+      style="font-size: 16px; margin-right: 0.3rem;"
+    >save</span>
+    <span>Publish Reference</span>
+  </button>
+</form>
         </div>
 
         <!-- Section 2.3: Quick Stock Allocation Adjuster Matrix -->
@@ -473,25 +549,58 @@
             <span>Curate New Collection Capsule</span>
           </h3>
           <p class="dashboard-section-desc">Establish a new seasonal capsule for exhibition at Geneva Watch Week.</p>
-          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Capsule Created', 'New collection capsule logged in atelier ledger.'); this.reset();">
-            <div class="form-group">
-              <label class="form-label">Capsule Title</label>
-              <input type="text" class="form-input" placeholder="e.g. Celestial Chronometry 2027" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Target Launch Season</label>
-              <select class="form-select">
-                <option>Spring 2027 (Watches & Wonders Geneva)</option>
-                <option>Autumn 2027 (Salon Belles Montres Paris)</option>
-                <option>Winter 2027 (Private Salon Degustation)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Curation Vision Statement</label>
-              <textarea class="form-textarea" rows="2" placeholder="Describe the metallurgical and horological theme..."></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--sm">Register Collection Capsule</button>
-          </form>
+        
+<form id="capsuleForm" style="max-width: 600px;">
+  <div class="form-group">
+    <label class="form-label" for="capsuleTitle">
+      Capsule Title
+    </label>
+    <input
+      type="text"
+      id="capsuleTitle"
+      class="form-input"
+      placeholder="e.g. Celestial Chronometry 2027"
+    >
+    <small class="error-message"></small>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="launchSeason">
+      Target Launch Season
+    </label>
+    <select id="launchSeason" class="form-select">
+      <option value="">Select launch season</option>
+      <option value="spring">
+        Spring 2027 (Watches &amp; Wonders Geneva)
+      </option>
+      <option value="autumn">
+        Autumn 2027 (Salon Belles Montres Paris)
+      </option>
+      <option value="winter">
+        Winter 2027 (Private Salon Degustation)
+      </option>
+    </select>
+    <small class="error-message"></small>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="curationVision">
+      Curation Vision Statement
+    </label>
+    <textarea
+      id="curationVision"
+      class="form-textarea"
+      rows="2"
+      placeholder="Describe the metallurgical and horological theme..."
+    ></textarea>
+    <small class="error-message"></small>
+  </div>
+
+  <button type="submit" class="btn btn--primary btn--sm">
+    Register Collection Capsule
+  </button>
+</form>
+
         </div>
       </section>
 
@@ -558,23 +667,48 @@
             <span>Manual VIP Order Allocation Dispatch</span>
           </h3>
           <p class="dashboard-section-desc">Issue a direct armored dispatch for an offline VIP salon acquisition.</p>
-          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Order Dispatched', 'Manual VIP order recorded and cleared for Brink’s carriage.'); this.reset();">
-            <div class="form-row-2">
-              <div class="form-group">
-                <label class="form-label">Patron Full Name</label>
-                <input type="text" class="form-input" placeholder="e.g. Duke of Cambridge" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Watch Reference</label>
-                <select class="form-select">
-                  <option>CHRONOS TYPE-0 ($48,500)</option>
-                  <option>Aethelgard Classic ($14,200)</option>
-                  <option>Imperium Perpetual ($62,000)</option>
-                </select>
-              </div>
-            </div>
-            <button type="submit" class="btn btn--primary btn--sm">Authorize Armored Dispatch</button>
-          </form>
+         <form id="vipOrderForm" style="max-width: 600px;"
+  onsubmit="return false;">
+
+  <div class="form-row-2">
+    <div class="form-group">
+      <label class="form-label" for="patronName">
+        Patron Full Name
+      </label>
+      <input
+        type="text"
+        id="patronName"
+        class="form-input"
+        placeholder="e.g. Duke of Cambridge"
+        
+      >
+      <small class="error-message"></small>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="watchReference">
+        Watch Reference
+      </label>
+      <select id="watchReference" class="form-select">
+        <option value="">Select a watch</option>
+        <option value="CHRONOS TYPE-0">
+          CHRONOS TYPE-0 ($48,500)
+        </option>
+        <option value="Aethelgard Classic">
+          Aethelgard Classic ($14,200)
+        </option>
+        <option value="Imperium Perpetual">
+          Imperium Perpetual ($62,000)
+        </option>
+      </select>
+      <small class="error-message"></small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn--primary btn--sm">
+    Authorize Armored Dispatch
+  </button>
+</form>
         </div>
       </section>
 
@@ -631,14 +765,14 @@
                   <td>Monolith Tourbillon #02/15</td>
                   <td><span class="badge badge--highlight">20% Escrow Cleared</span></td>
                   <td>Rank #1</td>
-                  <td><button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Allocation Cleared', 'Monolith allocated to Baroness Rostova.');">Grant Allocation</button></td>
+                  <td><button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Grant Allocation</button></td>
                 </tr>
                 <tr>
                   <td><strong>Dr. Julian Vance</strong></td>
                   <td>Imperium Perpetual #03/10</td>
                   <td><span class="badge">Proof of Funds</span></td>
                   <td>Rank #2</td>
-                  <td><button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Allocation Cleared', 'Imperium allocated to Dr. Vance.');">Grant Allocation</button></td>
+                  <td><button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Grant Allocation</button></td>
                 </tr>
               </tbody>
             </table>
@@ -652,7 +786,7 @@
             <span>Direct Concierge Dispatch Composer</span>
           </h3>
           <p class="dashboard-section-desc">Send confidential previews directly to authenticated collectors.</p>
-          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Dispatch Sent', 'Confidential invitation dispatched to patron.'); this.reset();">
+          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.location.href='./404.html'; this.reset();">
             <div class="form-group">
               <label class="form-label">Target Patron</label>
               <select class="form-select">
@@ -844,27 +978,52 @@
             <span class="material-icons" style="color: var(--champagne-gold);" aria-hidden="true">post_add</span>
             <span>Issue New Atelier Service Ticket</span>
           </h3>
-          <form style="max-width: 600px;" onsubmit="event.preventDefault(); window.CartStore?.showToast('Work Order Created', 'Service Ticket logged and assigned to bench.'); this.reset();">
-            <div class="form-row-2">
-              <div class="form-group">
-                <label class="form-label">Client Name</label>
-                <input type="text" class="form-input" placeholder="e.g. Lord Sterling" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Timepiece Reference</label>
-                <input type="text" class="form-input" placeholder="e.g. Ref. ST-01-T #07/25" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Intervention Class</label>
-              <select class="form-select">
-                <option>Full Mechanical Overhaul & De-Magnetization</option>
-                <option>Ultrasonic Casing & Sapphire Restoration</option>
-                <option>Strap Sizing & Deployment Clasp Replacement</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn--primary btn--sm">Log Atelier Ticket</button>
-          </form>
+          <form id="workOrderForm" style="max-width: 600px;">
+  <div class="form-row-2">
+    <div class="form-group">
+      <label class="form-label" for="clientName">Client Name</label>
+      <input
+        type="text"
+        id="clientName"
+        class="form-input"
+        placeholder="e.g. Lord Sterling"
+        
+      />
+      <small class="error-message"></small>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="timepieceRef">
+        Timepiece Reference
+      </label>
+      <input
+        type="text"
+        id="timepieceRef"
+        class="form-input"
+        placeholder="e.g. Ref. ST-01-T #07/25"
+        
+      />
+      <small class="error-message"></small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="interventionClass">
+      Intervention Class
+    </label>
+    <select id="interventionClass" class="form-select" >
+      <option value="">Select an intervention</option>
+      <option>Full Mechanical Overhaul &amp; De-Magnetization</option>
+      <option>Ultrasonic Casing &amp; Sapphire Restoration</option>
+      <option>Strap Sizing &amp; Deployment Clasp Replacement</option>
+    </select>
+    <small class="error-message"></small>
+  </div>
+
+  <button type="submit" class="btn btn--primary btn--sm">
+    Log Atelier Ticket
+  </button>
+</form>
         </div>
       </section>
 
@@ -947,8 +1106,8 @@
           </h3>
           <p class="dashboard-section-desc">Generate official demonstration CSV ledger or certified PDF for tax and estate accounting.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Ledger Downloaded', 'Financial Audit Ledger (CSV) generated.');">Export CSV Ledger</button>
-            <button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Report Downloaded', 'Certified Financial PDF Statement generated.');">Download PDF Summary</button>
+            <button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Export CSV Ledger</button>
+            <button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">Download PDF Summary</button>
           </div>
         </div>
       </section>
@@ -971,7 +1130,7 @@
             <label class="filter-label" style="margin-bottom: 1.5rem;">
               <input type="checkbox" checked> Auto-archive closed service tickets after 30 days.
             </label>
-            <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Settings Updated', 'Atelier security preferences recorded.');">Update Atelier Settings</button>
+            <button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Update Atelier Settings</button>
           </div>
         </div>
 
@@ -999,7 +1158,7 @@
               </select>
             </div>
           </div>
-          <button class="btn btn--secondary btn--sm" onclick="window.CartStore?.showToast('Currency Saved', 'Atelier financial configurations updated.');">Save Financial Rules</button>
+          <button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';">Save Financial Rules</button>
         </div>
 
         <!-- Section 9.3: Director Audit Trail Telemetry -->

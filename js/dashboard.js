@@ -214,7 +214,7 @@ const DashboardManager = {
             </td>
             <td style="color: var(--champagne-gold); font-family: var(--font-serif);">$${o.total.toLocaleString()}</td>
             <td><span class="status-badge status-${o.status.toLowerCase().replace(/\s+/g, '-')}">${o.status}</span></td>
-            <td><button class="btn btn--outline btn--sm" onclick="window.CartStore?.showToast('Invoice Downloaded', 'Official Tax Invoice #${o.id} PDF saved.');">PDF Invoice</button></td>
+            <td><button class="btn btn--outline btn--sm" onclick="window.location.href='./404.html';">PDF Invoice</button></td>
           </tr>
         `;
         }).join('');
@@ -254,7 +254,7 @@ const DashboardManager = {
     if (serviceForm) {
       serviceForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        window.CartStore.showToast('Service Request Logged', 'A concierge specialist will contact you within 24 hours.');
+        window.location.href='./404.html';
         serviceForm.reset();
       });
     }
@@ -279,7 +279,7 @@ const DashboardManager = {
         if (emailEl) emailEl.textContent = updatedEmail;
         if (welcomeEl) welcomeEl.textContent = updatedName;
         if (window.AuthStore) window.AuthStore.updateHeaderAuth();
-        window.CartStore.showToast('Settings Saved', 'Your profile preferences have been updated.');
+        window.location.href='./404.html';
       });
     }
   },
@@ -313,7 +313,7 @@ const DashboardManager = {
             <h4>${p.name}</h4>
             <span class="price" style="color: var(--champagne-gold);">${p.formattedPrice}</span>
             <div class="dashboard-wishlist-actions">
-              <button class="btn btn--secondary btn--sm" data-add-to-bag="${p.id}">Move to Bag</button>
+              <button class="btn btn--secondary btn--sm" onclick="window.location.href='./404.html';"  data-add-to-bag="${p.id}">Move to Bag</button>
               <button class="btn-icon-subtle" data-wishlist-id="${p.id}" title="Remove" aria-label="Remove ${p.name}">
                 <span class="material-icons" aria-hidden="true">delete</span>
               </button>
@@ -479,10 +479,10 @@ const DashboardManager = {
           <td><span class="badge ${p.availability.includes('Limited') ? 'badge--highlight' : 'badge--muted'}">${p.availability.includes('Limited') ? 'Limited Edition' : 'In Stock'}</span></td>
           <td>
             <div style="display: flex; gap: 0.5rem;">
-              <a href="./product.html?id=${p.id}" class="table-link" title="Preview Reference" aria-label="View ${p.name}">
+              <a href="./404.html" class="table-link" title="Preview Reference" aria-label="View ${p.name}">
                 <span class="material-icons" aria-hidden="true">visibility</span>
               </a>
-              <button class="table-link" onclick="DashboardManager.deleteProduct('${p.id}')" title="Delete Piece" aria-label="Delete ${p.name}">
+              <button class="table-link" onclick="window.location.href='./404.html';" title="Delete Piece" aria-label="Delete ${p.name}">
                 <span class="material-icons" style="color: #ff6b6b;" aria-hidden="true">delete</span>
               </button>
             </div>
@@ -624,3 +624,495 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.DashboardManager = DashboardManager;
+
+
+
+
+const form = document.getElementById("workOrderForm");
+
+  const clientName = document.getElementById("clientName");
+  const timepieceRef = document.getElementById("timepieceRef");
+  const interventionClass =
+    document.getElementById("interventionClass");
+
+  function showError(field, message) {
+    field.classList.add("invalid");
+    field.nextElementSibling.textContent = message;
+  }
+
+  function clearError(field) {
+    field.classList.remove("invalid");
+    field.nextElementSibling.textContent = "";
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    let isValid = true;
+
+    // Validate client name
+    const name = clientName.value.trim();
+
+    if (name.length < 2) {
+      showError(clientName, "Client name must be at least 2 characters.");
+      isValid = false;
+    } else if (!/^[a-zA-Z\s.'-]+$/.test(name)) {
+      showError(clientName, "Please enter a valid client name.");
+      isValid = false;
+    } else {
+      clearError(clientName);
+    }
+
+    // Validate timepiece reference
+    const reference = timepieceRef.value.trim();
+
+    if (reference.length < 3) {
+      showError(
+        timepieceRef,
+        "Please enter a valid timepiece reference."
+      );
+      isValid = false;
+    } else {
+      clearError(timepieceRef);
+    }
+
+    // Validate intervention selection
+    if (!interventionClass.value) {
+      showError(
+        interventionClass,
+        "Please select an intervention class."
+      );
+      isValid = false;
+    } else {
+      clearError(interventionClass);
+    }
+
+    // Stop submission if validation fails
+    if (!isValid) return;
+
+    // Successful validation
+    if (window.CartStore?.showToast) {
+      window.CartStore.showToast(
+        "Work Order Created",
+        "Service Ticket logged and assigned to bench."
+      );
+    } else {
+      window.location.href = "./404.html";
+    }
+
+    form.reset();
+
+    // Clear validation styles after resetting
+    [clientName, timepieceRef, interventionClass].forEach(clearError);
+  });
+
+  // Clear errors while the user corrects their input
+  [clientName, timepieceRef, interventionClass].forEach((field) => {
+    field.addEventListener("input", () => clearError(field));
+    field.addEventListener("change", () => clearError(field));
+  });
+
+
+
+
+
+  const vipForm = document.getElementById("vipOrderForm");
+  const patronName = document.getElementById("patronName");
+  const watchReference = document.getElementById("watchReference");
+
+  function showVipError(field, message) {
+    field.classList.add("invalid");
+    field.nextElementSibling.textContent = message;
+  }
+
+  function clearVipError(field) {
+    field.classList.remove("invalid");
+    field.nextElementSibling.textContent = "";
+  }
+
+  vipForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    let isValid = true;
+    const name = patronName.value.trim();
+
+    // Validate patron full name
+    if (name.length < 2) {
+      showVipError(
+        patronName,
+        "Patron name must be at least 2 characters."
+      );
+      isValid = false;
+    } else if (!/^[\p{L}\p{M}\s.'-]+$/u.test(name)) {
+      showVipError(
+        patronName,
+        "Please enter a valid patron name."
+      );
+      isValid = false;
+    } else {
+      clearVipError(patronName);
+    }
+
+    // Validate watch selection
+    if (!watchReference.value) {
+      showVipError(
+        watchReference,
+        "Please select a watch reference."
+      );
+      isValid = false;
+    } else {
+      clearVipError(watchReference);
+    }
+
+    // Stop if validation fails
+    if (!isValid) return;
+
+    // Display success notification
+    if (window.CartStore?.showToast) {
+      window.location.href = "./404.html"
+      
+    } else {
+      window.location.href = "./404.html";
+    }
+
+    vipForm.reset();
+
+    // Remove validation styles
+    [patronName, watchReference].forEach(clearVipError);
+  });
+
+  // Clear errors when the user edits a field
+  [patronName, watchReference].forEach((field) => {
+    field.addEventListener("input", () => clearVipError(field));
+    field.addEventListener("change", () => clearVipError(field));
+  });
+
+
+
+
+
+
+
+
+
+const productForm = document.getElementById(
+  "admin-add-product-form"
+);
+
+const productName = document.getElementById("new-product-name");
+const productPrice = document.getElementById("new-product-price");
+const productCollection = document.getElementById(
+  "new-product-collection"
+);
+
+function showProductError(field, message) {
+  field.classList.add("invalid");
+  field.nextElementSibling.textContent = message;
+}
+
+function clearProductError(field) {
+  field.classList.remove("invalid");
+  field.nextElementSibling.textContent = "";
+}
+
+productForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  let isValid = true;
+
+  // Validate product name
+  const name = productName.value.trim();
+
+  if (name.length < 3) {
+    showProductError(
+      productName,
+      "Product name must be at least 3 characters."
+    );
+    isValid = false;
+  } else {
+    clearProductError(productName);
+  }
+
+  // Validate product price
+  const price = productPrice.value.trim();
+  const numericPrice = Number(price);
+
+  if (
+    price === "" ||
+    !Number.isFinite(numericPrice) ||
+    numericPrice <= 0
+  ) {
+    showProductError(
+      productPrice,
+      "Please enter a price greater than zero."
+    );
+    isValid = false;
+  } else {
+    clearProductError(productPrice);
+  }
+
+  // Validate collection
+  if (!productCollection.value) {
+    showProductError(
+      productCollection,
+      "Please select a product collection."
+    );
+    isValid = false;
+  } else {
+    clearProductError(productCollection);
+  }
+
+  // Stop if validation fails
+  if (!isValid) return;
+
+  // Collect product details
+  const product = {
+    name: productName.value.trim(),
+    price: numericPrice,
+    collection: productCollection.value,
+    movement: document.getElementById(
+      "new-product-movement"
+    ).value.trim(),
+    caseMetallurgy: document.getElementById(
+      "new-product-case"
+    ).value.trim(),
+    strapMaterial: document.getElementById(
+      "new-product-strap"
+    ).value.trim(),
+    tagline: document.getElementById(
+      "new-product-tagline"
+    ).value.trim()
+  };
+
+  console.log("Validated product:", product);
+
+  // Display success notification
+  if (window.CartStore?.showToast) {
+    window.location.href = "./404.html";
+  } else {
+    window.location.href = "./404.html";
+  }
+
+  // Reset form after successful validation
+  productForm.reset();
+
+  [productName, productPrice, productCollection].forEach(
+    clearProductError
+  );
+});
+
+// Clear errors when fields are corrected
+[productName, productPrice, productCollection].forEach(
+  function (field) {
+    field.addEventListener("input", function () {
+      clearProductError(field);
+    });
+
+    field.addEventListener("change", function () {
+      clearProductError(field);
+    });
+  }
+);
+
+
+
+
+
+
+const capsuleForm = document.getElementById("capsuleForm");
+
+const capsuleTitle = document.getElementById("capsuleTitle");
+const launchSeason = document.getElementById("launchSeason");
+const curationVision = document.getElementById("curationVision");
+
+function showCapsuleError(field, message) {
+  field.classList.add("invalid");
+  field.nextElementSibling.textContent = message;
+}
+
+function clearCapsuleError(field) {
+  field.classList.remove("invalid");
+  field.nextElementSibling.textContent = "";
+}
+
+capsuleForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  let isValid = true;
+
+  // Validate capsule title
+  const title = capsuleTitle.value.trim();
+
+  if (title.length < 3) {
+    showCapsuleError(
+      capsuleTitle,
+      "Capsule title must be at least 3 characters."
+    );
+    isValid = false;
+  } else {
+    clearCapsuleError(capsuleTitle);
+  }
+
+  // Validate launch season
+  if (!launchSeason.value) {
+    showCapsuleError(
+      launchSeason,
+      "Please select a target launch season."
+    );
+    isValid = false;
+  } else {
+    clearCapsuleError(launchSeason);
+  }
+
+  // Validate curation vision statement
+  const vision = curationVision.value.trim();
+
+  if (vision.length < 10) {
+    showCapsuleError(
+      curationVision,
+      "Vision statement must be at least 10 characters."
+    );
+    isValid = false;
+  } else {
+    clearCapsuleError(curationVision);
+  }
+
+  // Stop if validation fails
+  if (!isValid) return;
+
+  // Collect validated data
+  const capsule = {
+    title: title,
+    launchSeason: launchSeason.value,
+    vision: vision
+  };
+
+  console.log("Validated capsule:", capsule);
+
+  // Show success notification
+  if (window.CartStore?.showToast) {
+    window.location.href = "./404.html"
+
+  } else {
+    window.location.href = "./404.html";
+  }
+
+  // Reset form after successful validation
+  capsuleForm.reset();
+
+  [capsuleTitle, launchSeason, curationVision].forEach(
+    clearCapsuleError
+  );
+});
+
+// Clear errors when the user corrects a field
+[capsuleTitle, launchSeason, curationVision].forEach(
+  function (field) {
+    field.addEventListener("input", function () {
+      clearCapsuleError(field);
+    });
+
+    field.addEventListener("change", function () {
+      clearCapsuleError(field);
+    });
+  }
+);
+
+
+
+
+
+
+
+
+
+const engravingForm = document.getElementById("engravingForm");
+const patronMonogram = document.getElementById("patronMonogram");
+const engravingStyle = document.getElementById("engravingStyle");
+const saveEngraving = document.getElementById("saveEngraving");
+
+function showEngravingError(field, message) {
+  field.classList.add("invalid");
+  field.nextElementSibling.textContent = message;
+}
+
+function clearEngravingError(field) {
+  field.classList.remove("invalid");
+  field.nextElementSibling.textContent = "";
+}
+
+saveEngraving.addEventListener("click", function () {
+  let isValid = true;
+
+  const monogram = patronMonogram.value.trim();
+
+  // Validate monogram text
+  if (monogram.length === 0) {
+    showEngravingError(
+      patronMonogram,
+      "Please enter your initials or monogram."
+    );
+    isValid = false;
+  } else if (monogram.length < 2) {
+    showEngravingError(
+      patronMonogram,
+      "Monogram must contain at least 2 characters."
+    );
+    isValid = false;
+  } else if (monogram.length > 20) {
+    showEngravingError(
+      patronMonogram,
+      "Monogram cannot exceed 20 characters."
+    );
+    isValid = false;
+  } else {
+    clearEngravingError(patronMonogram);
+  }
+
+  // Validate engraving style
+  if (!engravingStyle.value) {
+    showEngravingError(
+      engravingStyle,
+      "Please select an engraving style."
+    );
+    isValid = false;
+  } else {
+    clearEngravingError(engravingStyle);
+  }
+
+  // Stop if validation fails
+  if (!isValid) return;
+
+  // Collect validated preferences
+  const engravingPreference = {
+    monogram: monogram,
+    style: engravingStyle.value
+  };
+
+  console.log("Engraving Preference:", engravingPreference);
+
+  // Show success notification
+  if (window.CartStore?.showToast) {
+    window.CartStore.showToast(
+      "Preference Saved",
+      "Patron engraving preference validated successfully."
+    );
+  } else {
+    alert("Engraving preference saved successfully!");
+  }
+
+  // Redirect only after successful validation
+  // Remove this line if you want to remain on the same page.
+  // window.location.href = "./404.html";
+});
+
+// Clear errors while editing
+[patronMonogram, engravingStyle].forEach(function (field) {
+  field.addEventListener("input", function () {
+    clearEngravingError(field);
+  });
+
+  field.addEventListener("change", function () {
+    clearEngravingError(field);
+  });
+});
