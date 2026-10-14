@@ -1053,6 +1053,19 @@ if (typeof window !== 'undefined') {
   window.renderWatchCardHtml = renderWatchCardHtml;
 }
 
+// Preloader: Hide on initial page load
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.classList.add('hidden');
+    setTimeout(() => {
+      if (preloader.parentNode) {
+        preloader.parentNode.removeChild(preloader);
+      }
+    }, 900);
+  }
+}, { once: true });
+
 
 
 // document.addEventListener("DOMContentLoaded", function () {

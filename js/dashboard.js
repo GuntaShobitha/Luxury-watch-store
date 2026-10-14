@@ -295,7 +295,7 @@ const DashboardManager = {
           <span class="material-icons" style="font-size: 48px; color: var(--champagne-gold);" aria-hidden="true">favorite_border</span>
           <h3>Your Wishlist is Empty</h3>
           <p>Explore our master watch collections and save your favorite timepieces.</p>
-          <a href="./collections.html" class="btn btn--secondary btn--sm">Explore Collections</a>
+          <a href="./404.html" class="btn btn--secondary btn--sm">Explore Collections</a>
         </div>
       `;
       return;
