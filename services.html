@@ -257,54 +257,80 @@
         </header>
 
         <div style="max-width: 680px; margin: 0 auto; background: var(--deep-charcoal); border: 1px solid var(--border-gold-subtle); padding: 3rem 2.5rem; border-radius: var(--radius-sm);" class="reveal-on-scroll">
-          <form id="public-service-request-form">
-            <div class="form-row-2">
-              <div class="form-group">
-                <label class="form-label">Full Name *</label>
-                <input type="text" class="form-input" required placeholder="Lord / Lady / Mr. / Ms.">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Email Address *</label>
-                <input type="email" class="form-input" required placeholder="client@example.com">
-              </div>
-            </div>
+        
+<form id="public-service-request-form">
+  <div class="form-row-2">
+    <div class="form-group">
+      <label class="form-label" for="service-name">Full Name *</label>
+      <input
+        type="text"
+        id="service-name"
+        name="name"
+        class="form-input"
+        placeholder="Lord / Lady / Mr. / Ms."
+        
+        minlength="2"
+        maxlength="100"
+      >
+    </div>
 
-            <div class="form-row-2">
-              <div class="form-group">
-                <label class="form-label">Timepiece Reference</label>
-                <select class="form-select" required>
-                  <option value="chronos-type-0">CHRONOS TYPE-0 (Tourbillon Flagship)</option>
-                  <option value="aethelgard-classic">Aethelgard Classic</option>
-                  <option value="vanguard-chronograph">Vanguard Chronograph</option>
-                  <option value="nautilus-diver">Nautilus Diver Pro</option>
-                  <option value="celeste-moonphase">Celeste Moonphase</option>
-                  <option value="imperium-platinum">Imperium Perpetual</option>
-                  <option value="solis-minimalist">Solis Minimalist</option>
-                  <option value="other">Other Reference</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Service Type</label>
-                <select class="form-select" required>
-                  <option value="routine-overhaul">Complete Interval Overhaul (4-5 Year)</option>
-                  <option value="ultrasonic-cleaning">Complimentary Ultrasonic Cleaning</option>
-                  <option value="strap-replacement">Strap Replacement / Sizing</option>
-                  <option value="accuracy-regulation">Chronometric Regulation</option>
-                  <option value="pressure-test">Water-Resistance Gasket Renewal</option>
-                </select>
-              </div>
-            </div>
+    <div class="form-group">
+      <label class="form-label" for="service-email">Email Address *</label>
+      <input
+        type="email"
+        id="service-email"
+        name="email"
+        class="form-input"
+        placeholder="client@example.com"
+        
+      >
+    </div>
+  </div>
 
-            <div class="form-group">
-              <label class="form-label">Special Notes or Observed Behavior</label>
-              <textarea class="form-textarea" rows="4" placeholder="Detail any timing deviation, surface refinishing needs, or custom strap sizing..."></textarea>
-            </div>
+  <div class="form-row-2">
+    <div class="form-group">
+      <label class="form-label" for="timepiece-reference">Timepiece Reference</label>
+      <select class="form-select" id="timepiece-reference" name="reference">
+        <option value="chronos-type-0">CHRONOS TYPE-0 (Tourbillon Flagship)</option>
+        <option value="aethelgard-classic">Aethelgard Classic</option>
+        <option value="vanguard-chronograph">Vanguard Chronograph</option>
+        <option value="nautilus-diver">Nautilus Diver Pro</option>
+        <option value="celeste-moonphase">Celeste Moonphase</option>
+        <option value="imperium-platinum">Imperium Perpetual</option>
+        <option value="solis-minimalist">Solis Minimalist</option>
+        <option value="other">Other Reference</option>
+      </select>
+    </div>
 
-            <button type="submit" class="btn btn--primary" style="width: 100%;">
-              <span>Submit Service Request</span>
-              <span class="material-icons" aria-hidden="true" style="font-size: 1.1rem; margin-left: 0.4rem;">send</span>
-            </button>
-          </form>
+    <div class="form-group">
+      <label class="form-label" for="service-type">Service Type</label>
+      <select class="form-select" id="service-type" name="serviceType">
+        <option value="routine-overhaul">Complete Interval Overhaul (4-5 Year)</option>
+        <option value="ultrasonic-cleaning">Complimentary Ultrasonic Cleaning</option>
+        <option value="strap-replacement">Strap Replacement / Sizing</option>
+        <option value="accuracy-regulation">Chronometric Regulation</option>
+        <option value="pressure-test">Water-Resistance Gasket Renewal</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="service-notes">Special Notes or Observed Behavior</label>
+    <textarea
+      class="form-textarea"
+      id="service-notes"
+      name="notes"
+      rows="4"
+      placeholder="Detail any timing deviation, surface refinishing needs, or custom strap sizing..."
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn--primary" style="width: 100%;">
+    <span>Submit Service Request</span>
+    <span class="material-icons" aria-hidden="true" style="font-size: 1.1rem; margin-left: 0.4rem;">send</span>
+  </button>
+</form>
+
         </div>
       </div>
     </section>
@@ -473,18 +499,66 @@
   <script src="./js/main.js"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const sForm = document.getElementById('public-service-request-form');
-      if (sForm) {
-        sForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          if (window.CartStore) {
-            window.CartStore.showToast('Service Request Logged', 'Our Master Horologist will review your request and contact you within 24 hours.');
-          }
-          sForm.reset();
-        });
-      }
-    });
+  
+document.addEventListener('DOMContentLoaded', () => {
+  const sForm = document.getElementById('public-service-request-form');
+
+  if (!sForm) return;
+
+  const nameInput = document.getElementById('service-name');
+  const emailInput = document.getElementById('service-email');
+
+  sForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Validate full name
+    const name = nameInput.value.trim();
+
+    if (name.length < 2) {
+      nameInput.setCustomValidity('Please enter your full name (at least 2 characters).');
+      nameInput.reportValidity();
+      nameInput.focus();
+      return;
+    }
+
+    nameInput.setCustomValidity('');
+
+    // Validate email
+    const email = emailInput.value.trim();
+
+    if (!emailInput.checkValidity() || !email) {
+      emailInput.setCustomValidity(
+        email ? 'Please enter a valid email address.' : 'Please enter your email address.'
+      );
+      emailInput.reportValidity();
+      emailInput.focus();
+      return;
+    }
+
+    emailInput.setCustomValidity('');
+
+    // All validations passed
+    if (window.CartStore) {
+      window.CartStore.showToast(
+        'Service Request Logged',
+        'Your service request has been submitted successfully.'
+      );
+    }
+
+    // Redirect to the 404 page
+    window.location.href = './404.html';
+  });
+
+  // Clear custom validation errors when the user edits the fields
+  nameInput.addEventListener('input', () => {
+    nameInput.setCustomValidity('');
+  });
+
+  emailInput.addEventListener('input', () => {
+    emailInput.setCustomValidity('');
+  });
+});
+
   </script>
 </body>
 </html>
