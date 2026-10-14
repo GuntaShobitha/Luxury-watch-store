@@ -174,7 +174,7 @@ function initSearchModal() {
     resultsContainer.innerHTML = `
       <div class="search-results-grid">
         ${filtered.map(p => `
-          <a href="./product.html?id=${p.id}" class="product-card" style="padding: 1rem; border-radius: var(--radius-sm); display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <a href="./404.html" class="product-card" style="padding: 1rem; border-radius: var(--radius-sm); display: flex; flex-direction: column; align-items: center; text-align: center;">
             <div style="width: 100%; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; margin-bottom: 0.8rem;">
               <img src="${p.image}" alt="${p.name}" style="max-height: 85%; object-fit: contain;">
             </div>
@@ -219,7 +219,7 @@ function initNewsletterForms() {
         feedback.style.display = 'block';
       }
       if (window.CartStore) {
-        window.CartStore.showToast('Subscription Confirmed', 'You have been registered for private editorial dispatches.');
+        window.location.href = "./404.html";
       }
     });
   });
@@ -381,7 +381,7 @@ function initComparisonTool() {
     if (waterEl && p) waterEl.textContent = p.waterResistance;
     if (actionEl && p) {
       actionEl.innerHTML = `
-        <a href="./product.html?id=${p.id}" class="btn btn--outline btn--sm">View Watch</a>
+        <a href="./404.html" class="btn btn--outline btn--sm">View Watch</a>
         <button class="btn btn--secondary btn--sm" data-add-to-bag="${p.id}">Add to Bag</button>
       `;
     }
@@ -648,7 +648,7 @@ function renderWatchCardHtml(p) {
         </button>
       </div>
       <div class="product-card__media">
-        <a href="./product.html?id=${p.id}" aria-label="View ${p.name}">
+        <a href="./404.html" aria-label="View ${p.name}">
           <img src="${p.image}" alt="${p.name} luxury timepiece" loading="lazy" width="300" height="300">
         </a>
       </div>
@@ -745,7 +745,7 @@ function initQuickViewModal() {
     document.getElementById('qv-diameter').textContent = product.caseDiameter;
     document.getElementById('qv-strap').textContent = product.strapMaterial;
     document.getElementById('qv-water').textContent = product.waterResistance;
-    document.getElementById('qv-view-full').href = `./product.html?id=${product.id}`;
+    document.getElementById('qv-view-full').href = `./404.html`;
 
     const addBtn = document.getElementById('qv-add-to-bag');
     addBtn.onclick = () => {
@@ -1055,51 +1055,51 @@ if (typeof window !== 'undefined') {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const newsletterForms = document.querySelectorAll(".newsletter-form");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const newsletterForms = document.querySelectorAll(".newsletter-form");
 
-  newsletterForms.forEach(function (form) {
-    const emailInput = form.querySelector(".newsletter-input");
-    const feedback = form.querySelector(".newsletter-feedback");
-    const submitButton = form.querySelector('button[type="submit"]');
+//   newsletterForms.forEach(function (form) {
+//     const emailInput = form.querySelector(".newsletter-input");
+//     const feedback = form.querySelector(".newsletter-feedback");
+//     const submitButton = form.querySelector('button[type="submit"]');
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+//     form.addEventListener("submit", function (event) {
+//       event.preventDefault();
 
-      const email = emailInput.value.trim();
+//       const email = emailInput.value.trim();
 
-      // Clear previous messages
-      feedback.textContent = "";
-      feedback.style.color = "";
+//       // Clear previous messages
+//       feedback.textContent = "";
+//       feedback.style.color = "";
 
-      // Check empty email
-      if (email === "") {
-        feedback.textContent = "Please enter your email address.";
-        feedback.style.color = "red";
-        emailInput.focus();
-        return;
-      }
+//       // Check empty email
+//       if (email === "") {
+//         feedback.textContent = "Please enter your email address.";
+//         feedback.style.color = "red";
+//         emailInput.focus();
+//         return;
+//       }
 
-      // Validate email format
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//       // Validate email format
+//       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      if (!emailPattern.test(email)) {
-        feedback.textContent = "Please enter a valid email address.";
-        feedback.style.color = "red";
-        emailInput.focus();
-        return;
-      }
+//       if (!emailPattern.test(email)) {
+//         feedback.textContent = "Please enter a valid email address.";
+//         feedback.style.color = "red";
+//         emailInput.focus();
+//         return;
+//       }
+// window.location.href = "./404.html";
+//       // Success message
+//       // feedback.textContent = "Thank you! You have subscribed successfully.";
+//       // feedback.style.color = "green";
 
-      // Success message
-      feedback.textContent = "Thank you! You have subscribed successfully.";
-      feedback.style.color = "green";
+//       form.reset();
+//     });
 
-      form.reset();
-    });
-
-    // Clear feedback when the user starts typing
-    emailInput.addEventListener("input", function () {
-      feedback.textContent = "";
-    });
-  });
-});
+//     // Clear feedback when the user starts typing
+//     emailInput.addEventListener("input", function () {
+//       feedback.textContent = "";
+//     });
+//   });
+// });
